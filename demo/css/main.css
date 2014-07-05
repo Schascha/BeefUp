@@ -1,0 +1,91 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  color: #222; }
+
+header, footer, main {
+  padding: 40px 10%; }
+
+header, footer {
+  text-align: center; }
+
+header {
+  margin-top: 40px; }
+
+footer > p {
+  font-size: 16px;
+  margin: 0; }
+
+h1 {
+  font-size: 48px;
+  line-height: 56px;
+  margin-bottom: 40px; }
+  h1 > span {
+    display: block;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 36px; }
+
+h2 {
+  font-size: 36px;
+  line-height: 48px; }
+
+h3 {
+  font-size: 28px;
+  line-height: 36px; }
+
+h4, h5 {
+  font-size: 24px;
+  line-height: 36px; }
+
+p {
+  font-size: 24px;
+  line-height: 36px; }
+
+h1, h2, h3, h4, h5 {
+  font-weight: bold; }
+
+h2, h3, h4, h5, p {
+  margin-bottom: 20px; }
+
+hr {
+  border: solid #ddd;
+  border-width: 1px 0 0;
+  clear: both;
+  margin: 40px 0;
+  height: 0; }
+
+article + article {
+  margin-top: 40px; }
+
+.beefup-head {
+  cursor: pointer;
+  position: relative; }
+  .beefup-head:after {
+    border-style: solid;
+    border-width: 12px 12px 0 12px;
+    border-color: #ddd transparent transparent transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 0;
+    margin-top: -6px;
+    top: 50%;
+    width: 0; }
+  .open > .beefup-head:after {
+    border-width: 0 12px 12px 12px;
+    border-color: transparent transparent #ddd transparent; }
