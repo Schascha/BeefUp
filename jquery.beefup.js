@@ -1,6 +1,6 @@
 /*
  * BeefUp v1.0 - A jQuery Accordion Plugin
- * Copyright 2012 Sascha Künstler
+ * Copyright 2014 Sascha Künstler http://www.schaschaweb.de/
  */
 
 ;(function($) {

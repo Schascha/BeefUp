@@ -123,31 +123,33 @@
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="../jquery.beefup.js"></script>
     <script>
-        $('.beefup1').beefup();
+        $(function() {
+            $('.beefup1').beefup();
 
-        $('.beefup2').beefup({
-            openSingle: true
-        });
+            $('.beefup2').beefup({
+                openSingle: true
+            });
 
-        $('.beefup3').beefup({
-            animation: 'fade',
-            showSpeed: 1000
-        });
+            $('.beefup3').beefup({
+                animation: 'fade',
+                showSpeed: 1000
+            });
 
-        $('.beefup4').beefup('.beefup4');
-        $('.beefup4').beefup().open($('#beefup4-2'));
+            $('.beefup4').beefup('.beefup4');
+            $('.beefup4').beefup().open($('#beefup4-2'));
 
-        $('.beefup5').beefup({
-            scroll: true
-        });
+            $('.beefup5').beefup({
+                scroll: true
+            });
 
-        $('.beefup6').beefup({
-            onOpen: function ($this) {
-                $this.css('background', 'yellow');
-            },
-            onClose: function ($this) {
-                $this.css('background', '');
-            }
+            $('.beefup6').beefup({
+                onOpen: function ($this) {
+                    $this.css('background', 'yellow');
+                },
+                onClose: function ($this) {
+                    $this.css('background', '');
+                }
+            });
         });
     </script>
 </html>
