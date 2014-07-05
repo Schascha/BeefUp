@@ -7,23 +7,35 @@ Demo: http://beefup.schaschaweb.de/
 ## Usage
 
 1. Include jQuery
+
+   ```html
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    ```
 
 2. Include plugin
+  
+  ```html
     <script src="jquery.beefup.min.js"></script>
+    ```
 
 3. Add markup
+ 
+   ```html
     <article class="beefup">
         <h2 class="beefup-head">Headline</h2>
         <div class="beefup-body">My fancy collapsible content.</div>
     </article>
+    ```
 
 4. Call the plugin
+
+    ```html
     <script>
         $(function() {
             $('.beefup').beefup();
         });
     </script>
+    ```
 
 ## Configuration
 
@@ -44,15 +56,26 @@ Demo: http://beefup.schaschaweb.de/
 ## Advanced
 
 1. Open accordion
+
+    ```javascript
     $('.beefup').beefup().open($('#beefupID'));
+    ```
 
 2. Close accordion
+    
+    ```javascript    
     $('.beefup').beefup().close($('#beefupID'));
+    ```
 
 3. Scroll to accordion
+
+    ```javascript
     $('.beefup').beefup().scroll($('#beefupID'));
+    ```
 
 4. Callback method
+
+    ```javascript
     $('.beefup').beefup({
         onInit: function ($this) {
             // Do something after initially setup
@@ -64,6 +87,7 @@ Demo: http://beefup.schaschaweb.de/
             // Do something after accordion close the content
         }
     });
+    ```
 
 ## Bugs?
 
