@@ -58,19 +58,20 @@ Demo: http://beefup.schaschaweb.de/
 1. Open accordion
 
     ```javascript
-    $('.beefup').beefup().open($('#beefupID'));
+    var $beefup = $('.beefup').beefup():
+    $beefup.open($('#beefupID'));
     ```
 
 2. Close accordion
     
     ```javascript    
-    $('.beefup').beefup().close($('#beefupID'));
+    $beefup.close($('#beefupID'));
     ```
 
 3. Scroll to accordion
 
     ```javascript
-    $('.beefup').beefup().scroll($('#beefupID'));
+    $beefup.scroll($('#beefupID'));
     ```
 
 4. Callback method
