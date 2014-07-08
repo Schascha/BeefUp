@@ -50,7 +50,7 @@ Demo: http://beefup.schaschaweb.de/
     scrollOffset	: 0,					// Integer: Additional offset to accordion position
     openSingle		: false,				// Boolean: Open just one accordion at once
     selfClose       : false,                // Boolean: Close on click outside
-    hash            : true,                 // Boolean: Close on click outside
+    hash            : true,                 // Boolean: Open accordion with id on hash change
     onInit			: function(){},			// Callback: Fires after the accordions initially setup
     onOpen			: function(){},			// Callback: Fires after accordion opens content
     onClose			: function(){}			// Callback: Fires after accordion close content
