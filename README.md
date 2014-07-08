@@ -39,19 +39,21 @@ Demo: http://beefup.schaschaweb.de/
 
 ## Configuration
 
-    trigger			: '.beefup-head'        // String: Name of the trigger element
-    content			: '.beefup-body'        // String: Name of the collapsible content
-    openClass		: 'open'				// String: Name of the class which shows if a accordion is triggered or not
-    openSingle		: false                 // Boolean: Open just one accordion at once
-    animation		: 'slide'               // String: Set animation type, "slide" or "fade"
-    showSpeed		: 200                   // Integer: Set the speed of the show animation
-    hideSpeed		: 200                   // Integer: Set the speed of the hide animation
-    scroll			: fale              	// Boolean: Scroll to accordion
-    scrollSpeed     : 400					// Integer: Set the speed of the scroll feature
-    scrollOffset	: 0                     // Integer: Additional offset to accordion position
-    onInit			: function(){}          // Callback: Fires after the initially setup
-    onOpen			: function(){}			// Callback: Fires after accordion open the content
-    onClose			: function(){}			// Callback: Fires after accordion close the content
+    trigger			: '.beefup-head',       // String: Name of the trigger element
+    content			: '.beefup-body',       // String: Name of the collapsible content
+    openClass		: 'open',				// String: Name of the class which shows if a accordion is triggered or not
+    animation		: 'slide',				// String: Set animation type, "slide" or "fade"
+    openSpeed		: 200,					// Integer: Set the speed of the open animation
+    closeSpeed		: 200,					// Integer: Set the speed of the close animation
+    scroll			: false,				// Boolean: Scroll to accordion
+    scrollSpeed     : 400,					// Integer: Set the speed of the scroll feature
+    scrollOffset	: 0,					// Integer: Additional offset to accordion position
+    openSingle		: false,				// Boolean: Open just one accordion at once
+    selfClose       : false,                // Boolean: Close on click outside
+    hash            : true,                 // Boolean: Close on click outside
+    onInit			: function(){},			// Callback: Fires after the accordions initially setup
+    onOpen			: function(){},			// Callback: Fires after accordion opens content
+    onClose			: function(){}			// Callback: Fires after accordion close content
 
 ## Advanced
 
