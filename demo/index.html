@@ -12,6 +12,7 @@
     <body>
         <header role="banner">
             <h1>BeefUp v1.0 <span>A jQuery Accordion Plugin</span></h1>
+            <p><a href="https://github.com/Schascha/BeefUp" title="View on GitHub">GitHub</a></p>
         </header>
 
         <main role="main">
@@ -113,6 +114,16 @@
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
                 </div>
             </article>
+
+            <hr>
+
+            <article role="article" class="beefup7">
+                <h2 class="beefup-head">Self close</h2>
+                <div class="beefup-body">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+                </div>
+            </article>
+
         </main>
 
         <footer role="contentinfo">
@@ -135,8 +146,8 @@
                 showSpeed: 1000
             });
 
-            $('.beefup4').beefup('.beefup4');
-            $('.beefup4').beefup().open($('#beefup4-2'));
+            var $beefup4 = $('.beefup4').beefup();
+            $beefup4.open($('#beefup4-2'));
 
             $('.beefup5').beefup({
                 scroll: true
@@ -149,6 +160,10 @@
                 onClose: function ($this) {
                     $this.css('background', '');
                 }
+            });
+
+            $('.beefup7').beefup({
+                selfClose: true
             });
         });
     </script>
