@@ -57,9 +57,7 @@ Demo: http://beefup.schaschaweb.de/
 
 ## Advanced
 
-    ```javascript
     var $beefup = $('.beefup').beefup():
-    ```
 
 1. Open accordion
 
