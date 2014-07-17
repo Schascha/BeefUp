@@ -56,12 +56,11 @@ Demo: http://beefup.schaschaweb.de/
     onClose			: function(){}			// Callback: Fires after accordion close content
 
 ## Advanced
-
-    var $beefup = $('.beefup').beefup():
-
+    
 1. Open accordion
 
     ```javascript
+    var $beefup = $('.beefup').beefup():
     $beefup.open($('#beefupID'));
     ```
 
