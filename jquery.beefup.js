@@ -14,7 +14,7 @@
         trigger			: '.beefup-head',       // String: Name of the trigger element
         content			: '.beefup-body',       // String: Name of the collapsible content
         openClass		: 'open',				// String: Name of the class which shows if a accordion is triggered or not
-        animation		: 'slide',				// String: Set animation type, "slide" or "fade"
+        animation		: 'slide',				// String: Set animation type to "slide" or "fade"
         openSpeed		: 200,					// Integer: Set the speed of the open animation
         closeSpeed		: 200,					// Integer: Set the speed of the close animation
         scroll			: false,				// Boolean: Scroll to accordion
@@ -74,10 +74,11 @@
         
 		return this.each(function (index) {
 			var $this = $(this);
-
+            
 			if ($this.data('beefup')) return;
 			$this.data('beefup', vars);
 
+            // Init
 			$this.not('.' + vars.openClass).find(vars.content + ':first').hide();
             if (vars.onInit) vars.onInit($this);
 

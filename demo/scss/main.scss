@@ -19,27 +19,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     box-sizing: border-box;
 }
 
+// Typography
+
 body {
     color: #222;
-}
-
-header, footer, main {
-    padding: 40px 10%;
-}
-
-header, footer {
-    text-align: center;
-}
-
-header {
-    margin-top: 40px;
-}
-
-footer {
-    > p {
-        font-size: 16px;
-        margin: 0;
-    }
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
 h1 {
@@ -56,8 +41,8 @@ h1 {
 }
 
 h2 {
-    font-size: 36px;
-    line-height: 48px;
+    font-size: 32px;
+    line-height: 42px;
 }
 
 h3 {
@@ -91,31 +76,85 @@ hr {
     height: 0;
 }
 
+// Basic Layout
+
+article {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 20px;
+}
+
 article + article {
     margin-top: 40px;
+}
+
+header, footer, main {
+    padding: 40px 10%;
+}
+
+header, footer {
+    text-align: center;
+}
+
+header {
+    margin-top: 40px;
+}
+
+footer {
+    > p {
+        font-size: 16px;
+        margin: 0;
+    }
+}
+
+// Buttons
+
+.button {
+    border: solid 1px #ddd;
+    border-radius: 4px;
+    color: #596068;
+    display: inline-block;
+    font-weight: bold;
+    padding: 15px 45px;
+    text-decoration: none;
+
+    &:hover {
+        background: #596068;
+        border-color: #596068;
+        color: #fff;
+    }
 }
 
 // BeefUp
 
 .beefup-head {
     cursor: pointer;
+    margin-bottom: 0;
+    overflow: hidden;
+    padding-right: 30px;
     position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     &:after {
         border-style: solid;
-        border-width: 12px 12px 0 12px;
+        border-width: 10px 10px 0 10px;
         border-color: #ddd transparent transparent transparent;
         content: '';
         position: absolute;
         right: 0;
         height: 0;
-        margin-top: -6px;
+        margin-top: -5px;
         top: 50%;
         width: 0;
     }
 
     .open > &:after {
-        border-width: 0 12px 12px 12px;
+        border-width: 0 10px 10px 10px;
         border-color: transparent transparent #ddd transparent;
     }
+}
+
+.beefup-body {
+    padding: 20px 0 0;
 }
