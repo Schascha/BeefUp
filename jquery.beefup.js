@@ -70,9 +70,10 @@
             } else {
                 $obj.close($this);
             }
+            return $obj;
         };
         
-		return this.each(function (index) {
+		return this.each(function () {
 			var $this = $(this);
             
 			if ($this.data('beefup')) return;
