@@ -47,7 +47,7 @@
 			return $obj;
 		};
 		this.close = function ($el) {
-            var $this  = ($el && $el.length) ? $el : $obj,
+            var $this = ($el && $el.length) ? $el : $obj,
                 $content = $this.find(vars.content + ':first'),
                 close = function () {
                     $this.removeClass(vars.openClass);
