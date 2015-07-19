@@ -131,7 +131,7 @@
         </footer>
 
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="../jquery.beefup.js"></script>
+        <script type="text/javascript" src="../jquery.beefup.min.js"></script>
         <script>
             $(function() {
                 $('.beefup1').beefup();
@@ -142,7 +142,8 @@
 
                 $('.beefup3').beefup({
                     animation: 'fade',
-                    showSpeed: 1000
+                    openSpeed: 400,
+                    closeSpeed: 400
                 });
 
                 var $beefup4 = $('.beefup4').beefup();
