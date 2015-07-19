@@ -22,7 +22,7 @@ module.exports = function(grunt) {
             options : {
                 preserveComments : 'some'
             },
-            foo: {
+            js: {
                 files: {
                     'jquery.beefup.min.js': '<%= jshint.files %>'
                 }

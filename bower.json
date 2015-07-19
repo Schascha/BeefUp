@@ -1,11 +1,15 @@
 {
-    "name": "BeefUp",
-    "description": "A jQuery Accordion Plugin",
+    "name": "beefup",
     "version": "1.0.2",
+    "description": "BeefUp - A jQuery Accordion Plugin",
     "homepage": "https://github.com/Schascha/BeefUp",
-    "author": {
-        "name": "Sascha Künstler",
-        "email": "skuenstler@gmx.de"
+    "authors": [
+        "Sascha Künstler <skuenstler@gmx.de> (http://www.schaschaweb.de)"
+    ],
+    "license": "MIT",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/Schascha/BeefUp"
     },
     "main": [
         "jquery.beefup.js"
@@ -23,6 +27,6 @@
         "tests"
     ],
     "dependencies": {
-        "jquery": ">=1.11.3"
+        "jquery": ">=1.8.0"
     }
 }

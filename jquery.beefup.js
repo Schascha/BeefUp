@@ -33,7 +33,7 @@
             vars = $.extend({}, $.beefup.defaults, options);
 
         /**
-         *
+         * Open
          * @param $el
          * @returns {jQuery}
          */
@@ -58,7 +58,7 @@
         };
 
         /**
-         *
+         * Close
          * @param $el
          * @returns {jQuery}
          */
@@ -82,7 +82,7 @@
         };
 
         /**
-         *
+         * Scroll
          * @param $this
          * @returns {jQuery}
          */
@@ -92,7 +92,7 @@
         };
 
         /**
-         *
+         * Click
          * @param $this
          * @returns {jQuery}
          */
