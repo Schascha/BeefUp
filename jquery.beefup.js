@@ -7,10 +7,10 @@
     'use strict';
 
     // BeefUp object
-    $.beefup = {};
+    var beefup = {};
 
     // Defaults
-    $.beefup.defaults = {
+    beefup.defaults = {
         trigger: '.beefup-head',    // String: Name of the trigger element
         content: '.beefup-body',    // String: Name of the collapsible content
         openClass: 'open',          // String: Name of the class which shows if a accordion is triggered or not
@@ -28,9 +28,15 @@
         onClose: function() {}      // Callback: Fires after accordion close content
     };
 
+    // Private methods
+    beefup.methods = {
+        getVars: function($el) {
+            return $.extend({}, $el.data('beefup'), $el.data('beefup-options'));
+        }
+    };
+
     $.fn.beefup = function(options) {
-        var $obj = this,
-            vars = $.extend({}, $.beefup.defaults, options);
+        var $obj = this;
 
         /**
          * Open
@@ -38,21 +44,33 @@
          * @returns {jQuery}
          */
         this.open = function($el) {
-            var $this = ($el && $el.length) ? $el : $obj,
-                $content = $this.find(vars.content + ':first'),
-                open = function() {
-                    $this.addClass(vars.openClass);
-                    $(this).css('overflow', '');
-                    if (vars.onOpen) {
-                        vars.onOpen($this);
-                    }
-                };
-
-            if (vars.animation === 'slide') {
-                $content.slideDown(vars.openSpeed, open);
-            } else {
-                $content.fadeIn(vars.openSpeed, open);
+            if (!$el || !$el.length) {
+                $el = $obj;
             }
+
+            $el.each(function() {
+                var $this = $(this),
+                    vars = beefup.methods.getVars($this),
+                    $content = $this.find(vars.content + ':first'),
+                    complete = function() {
+                        $this.addClass(vars.openClass);
+                        $content.css('overflow', '');
+                        if (vars.onOpen) {
+                            vars.onOpen($this);
+                        }
+                    };
+
+                switch (vars.animation) {
+                    case 'slide':
+                        $content.slideDown(vars.openSpeed, complete);
+                        break;
+                    case 'fade':
+                        $content.fadeIn(vars.openSpeed, complete);
+                        break;
+                    default:
+                        $content.show(vars.openSpeed, complete);
+                }
+            });
 
             return $obj;
         };
@@ -63,82 +81,100 @@
          * @returns {jQuery}
          */
         this.close = function($el) {
-            var $this = ($el && $el.length) ? $el : $obj,
-                $content = $this.find(vars.content + ':first'),
-                close = function() {
-                    $this.removeClass(vars.openClass);
-                    $(this).css('overflow', '');
-                    if (vars.onClose) {
-                        vars.onClose($this);
-                    }
-                };
-
-            if (vars.animation === 'slide') {
-                $content.slideUp(vars.closeSpeed, close);
-            } else {
-                $content.fadeOut(vars.closeSpeed, close);
+            if (!$el || !$el.length) {
+                $el = $obj;
             }
+
+            $el.each(function() {
+                var $this = $(this),
+                    vars = beefup.methods.getVars($this),
+                    $content = $this.find(vars.content + ':first'),
+                    complete = function() {
+                        $this.removeClass(vars.openClass);
+                        $content.css('overflow', '');
+                        if (vars.onClose) {
+                            vars.onClose($this);
+                        }
+                    };
+
+                switch (vars.animation) {
+                    case 'slide':
+                        $content.slideUp(vars.closeSpeed, complete);
+                        break;
+                    case 'fade':
+                        $content.fadeOut(vars.closeSpeed, complete);
+                        break;
+                    default:
+                        $content.hide(vars.closeSpeed, complete);
+                }
+            });
+
             return $obj;
         };
 
         /**
          * Scroll
-         * @param $this
+         * @param $el
          * @returns {jQuery}
          */
-        this.scroll = function($this) {
-            $('html, body').animate({scrollTop: $this.offset().top + vars.scrollOffset}, vars.scrollSpeed);
+        this.scroll = function($el) {
+            var vars = beefup.methods.getVars($el);
+
+            $('html, body').animate({scrollTop: $el.offset().top + vars.scrollOffset}, vars.scrollSpeed);
             return $obj;
         };
 
         /**
          * Click
-         * @param $this
+         * @param $el
          * @returns {jQuery}
          */
-        this.click = function($this) {
+        this.click = function($el) {
+            var vars = beefup.methods.getVars($el);
+
             if (vars.openSingle) {
-                $obj.close($obj.not($this));
+                $obj.close($obj.not($el));
             }
-            if (!$this.hasClass(vars.openClass)) {
-                $obj.open($this);
+            if (!$el.hasClass(vars.openClass)) {
+                $obj.open($el);
                 if (vars.scroll) {
-                    $obj.scroll($this);
+                    $obj.scroll($el);
                 }
             } else {
-                $obj.close($this);
+                $obj.close($el);
             }
             return $obj;
         };
 
         return this.each(function() {
-            var $this = $(this);
+            var $el = $(this),
+                vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options'));
 
-            if ($this.data('beefup')) {
+            if ($el.data('beefup')) {
                 return;
             }
-            $this.data('beefup', vars);
+            $el.data('beefup', vars);
 
             // Init
-            $this.not('.' + vars.openClass).find(vars.content + ':first').hide();
+            $el.not('.' + vars.openClass).find(vars.content + ':first').hide();
             if (vars.onInit) {
-                vars.onInit($this);
+                vars.onInit($el);
             }
 
             // Click event
-            $this.on('click', vars.trigger + ':first', function(e) {
+            $el.on('click', vars.trigger + ':first', function(e) {
                 e.preventDefault();
-                $obj.click($this);
+                $obj.click($el);
             });
 
             // Hash
-            if (vars.hash && $this.attr('id')) {
-                if ($this.is(window.location.hash)) {
-                    $obj.open($this);
+            if (vars.hash && $el.attr('id')) {
+                if ($el.is(window.location.hash)) {
+                    $obj.open($el);
                 }
                 $(window).bind('hashchange', function() {
-                    if ($this.is(window.location.hash)) {
-                        $obj.open($this);
+                    if ($el.is(window.location.hash)) {
+                        $obj.open($el);
                     }
                 });
             }
@@ -146,8 +182,8 @@
             // Self close
             if (vars.selfClose) {
                 $(document).on('click', function(e) {
-                    if ($(e.target).closest($obj).length === 0) {
-                        $obj.close($this.filter(vars.openClass));
+                    if (!$(e.target).closest($obj).length) {
+                        $obj.close($el.filter(vars.openClass));
                     }
                 });
             }
