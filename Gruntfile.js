@@ -18,9 +18,23 @@ module.exports = function(grunt) {
                 src: '<%= jshint.files %>'
             }
         },
+        sass: {
+            options: {
+                includePaths: [
+                    'vendor'
+                ],
+                outputStyle: 'expanded',
+                sourceMap: false
+            },
+            build: {
+                files: {
+                    'demo/css/main.css': 'demo/scss/main.scss'
+                }
+            }
+        },
         uglify: {
-            options : {
-                preserveComments : 'some'
+            options: {
+                preserveComments: 'some'
             },
             js: {
                 files: {
@@ -35,9 +49,12 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-jscs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-jscs');
+    grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask('default', ['jshint', 'jscs', 'uglify']);
+    grunt.registerTask(
+        'default', ['jshint', 'jscs', 'uglify', 'sass']
+    );
 };

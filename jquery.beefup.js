@@ -1,6 +1,6 @@
 /*!
- * BeefUp v1.0.2 - A jQuery Accordion Plugin
- * Copyright 2014 Sascha Künstler http://www.schaschaweb.de/
+ * BeefUp v1.1.0 - A jQuery Accordion Plugin
+ * Copyright 2016 Sascha Künstler http://www.schaschaweb.de/
  */
 
 (function($) {
@@ -11,10 +11,10 @@
 
     // Defaults
     beefup.defaults = {
-        trigger: '.beefup-head',    // String: Name of the trigger element
-        content: '.beefup-body',    // String: Name of the collapsible content
-        openClass: 'open',          // String: Name of the class which shows if a accordion is triggered or not
-        animation: 'slide',         // String: Set animation type to "slide" or "fade"
+        trigger: '.beefup__head',   // String: Name of the trigger element
+        content: '.beefup__body',   // String: Name of the collapsible content
+        openClass: 'is-open',       // String: Name of the class which shows if a accordion is triggered or not
+        animation: 'slide',         // String: Set animation type to "slide", "fade" or leave empty ""
         openSpeed: 200,             // Integer: Set the speed of the open animation
         closeSpeed: 200,			// Integer: Set the speed of the close animation
         scroll: false,				// Boolean: Scroll to accordion
@@ -23,9 +23,18 @@
         openSingle: false,			// Boolean: Open just one accordion at once
         selfClose: false,           // Boolean: Close on click outside
         hash: true,                 // Boolean: Open accordion with id on hash change
-        onInit: function() {},		// Callback: Fires after the accordions initially setup
-        onOpen: function() {},		// Callback: Fires after accordion opens content
-        onClose: function() {}      // Callback: Fires after accordion close content
+
+        // Callback: Fires after the accordions initially setup
+        onInit: function() {
+        },
+
+        // Callback: Fires after accordion opens content
+        onOpen: function() {
+        },
+
+        // Callback: Fires after accordion close content
+        onClose: function() {
+        }
     };
 
     // Private methods

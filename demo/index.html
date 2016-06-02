@@ -10,16 +10,16 @@
 </head>
 
 <body>
-<header role="banner">
-    <h1>BeefUp v1.0.2 <span>A jQuery Accordion Plugin</span></h1>
+<header>
+    <h1>BeefUp v1.1.0 <span>A jQuery Accordion Plugin</span></h1>
     <a href="https://github.com/Schascha/BeefUp" title="View on GitHub" class="button">GitHub</a>
 </header>
 
-<main role="main">
-    <article role="article" class="beefup1">
-        <h2 class="beefup-head">Default 1</h2>
+<main>
+    <article class="beefup beefup--default">
+        <h2 class="beefup__head">Default 1</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
                 ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
@@ -27,10 +27,10 @@
         </div>
     </article>
 
-    <article role="article" class="beefup1">
-        <h2 class="beefup-head">Default 2</h2>
+    <article class="beefup beefup--default">
+        <h2 class="beefup__head">Default 2</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
                 Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque
                 sed ipsum.</p>
@@ -39,20 +39,21 @@
 
     <hr>
 
-    <article role="article" class="beefup2">
-        <h2 class="beefup-head">Open single 1</h2>
+    <article class="beefup beefup--single">
+        <h2 class="beefup__head">Open single 1</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
                 ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
                 fringilla vel, aliquet nec, vulputate eget, arcu.</p>
         </div>
     </article>
-    <article role="article" class="beefup2">
-        <h2 class="beefup-head">Open single 2</h2>
+    
+    <article class="beefup beefup--single">
+        <h2 class="beefup__head">Open single 2</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
                 Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque
                 sed ipsum.</p>
@@ -61,10 +62,10 @@
 
     <hr>
 
-    <article role="article" class="beefup3">
-        <h2 class="beefup-head">Fade</h2>
+    <article class="beefup beefup--fade">
+        <h2 class="beefup__head">Fade</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
                 ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
@@ -74,20 +75,21 @@
 
     <hr>
 
-    <article role="article" class="beefup4 open" id="beefup4-1">
-        <h2 class="beefup-head">Open via CSS</h2>
+    <article class="beefup beefup--open is-open">
+        <h2 class="beefup__head">Open via CSS</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
                 ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
                 fringilla vel, aliquet nec, vulputate eget, arcu.</p>
         </div>
     </article>
-    <article role="article" class="beefup4" id="beefup4-2">
-        <h2 class="beefup-head">Open via JS</h2>
 
-        <div class="beefup-body">
+    <article class="beefup beefup--open" id="beefup">
+        <h2 class="beefup__head">Open via JS</h2>
+
+        <div class="beefup__body">
             <p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
                 Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque
                 sed ipsum.</p>
@@ -96,25 +98,25 @@
 
     <hr>
 
-    <article role="article" class="beefup1">
-        <h2 class="beefup-head">Nested 1</h2>
+    <article class="beefup">
+        <h2 class="beefup__head">Nested 1</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
                 ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
                 fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-            <article role="article" class="beefup1">
-                <h3 class="beefup-head">Nested 2</h3>
+            <article class="beefup">
+                <h3 class="beefup__head">Nested 2</h3>
 
-                <div class="beefup-body">
+                <div class="beefup__body">
                     <p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
                         rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet
                         adipiscing sem neque sed ipsum.</p>
-                    <article role="article" class="beefup1">
-                        <h4 class="beefup-head">Nested 3</h4>
+                    <article class="beefup">
+                        <h4 class="beefup__head">Nested 3</h4>
 
-                        <div class="beefup-body">
+                        <div class="beefup__body">
                             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
                                 dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
                                 nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
@@ -129,10 +131,10 @@
 
     <hr>
 
-    <article role="article" class="beefup5">
-        <h2 class="beefup-head">Scroll 1</h2>
+    <article class="beefup beefup--scroll">
+        <h2 class="beefup__head">Scroll 1</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
                 ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
@@ -140,10 +142,10 @@
         </div>
     </article>
 
-    <article role="article" class="beefup5">
-        <h2 class="beefup-head">Scroll 2</h2>
+    <article class="beefup beefup--scroll">
+        <h2 class="beefup__head">Scroll 2</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
                 Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque
                 sed ipsum.</p>
@@ -152,10 +154,10 @@
 
     <hr>
 
-    <article role="article" class="beefup6">
-        <h2 class="beefup-head">Callback</h2>
+    <article class="beefup beefup--callback">
+        <h2 class="beefup__head">Callback</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
                 ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
@@ -165,10 +167,10 @@
 
     <hr>
 
-    <article role="article" class="beefup7">
-        <h2 class="beefup-head">Self close</h2>
+    <article class="beefup beefup--close">
+        <h2 class="beefup__head">Self close</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
                 Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque
                 sed ipsum.</p>
@@ -177,10 +179,10 @@
 
     <hr>
 
-    <article role="article" class="beefup8" data-beefup-options='{"animation": "", "openSpeed": 800}'>
-        <h2 class="beefup-head">HTML5 Data</h2>
+    <article class="beefup" data-beefup-options='{"animation": "", "openSpeed": 800}'>
+        <h2 class="beefup__head">HTML5 Data</h2>
 
-        <div class="beefup-body">
+        <div class="beefup__body">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
                 ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
@@ -190,34 +192,34 @@
 
 </main>
 
-<footer role="contentinfo">
-    <p>&COPY; 2014 Sascha Künstler.</p>
+<footer>
+    <p>&COPY; 2016 Sascha Künstler.</p>
 </footer>
 
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="../jquery.beefup.js"></script>
 <script>
     $(function () {
-        $('.beefup1').beefup();
+        $('.beefup--default').beefup();
 
-        $('.beefup2').beefup({
+        $('.beefup--single').beefup({
             openSingle: true
         });
 
-        $('.beefup3').beefup({
+        $('.beefup--fade').beefup({
             animation: 'fade',
             openSpeed: 400,
             closeSpeed: 400
         });
 
-        var $beefup4 = $('.beefup4').beefup();
-        $beefup4.open($('#beefup4-2'));
+        var $beefup = $('.beefup--open').beefup();
+        $beefup.open($('#beefup'));
 
-        $('.beefup5').beefup({
+        $('.beefup--scroll').beefup({
             scroll: true
         });
 
-        $('.beefup6').beefup({
+        $('.beefup--calback').beefup({
             onOpen: function($el) {
                 $el.css('border-color', 'red');
             },
@@ -226,11 +228,9 @@
             }
         });
 
-        $('.beefup7').beefup({
+        $('.beefup--close').beefup({
             selfClose: true
         });
-
-        $('.beefup8').beefup();
     });
 </script>
 </body>

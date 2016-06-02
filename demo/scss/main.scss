@@ -2,34 +2,45 @@
 
 // BeefUp
 
-.beefup-head {
-    cursor: pointer;
-    margin-bottom: 0;
-    overflow: hidden;
-    padding-right: 30px;
-    position: relative;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+$beefup: 'beefup';
+$beefup-triangle-color: #ddd;
+$beefup-triangle-height: 10px;
+$beefup-triangle-width: 20px;
 
-    &:after {
-        border-style: solid;
-        border-width: 10px 10px 0 10px;
-        border-color: #ddd transparent transparent transparent;
-        content: '';
-        position: absolute;
-        right: 0;
-        height: 0;
-        margin-top: -5px;
-        top: 50%;
-        width: 0;
+.#{$beefup} {
+    &__head {
+        cursor: pointer;
+        margin-bottom: 0;
+        overflow: hidden;
+        padding-right: 30px;
+        position: relative;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &::after {
+            border-style: solid;
+            border-width: $beefup-triangle-height ($beefup-triangle-width / 2) 0 ($beefup-triangle-width / 2);
+            border-color: $beefup-triangle-color transparent transparent transparent;
+            content: '';
+            position: absolute;
+            right: 0;
+            height: 0;
+            margin-top: -5px;
+            top: 50%;
+            width: 0;
+        }
     }
 
-    .open > &:after {
-        border-width: 0 10px 10px 10px;
-        border-color: transparent transparent #ddd transparent;
+    &__body {
+        padding: 20px 0 0;
     }
-}
 
-.beefup-body {
-    padding: 20px 0 0;
+    &.is-open {
+        .#{$beefup}__head {
+            &::after {
+                border-width: 0 ($beefup-triangle-width / 2) $beefup-triangle-height ($beefup-triangle-width / 2);
+                border-color: transparent transparent $beefup-triangle-color transparent;
+            }
+        }
+    }
 }
