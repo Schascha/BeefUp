@@ -4,8 +4,6 @@ A jQuery Accordion Plugin
 
 Demo: http://beefup.schaschaweb.de/
 
-Or without jQuery: http://beefup.schaschaweb.de/pureCSS/
-
 ## Usage
 
 1. Include jQuery
