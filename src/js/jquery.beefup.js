@@ -49,7 +49,8 @@
 
         /**
          * Open
-         * @param $el
+         *
+         * @param {jQuery} $el
          * @returns {jQuery}
          */
         this.open = function($el) {
@@ -86,7 +87,8 @@
 
         /**
          * Close
-         * @param $el
+         *
+         * @param {jQuery} $el
          * @returns {jQuery}
          */
         this.close = function($el) {
@@ -123,7 +125,8 @@
 
         /**
          * Scroll
-         * @param $el
+         *
+         * @param {jQuery} $el
          * @returns {jQuery}
          */
         this.scroll = function($el) {
@@ -135,7 +138,8 @@
 
         /**
          * Click
-         * @param $el
+         *
+         * @param {jQuery} $el
          * @returns {jQuery}
          */
         this.click = function($el) {

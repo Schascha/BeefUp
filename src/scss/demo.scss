@@ -78,16 +78,6 @@ hr {
 
 // Basic Layout
 
-article {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px 20px;
-}
-
-article + article {
-    margin-top: 40px;
-}
-
 header, footer, main {
     padding: 40px 10%;
 }

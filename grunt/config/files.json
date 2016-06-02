@@ -1,0 +1,15 @@
+{
+    "js": [
+        "src/js/**/*.js"
+    ],
+    "css": [
+        "dist/css/**/*.css"
+    ],
+    "scss": [
+        "src/scss/**/*.scss"
+    ],
+    "sassBuild": {
+        "dist/css/jquery.beefup.css": "src/scss/jquery.beefup.scss",
+        "dist/css/demo.css": "src/scss/demo.scss"
+    }
+}

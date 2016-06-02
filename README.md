@@ -20,7 +20,13 @@ Or without jQuery: http://beefup.schaschaweb.de/pureCSS/
     <script src="jquery.beefup.min.js"></script>
     ```
 
-3. Add markup
+3. Add styles
+
+  ```html
+    <link rel="stylesheet" href="css/jquery.beefup.css">
+    ```
+
+4. Add markup
  
    ```html
     <article class="beefup">
@@ -29,7 +35,7 @@ Or without jQuery: http://beefup.schaschaweb.de/pureCSS/
     </article>
     ```
 
-4. Call the plugin
+5. Call the plugin
 
     ```html
     <script>

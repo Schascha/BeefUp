@@ -1,13 +1,18 @@
-@import "_base";
-
-// BeefUp
-
 $beefup: 'beefup';
+$beefup-border-color: #ddd;
 $beefup-triangle-color: #ddd;
 $beefup-triangle-height: 10px;
 $beefup-triangle-width: 20px;
 
 .#{$beefup} {
+    border: 1px solid $beefup-border-color;
+    border-radius: 4px;
+    padding: 10px 20px;
+
+    + .#{$beefup} {
+        margin-top: 40px;
+    }
+
     &__head {
         cursor: pointer;
         margin-bottom: 0;
