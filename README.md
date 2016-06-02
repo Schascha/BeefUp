@@ -28,8 +28,8 @@ Demo: http://beefup.schaschaweb.de/
  
    ```html
     <article class="beefup">
-        <h2 class="beefup-head">Headline</h2>
-        <div class="beefup-body">My fancy collapsible content.</div>
+        <h2 class="beefup__head">Headline</h2>
+        <div class="beefup__body">My fancy collapsible content.</div>
     </article>
     ```
 
@@ -45,8 +45,8 @@ Demo: http://beefup.schaschaweb.de/
 
 ## Configuration
 
-    trigger			: '.beefup-head',       // String: Name of the trigger element
-    content			: '.beefup-body',       // String: Name of the collapsible content
+    trigger			: '.beefup__head',      // String: Name of the trigger element
+    content			: '.beefup__body',      // String: Name of the collapsible content
     openClass		: 'open',				// String: Name of the class which shows if a accordion is triggered or not
     animation		: 'slide',				// String: Set animation type, "slide" or "fade"
     openSpeed		: 200,					// Integer: Set the speed of the open animation
