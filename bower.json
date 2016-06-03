@@ -12,7 +12,7 @@
         "url" : "https://github.com/Schascha/BeefUp"
     },
     "main": [
-        "jquery.beefup.js"
+        "src/jquery.beefup.js"
     ],
     "keywords": [
         "beefup",
