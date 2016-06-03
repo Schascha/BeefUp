@@ -76,6 +76,21 @@ hr {
     height: 0;
 }
 
+pre {
+    background: #edf0f3;
+    font-family: Courier, monospace;
+    font-size: 0.85em;
+    font-style: normal;
+    font-weight: normal;
+    margin: 8px 0;
+    overflow: auto;
+    padding: 20px;
+    position: relative;
+    tab-size: 2;
+    line-height: 1.6;
+    -webkit-font-smoothing: auto;
+}
+
 // Basic Layout
 
 header, footer, main {
