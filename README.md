@@ -11,7 +11,7 @@ Or without jQuery: http://beefup.schaschaweb.de/pureCSS/
 1. Include jQuery
 
    ```html
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     ```
 
 2. Include plugin
@@ -47,9 +47,9 @@ Or without jQuery: http://beefup.schaschaweb.de/pureCSS/
 
 ## Configuration
 
-    trigger			: '.beefup-head',       // String: Name of the trigger element
-    content			: '.beefup-body',       // String: Name of the collapsible content
-    openClass		: 'open',				// String: Name of the class which shows if a accordion is triggered or not
+    trigger			: '.beefup__head',      // String: Name of the trigger element
+    content			: '.beefup__body',      // String: Name of the collapsible content
+    openClass		: 'is-open',		    // String: Name of the class which shows if a accordion is triggered or not
     animation		: 'slide',				// String: Set animation type, "slide" or "fade"
     openSpeed		: 200,					// Integer: Set the speed of the open animation
     closeSpeed		: 200,					// Integer: Set the speed of the close animation
@@ -98,6 +98,14 @@ Or without jQuery: http://beefup.schaschaweb.de/pureCSS/
             // Do something after accordion close the content
         }
     });
+    ```
+
+5. HTML5 data attributes
+
+    ```html
+    <article class="beefup" data-beefup-options='{"animation": "", "openSpeed": 800}'>
+        ...
+    </article>
     ```
 
 ## Bugs?

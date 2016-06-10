@@ -1,5 +1,5 @@
 /*!
- * BeefUp v1.1.0 - A jQuery Accordion Plugin
+ * BeefUp v1.1.1 - A jQuery Accordion Plugin
  * Copyright 2016 Sascha Künstler http://www.schaschaweb.de/
  */
 
@@ -41,6 +41,54 @@
     beefup.methods = {
         getVars: function($el) {
             return $.extend({}, $el.data('beefup'), $el.data('beefup-options'));
+        },
+        open: function($el) {
+            var vars = beefup.methods.getVars($el),
+                $content = $el.find(vars.content + ':first'),
+                complete = function() {
+                    $el.addClass(vars.openClass);
+                    $content.css('overflow', '');
+
+                    if (vars.onOpen) {
+                        vars.onOpen($el);
+                    }
+                };
+
+            // Animation
+            switch (vars.animation) {
+                case 'slide':
+                    $content.slideDown(vars.openSpeed, complete);
+                    break;
+                case 'fade':
+                    $content.fadeIn(vars.openSpeed, complete);
+                    break;
+                default:
+                    $content.show(vars.openSpeed, complete);
+            }
+        },
+        close: function($el) {
+            var vars = beefup.methods.getVars($el),
+                $content = $el.find(vars.content + ':first'),
+                complete = function() {
+                    $el.removeClass(vars.openClass);
+                    $content.css('overflow', '');
+
+                    if (vars.onClose) {
+                        vars.onClose($el);
+                    }
+                };
+
+            // Animation
+            switch (vars.animation) {
+                case 'slide':
+                    $content.slideUp(vars.closeSpeed, complete);
+                    break;
+                case 'fade':
+                    $content.fadeOut(vars.closeSpeed, complete);
+                    break;
+                default:
+                    $content.hide(vars.closeSpeed, complete);
+            }
         }
     };
 
@@ -59,27 +107,7 @@
             }
 
             $el.each(function() {
-                var $this = $(this),
-                    vars = beefup.methods.getVars($this),
-                    $content = $this.find(vars.content + ':first'),
-                    complete = function() {
-                        $this.addClass(vars.openClass);
-                        $content.css('overflow', '');
-                        if (vars.onOpen) {
-                            vars.onOpen($this);
-                        }
-                    };
-
-                switch (vars.animation) {
-                    case 'slide':
-                        $content.slideDown(vars.openSpeed, complete);
-                        break;
-                    case 'fade':
-                        $content.fadeIn(vars.openSpeed, complete);
-                        break;
-                    default:
-                        $content.show(vars.openSpeed, complete);
-                }
+                beefup.methods.open($(this));
             });
 
             return $obj;
@@ -97,27 +125,7 @@
             }
 
             $el.each(function() {
-                var $this = $(this),
-                    vars = beefup.methods.getVars($this),
-                    $content = $this.find(vars.content + ':first'),
-                    complete = function() {
-                        $this.removeClass(vars.openClass);
-                        $content.css('overflow', '');
-                        if (vars.onClose) {
-                            vars.onClose($this);
-                        }
-                    };
-
-                switch (vars.animation) {
-                    case 'slide':
-                        $content.slideUp(vars.closeSpeed, complete);
-                        break;
-                    case 'fade':
-                        $content.fadeOut(vars.closeSpeed, complete);
-                        break;
-                    default:
-                        $content.hide(vars.closeSpeed, complete);
-                }
+                beefup.methods.close($(this));
             });
 
             return $obj;
@@ -133,6 +141,7 @@
             var vars = beefup.methods.getVars($el);
 
             $('html, body').animate({scrollTop: $el.offset().top + vars.scrollOffset}, vars.scrollSpeed);
+
             return $obj;
         };
 
@@ -148,14 +157,17 @@
             if (vars.openSingle) {
                 $obj.close($obj.not($el));
             }
+
             if (!$el.hasClass(vars.openClass)) {
                 $obj.open($el);
+
                 if (vars.scroll) {
                     $obj.scroll($el);
                 }
             } else {
                 $obj.close($el);
             }
+
             return $obj;
         };
 
