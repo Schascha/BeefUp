@@ -8,7 +8,8 @@ module.exports = {
         files: '<%= files.js %>',
         tasks: [
             'jshint',
-            'jscs'
+            'jscs',
+            'uglify'
         ]
     },
     sass: {
