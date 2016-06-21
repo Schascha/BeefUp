@@ -39,55 +39,44 @@
 
     // Private methods
     beefup.methods = {
+
+        /**
+         * Extend options
+         *
+         * @param {jQuery} $el
+         */
         getVars: function($el) {
             return $.extend({}, $el.data('beefup'), $el.data('beefup-options'));
         },
-        open: function($el) {
-            var vars = beefup.methods.getVars($el),
-                $content = $el.find(vars.content + ':first'),
-                complete = function() {
-                    $el.addClass(vars.openClass);
-                    $content.css('overflow', '');
 
-                    if (vars.onOpen) {
-                        vars.onOpen($el);
-                    }
-                };
-
-            // Animation
-            switch (vars.animation) {
-                case 'slide':
-                    $content.slideDown(vars.openSpeed, complete);
+        /**
+         * Animation types
+         *
+         * @param {string} type
+         * @param {jQuery} $el
+         * @param {number} speed
+         * @param {function} callback
+         */
+        animation: function(type, $el, speed, callback) {
+            switch (type) {
+                case 'slideDown':
+                    $el.slideDown(speed, callback);
                     break;
-                case 'fade':
-                    $content.fadeIn(vars.openSpeed, complete);
+                case 'slideUp':
+                    $el.slideUp(speed, callback);
                     break;
-                default:
-                    $content.show(vars.openSpeed, complete);
-            }
-        },
-        close: function($el) {
-            var vars = beefup.methods.getVars($el),
-                $content = $el.find(vars.content + ':first'),
-                complete = function() {
-                    $el.removeClass(vars.openClass);
-                    $content.css('overflow', '');
-
-                    if (vars.onClose) {
-                        vars.onClose($el);
-                    }
-                };
-
-            // Animation
-            switch (vars.animation) {
-                case 'slide':
-                    $content.slideUp(vars.closeSpeed, complete);
+                case 'fadeIn':
+                    $el.fadeIn(speed, callback);
                     break;
-                case 'fade':
-                    $content.fadeOut(vars.closeSpeed, complete);
+                case 'fadeOut':
+                    $el.fadeOut(speed, callback);
                     break;
-                default:
-                    $content.hide(vars.closeSpeed, complete);
+                case 'show':
+                    $el.show(speed, callback);
+                    break;
+                case 'hide':
+                    $el.hide(speed, callback);
+                    break;
             }
         }
     };
@@ -99,15 +88,34 @@
          * Open
          *
          * @param {jQuery} $el
+         * @param {function} [callback]
          * @returns {jQuery}
          */
-        this.open = function($el) {
+        this.open = function($el, callback) {
             if (!$el || !$el.length) {
                 $el = $obj;
             }
 
             $el.each(function() {
-                beefup.methods.open($(this));
+                var $this = $(this),
+                    vars = beefup.methods.getVars($this),
+                    $content = $this.find(vars.content + ':first'),
+                    animation = (vars.animation === 'slide') ? 'slideDown' :
+                        (vars.animation === 'fade') ? 'fadeIn' : 'show';
+
+                // Animation
+                beefup.methods.animation(animation, $content, vars.openSpeed, function() {
+                    $this.addClass(vars.openClass);
+                    $content.css('overflow', '');
+
+                    // Optional callbacks
+                    if (callback) {
+                        callback();
+                    }
+                    if (vars.onOpen) {
+                        vars.onOpen($this);
+                    }
+                });
             });
 
             return $obj;
@@ -117,15 +125,34 @@
          * Close
          *
          * @param {jQuery} $el
+         * @param {function} [callback]
          * @returns {jQuery}
          */
-        this.close = function($el) {
+        this.close = function($el, callback) {
             if (!$el || !$el.length) {
                 $el = $obj;
             }
 
             $el.each(function() {
-                beefup.methods.close($(this));
+                var $this = $(this),
+                    vars = beefup.methods.getVars($this),
+                    $content = $this.find(vars.content + ':first'),
+                    animation = (vars.animation === 'slide') ? 'slideUp' :
+                        (vars.animation === 'fade') ? 'fadeOut' : 'hide';
+
+                // Animation
+                beefup.methods.animation(animation, $content, vars.closeSpeed, function() {
+                    $this.removeClass(vars.openClass);
+                    $content.css('overflow', '');
+
+                    // Optional callbacks
+                    if (callback) {
+                        callback();
+                    }
+                    if (vars.onClose) {
+                        vars.onClose($this);
+                    }
+                });
             });
 
             return $obj;
@@ -159,11 +186,11 @@
             }
 
             if (!$el.hasClass(vars.openClass)) {
-                $obj.open($el);
-
-                if (vars.scroll) {
-                    $obj.scroll($el);
-                }
+                $obj.open($el, function() {
+                    if (vars.scroll) {
+                        $obj.scroll($el);
+                    }
+                });
             } else {
                 $obj.close($el);
             }
@@ -173,7 +200,8 @@
 
         return this.each(function() {
             var $el = $(this),
-                vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options'));
+                vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options')),
+                hashChange;
 
             if ($el.data('beefup')) {
                 return;
@@ -194,14 +222,13 @@
 
             // Hash
             if (vars.hash && $el.attr('id')) {
-                if ($el.is(window.location.hash)) {
-                    $obj.open($el);
-                }
-                $(window).bind('hashchange', function() {
-                    if ($el.is(window.location.hash)) {
-                        $obj.open($el);
+                hashChange = function() {
+                    if ($el.is(window.location.hash) && !$el.hasClass(vars.openClass)) {
+                        $obj.click($el);
                     }
-                });
+                };
+                hashChange();
+                $(window).bind('hashchange', hashChange);
             }
 
             // Self close
