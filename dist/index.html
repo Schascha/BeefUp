@@ -43,7 +43,7 @@ $('.example1').beefup();
 
     <hr>
 
-    <article class="beefup example2 is-open">
+    <article class="beefup example2 is-open" id="example2-1">
         <h2 class="beefup__head">
             Open single 1
         </h2>
@@ -60,7 +60,7 @@ $('.example2').beefup({
         </div>
     </article>
 
-    <article class="beefup example2">
+    <article class="beefup example2" id="example2-2">
         <h2 class="beefup__head">
             Open single 2
         </h2>
@@ -187,6 +187,94 @@ $('.example7').beefup({
         </div>
     </article>
 
+    <hr>
+
+    <h2>Tabs</h2>
+
+    <div class="tab">
+        <ul class="tab__head">
+            <li class="is-open">
+                <a href="#tab1" title="">
+                    Tab 1
+                </a>
+            </li>
+            <li>
+                <a href="#tab2" title="">
+                    Tab 2
+                </a>
+            </li>
+            <li>
+                <a href="#tab3" title="">
+                    Tab 3
+                </a>
+            </li>
+        </ul>
+
+        <article class="beefup tab__item is-open" id="tab1">
+            <h3 class="beefup__head">
+                Tab 1
+            </h3>
+
+            <div class="beefup__body">
+                <p>
+                    Tab 1
+                </p>
+            </div>
+        </article>
+
+        <article class="beefup tab__item" id="tab2">
+            <h3 class="beefup__head">
+                Tab 2
+            </h3>
+
+            <div class="beefup__body">
+                <p>
+                    Tab 2
+                </p>
+            </div>
+        </article>
+
+        <article class="beefup tab__item" id="tab3">
+            <h3 class="beefup__head">
+                Tab 3
+            </h3>
+
+            <div class="beefup__body">
+                <p>
+                    Tab 3
+                </p>
+            </div>
+        </article>
+    </div>
+
+    <hr>
+
+    <h2>Dropdown</h2>
+
+    <div class="beefup dropdown">
+        <button class="beefup__head">
+            Dropdown
+        </button>
+
+        <ul class="beefup__body dropdown__menu">
+            <li>
+                <a href="#" title="">
+                    Item 1
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    Item 2
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    Item 3
+                </a>
+            </li>
+        </ul>
+    </div>
+
 </main>
 
 <footer>
@@ -239,6 +327,27 @@ $('.example7').beefup({
 
         // Use HTML5 data attributes
         $('.example8').beefup();
+
+        // Tabs
+        $('.tab__item').beefup({
+            animation: '',
+            openSingle: true,
+            openSpeed: 0,
+            closeSpeed: 0,
+            onOpen: function($el) {
+                // Add active class to tabs
+                $('a[href="#' + $el.attr('id') + '"]').parent().addClass(this.openClass)
+                        .siblings().removeClass(this.openClass);
+
+            }
+        });
+
+        // Dropdown
+        $('.dropdown').beefup({
+            animation: 'fade',
+            openSingle: true,
+            selfClose: true
+        });
     });
 </script>
 </body>

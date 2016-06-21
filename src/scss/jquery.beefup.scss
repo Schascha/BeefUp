@@ -7,10 +7,11 @@ $beefup-triangle-width: 20px;
 .#{$beefup} {
     border: 1px solid $beefup-border-color;
     border-radius: 4px;
+    margin-top: 40px;
     padding: 10px 20px;
 
-    + .#{$beefup} {
-        margin-top: 40px;
+    &:first-child {
+        margin-top: 0;
     }
 
     &__head {
