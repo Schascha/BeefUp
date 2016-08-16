@@ -23,6 +23,7 @@
         openSingle: false,			// Boolean: Open just one accordion at once
         selfClose: false,           // Boolean: Close on click outside
         hash: true,                 // Boolean: Open accordion with id on hash change
+        stayOpen: null,
 
         // Callback: Fires after the accordions initially setup
         onInit: function() {
@@ -182,7 +183,7 @@
             var vars = beefup.methods.getVars($el);
 
             if (vars.openSingle) {
-                $obj.close($obj.not($el));
+                $obj.close((vars.stayOpen) ? $obj.not($el).not($obj.eq(vars.stayOpen)) : $obj.not($el));
             }
 
             if (!$el.hasClass(vars.openClass)) {
@@ -198,7 +199,7 @@
             return $obj;
         };
 
-        return this.each(function() {
+        return this.each(function(index) {
             var $el = $(this),
                 vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options')),
                 hashChange;
@@ -209,7 +210,11 @@
             $el.data('beefup', vars);
 
             // Init
-            $el.not('.' + vars.openClass).find(vars.content + ':first').hide();
+            if (vars.stayOpen) {
+                $el.not('.' + vars.openClass).not($obj.eq(vars.stayOpen)).find(vars.content + ':first').hide();
+            } else {
+                $el.not('.' + vars.openClass).find(vars.content + ':first').hide();
+            }
             if (vars.onInit) {
                 vars.onInit($el);
             }

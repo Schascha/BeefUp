@@ -54,7 +54,8 @@ $('.example1').beefup();
             </p>
 <pre>
 $('.example2').beefup({
-    openSingle: true
+    openSingle: true,
+    stayOpen: 3
 });
 </pre>
         </div>
@@ -68,6 +69,18 @@ $('.example2').beefup({
         <div class="beefup__body">
             <p>
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+            </p>
+        </div>
+    </article>
+
+    <article class="beefup example2" id="example2-3">
+        <h2 class="beefup__head">
+            Open single 3
+        </h2>
+
+        <div class="beefup__body">
+            <p>
+                Leave me open
             </p>
         </div>
     </article>
@@ -291,7 +304,8 @@ $('.example7').beefup({
 
         // Open single
         $('.example2').beefup({
-            openSingle: true
+            openSingle: true,
+            stayOpen: 2
         });
 
         // Fade animation
