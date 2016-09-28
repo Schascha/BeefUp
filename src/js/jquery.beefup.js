@@ -1,5 +1,5 @@
 /*!
- * BeefUp v1.1.2 - A jQuery Accordion Plugin
+ * BeefUp v1.1.3 - A jQuery Accordion Plugin
  * Copyright 2016 Sascha Künstler http://www.schaschaweb.de/
  *
  */
@@ -86,7 +86,7 @@
          * Get stayOpen element
          *
          * @param {jQuery} $obj
-         * @param {string} value
+         * @param {number|string} value
          * @returns {*}
          */
         getStayOpen: function($obj, value) {
@@ -99,6 +99,52 @@
             }
 
             return $el;
+        },
+
+        /**
+         * Add self close event
+         *
+         * @param {jQuery} $obj
+         * @param {object} vars
+         */
+        selfClose: function($obj, vars) {
+            $(document).on('click', function(e) {
+                var $el;
+
+                if (!$(e.target).closest($obj).length) {
+                    // Find open items
+                    $el = $obj.filter('.' + vars.openClass);
+
+                    // Exclude stayOpen item
+                    if (vars.stayOpen) {
+                        $el = $el.not(beefup.methods.getStayOpen($obj, vars.stayOpen));
+                    }
+
+                    // Close remaining items
+                    if ($el.length) {
+                        $obj.close($el);
+                    }
+                }
+            });
+        },
+
+        /**
+         * Add hash change event
+         *
+         * @param {jQuery} $obj
+         * @param {object} vars
+         */
+        hash: function($obj, vars) {
+            var hashChange = function() {
+                    var $el = $obj.filter(window.location.hash);
+
+                    if ($el.length && !$el.hasClass(vars.openClass)) {
+                        $obj.click($el);
+                    }
+                };
+
+            hashChange();
+            $(window).on('hashchange', hashChange);
         }
     };
 
@@ -129,7 +175,7 @@
                     $this.addClass(vars.openClass);
                     $content.css('overflow', '');
 
-                    // Optional callbacks
+                    // Callbacks
                     if (callback) {
                         callback();
                     }
@@ -166,7 +212,7 @@
                     $this.removeClass(vars.openClass);
                     $content.css('overflow', '');
 
-                    // Optional callbacks
+                    // Callbacks
                     if (callback) {
                         callback();
                     }
@@ -223,21 +269,23 @@
             return $obj;
         };
 
-        return this.each(function() {
-            var $el = $(this),
-                vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options')),
-                hashChange;
+        return this.each(function(index, el) {
+            var $el = $(el),
+                vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options'));
 
             if ($el.data('beefup')) {
                 return;
             }
+
             $el.data('beefup', vars);
 
-            // Init
             if (vars.stayOpen && $el.is(beefup.methods.getStayOpen($obj, vars.stayOpen))) {
                 $el.addClass(vars.openClass);
             }
+
             $el.not('.' + vars.openClass).find(vars.content + ':first').hide();
+
+            // Callback
             if (vars.onInit) {
                 vars.onInit($el);
             }
@@ -248,24 +296,19 @@
                 $obj.click($el);
             });
 
-            // Hash
-            if (vars.hash && $el.attr('id')) {
-                hashChange = function() {
-                    if ($el.is(window.location.hash) && !$el.hasClass(vars.openClass)) {
-                        $obj.click($el);
-                    }
-                };
-                hashChange();
-                $(window).bind('hashchange', hashChange);
-            }
+            // Trigger only once
+            if (index === 0) {
 
-            // Self close
-            if (vars.selfClose) {
-                $(document).on('click', function(e) {
-                    if (!$(e.target).closest($obj).length) {
-                        $obj.close($el.filter(vars.openClass));
-                    }
-                });
+                // Hash
+                if (vars.hash) {
+                    beefup.methods.hash($obj, vars);
+                }
+
+                // Self close
+                if (vars.selfClose) {
+                    beefup.methods.selfClose($obj, vars);
+                }
+
             }
         });
     };
