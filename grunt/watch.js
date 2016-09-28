@@ -7,9 +7,7 @@ module.exports = {
     js: {
         files: '<%= files.js %>',
         tasks: [
-            'jshint',
-            'jscs',
-            'uglify'
+            'js'
         ]
     },
     sass: {
@@ -17,8 +15,7 @@ module.exports = {
             '<%= files.scss %>'
         ],
         tasks: [
-            'sass',
-            'postcss'
+            'scss'
         ]
     }
 };

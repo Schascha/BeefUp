@@ -57,6 +57,7 @@ Or without jQuery: http://beefup.schaschaweb.de/pureCSS/
     scrollSpeed     : 400,					// Integer: Set the speed of the scroll feature
     scrollOffset	: 0,					// Integer: Additional offset to accordion position
     openSingle		: false,				// Boolean: Open just one accordion at once
+    stayOpen        : null,                 // Mixed: Leave one item open, accepts null, integer or string
     selfClose       : false,                // Boolean: Close on click outside
     hash            : true,                 // Boolean: Open accordion with id on hash change
     onInit			: function(){},			// Callback: Fires after the accordions initially setup

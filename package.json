@@ -1,6 +1,6 @@
 {
     "name": "beefup",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "BeefUp - A jQuery Accordion Plugin",
     "homepage": "https://github.com/Schascha/BeefUp",
     "authors": [
@@ -15,6 +15,7 @@
         "autoprefixer": "~6.0",
         "bower": "~1.4",
         "grunt": "~0.4",
+        "grunt-bump": "~0.8",
         "grunt-contrib-copy": "~1.0",
         "grunt-contrib-jshint": "~1.0",
         "grunt-contrib-uglify": "~0.9",
@@ -22,6 +23,7 @@
         "grunt-jscs": "~2.8",
         "grunt-postcss": "~0.8",
         "grunt-sass": "~1.2",
+        "grunt-scss-lint": "~0.5",
         "jit-grunt": "~0.10",
         "load-grunt-config": "~0.19",
         "load-grunt-tasks": "~3.3"
