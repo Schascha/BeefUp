@@ -7,13 +7,17 @@ module.exports = {
     ],
     'build': [
         'copy',
-        'test',
-        'uglify',
+        'js',
+        'scss'
+    ],
+    'js': [
+        'jshint',
+        'jscs',
+        'uglify'
+    ],
+    'scss': [
+        'scsslint',
         'sass',
         'postcss'
-    ],
-    'test': [
-        'jshint',
-        'jscs'
     ]
 };

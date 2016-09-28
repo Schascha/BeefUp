@@ -1,6 +1,7 @@
 /*!
- * BeefUp v1.1.1 - A jQuery Accordion Plugin
+ * BeefUp v1.1.2 - A jQuery Accordion Plugin
  * Copyright 2016 Sascha Künstler http://www.schaschaweb.de/
+ *
  */
 
 (function($) {
@@ -21,9 +22,9 @@
         scrollSpeed: 400,			// Integer: Set the speed of the scroll feature
         scrollOffset: 0,			// Integer: Additional offset to accordion position
         openSingle: false,			// Boolean: Open just one accordion at once
+        stayOpen: null,             // Mixed: Leave one item open, accepts null, integer or string
         selfClose: false,           // Boolean: Close on click outside
         hash: true,                 // Boolean: Open accordion with id on hash change
-        stayOpen: null,
 
         // Callback: Fires after the accordions initially setup
         onInit: function() {
@@ -79,6 +80,25 @@
                     $el.hide(speed, callback);
                     break;
             }
+        },
+
+        /**
+         * Get stayOpen element
+         *
+         * @param {jQuery} $obj
+         * @param {string} value
+         * @returns {*}
+         */
+        getStayOpen: function($obj, value) {
+            var $el;
+
+            if (typeof value === 'number') {
+                $el = $obj.eq(value);
+            } else if (typeof value === 'string') {
+                $el = $obj.filter(value);
+            }
+
+            return $el;
         }
     };
 
@@ -183,7 +203,11 @@
             var vars = beefup.methods.getVars($el);
 
             if (vars.openSingle) {
-                $obj.close((vars.stayOpen) ? $obj.not($el).not($obj.eq(vars.stayOpen)) : $obj.not($el));
+                if (vars.stayOpen) {
+                    $obj.close($obj.not($el).not(beefup.methods.getStayOpen($obj, vars.stayOpen)));
+                } else {
+                    $obj.close($obj.not($el));
+                }
             }
 
             if (!$el.hasClass(vars.openClass)) {
@@ -199,7 +223,7 @@
             return $obj;
         };
 
-        return this.each(function(index) {
+        return this.each(function() {
             var $el = $(this),
                 vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options')),
                 hashChange;
@@ -210,11 +234,10 @@
             $el.data('beefup', vars);
 
             // Init
-            if (vars.stayOpen) {
-                $el.not('.' + vars.openClass).not($obj.eq(vars.stayOpen)).find(vars.content + ':first').hide();
-            } else {
-                $el.not('.' + vars.openClass).find(vars.content + ':first').hide();
+            if (vars.stayOpen && $el.is(beefup.methods.getStayOpen($obj, vars.stayOpen))) {
+                $el.addClass(vars.openClass);
             }
+            $el.not('.' + vars.openClass).find(vars.content + ':first').hide();
             if (vars.onInit) {
                 vars.onInit($el);
             }

@@ -25,8 +25,8 @@ $beefup-triangle-width: 20px;
 
         &::after {
             border-style: solid;
-            border-width: $beefup-triangle-height ($beefup-triangle-width / 2) 0 ($beefup-triangle-width / 2);
-            border-color: $beefup-triangle-color transparent transparent transparent;
+            border-width: $beefup-triangle-height ($beefup-triangle-width / 2) 0;
+            border-color: $beefup-triangle-color transparent transparent;
             content: '';
             position: absolute;
             right: 0;
@@ -44,8 +44,8 @@ $beefup-triangle-width: 20px;
     &.is-open {
         .#{$beefup}__head {
             &::after {
-                border-width: 0 ($beefup-triangle-width / 2) $beefup-triangle-height ($beefup-triangle-width / 2);
-                border-color: transparent transparent $beefup-triangle-color transparent;
+                border-width: 0 ($beefup-triangle-width / 2) $beefup-triangle-height;
+                border-color: transparent transparent $beefup-triangle-color;
             }
         }
     }
