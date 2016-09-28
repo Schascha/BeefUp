@@ -9,13 +9,13 @@ Demo: http://beefup.schaschaweb.de/
 1. Include jQuery
 
    ```html
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     ```
 
 2. Include plugin
   
   ```html
-    <script src="jquery.beefup.min.js"></script>
+    <script src="js/jquery.beefup.min.js"></script>
     ```
 
 3. Add styles
