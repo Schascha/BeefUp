@@ -47,7 +47,7 @@ Demo: http://beefup.schaschaweb.de/
 
     trigger			: '.beefup__head',      // String: Name of the trigger element
     content			: '.beefup__body',      // String: Name of the collapsible content
-    openClass		: 'is-open',		    // String: Name of the class which shows if a accordion is triggered or not				// String: Name of the class which shows if a accordion is triggered or not
+    openClass		: 'is-open',		    // String: Name of the class which shows if a accordion is triggered or not
     animation		: 'slide',				// String: Set animation type, "slide" or "fade"
     openSpeed		: 200,					// Integer: Set the speed of the open animation
     closeSpeed		: 200,					// Integer: Set the speed of the close animation
