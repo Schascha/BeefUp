@@ -112,6 +112,7 @@
                 var $el;
 
                 if (!$(e.target).closest($obj).length) {
+
                     // Find open items
                     $el = $obj.filter('.' + vars.openClass);
 
@@ -136,12 +137,12 @@
          */
         hash: function($obj, vars) {
             var hashChange = function() {
-                    var $el = $obj.filter(window.location.hash);
+                var $el = $obj.filter(window.location.hash);
 
-                    if ($el.length && !$el.hasClass(vars.openClass)) {
-                        $obj.click($el);
-                    }
-                };
+                if ($el.length && !$el.hasClass(vars.openClass)) {
+                    $obj.click($el);
+                }
+            };
 
             hashChange();
             $(window).on('hashchange', hashChange);
@@ -179,6 +180,7 @@
                     if (callback) {
                         callback();
                     }
+
                     if (vars.onOpen) {
                         vars.onOpen($this);
                     }
@@ -216,6 +218,7 @@
                     if (callback) {
                         callback();
                     }
+
                     if (vars.onClose) {
                         vars.onClose($this);
                     }
@@ -308,7 +311,6 @@
                 if (vars.selfClose) {
                     beefup.methods.selfClose($obj, vars);
                 }
-
             }
         });
     };

@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'redactedregular';
+    src: url('../fonts/redacted-regular.eot');
+    src: url('../fonts/redacted-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/redacted-regular.woff2') format('woff2'),
+    url('../fonts/redacted-regular.woff') format('woff'),
+    url('../fonts/redacted-regular.ttf') format('truetype'),
+    url('../fonts/redacted-regular.svg#redactedregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    color: $base-color;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: 40px;
+
+    > span {
+        display: block;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 36px;
+    }
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 42px;
+}
+
+h3 {
+    font-size: 28px;
+    line-height: 36px;
+}
+
+h4,
+h5,
+p {
+    font-size: 24px;
+    line-height: 36px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: bold;
+}
+
+h2,
+h3,
+h4,
+h5,
+p {
+    margin-bottom: 20px;
+}
+
+hr {
+    border: solid $base-border-color;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 40px 0;
+    height: 0;
+}
+
+pre {
+    background: $code-background-color;
+    font-family: Courier, monospace;
+    font-size: .85em;
+    font-style: normal;
+    font-weight: normal;
+    margin: 1em 0;
+    overflow: auto;
+    padding: 20px;
+    position: relative;
+    tab-size: 2;
+    line-height: 1.6;
+    -webkit-font-smoothing: auto;
+}
+
+article p {
+    color: $base-border-color;
+    font-family: redactedregular;
+}

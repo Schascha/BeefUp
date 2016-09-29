@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Beefup - A jQuery Accordion Plugin</title>
     <meta charset="UTF-8">
@@ -16,86 +16,130 @@
 </header>
 
 <main>
+
+    <h2>Default</h2>
+
     <article class="beefup example1">
-        <h2 class="beefup__head">
-            Default
-        </h2>
+        <h3 class="beefup__head">
+            Item 1
+        </h3>
 
         <div class="beefup__body">
-<pre>
-$('.example1').beefup();
-</pre>
-            <br>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            </p>
+        </div>
+    </article>
 
+    <article class="beefup example1">
+        <h3 class="beefup__head">
+            Item 2
+        </h3>
+
+        <div class="beefup__body">
             <article class="beefup example1">
-                <h3 class="beefup__head">
-                    Nested
-                </h3>
+                <h4 class="beefup__head">
+                    Nested Item
+                </h4>
 
                 <div class="beefup__body">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
+                        arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
                     </p>
                 </div>
             </article>
         </div>
     </article>
 
+<pre>
+$('.example1').beefup();
+</pre>
+
     <hr>
 
+    <h2>Open single</h2>
+
+    <p>
+        Open just one accordion at once. It is possible to choose one item that will not automatically close.
+    </p>
+
     <article class="beefup example2 is-open" id="example2-1">
-        <h2 class="beefup__head">
-            Open single 1
-        </h2>
+        <h3 class="beefup__head">
+            Item 1
+        </h3>
 
         <div class="beefup__body">
             <p>
-                Open just one accordion at once.
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
             </p>
+        </div>
+    </article>
+
+    <article class="beefup example2" id="example2-2">
+        <h3 class="beefup__head">
+            Item 2
+        </h3>
+
+        <div class="beefup__body">
+            <p>
+                Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            </p>
+        </div>
+    </article>
+
+    <article class="beefup example2" id="example2-3">
+        <h3 class="beefup__head">
+            Locked item
+        </h3>
+
+        <div class="beefup__body">
+            <p>
+                Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum
+                semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae,
+                eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
+                viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
+                augue. Curabitur ullamcorper ultricies nisi.
+            </p>
+        </div>
+    </article>
+
 <pre>
 $('.example2').beefup({
     openSingle: true,
     stayOpen: 2
 });
 </pre>
-        </div>
-    </article>
-
-    <article class="beefup example2" id="example2-2">
-        <h2 class="beefup__head">
-            Open single 2
-        </h2>
-
-        <div class="beefup__body">
-            <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-            </p>
-        </div>
-    </article>
-
-    <article class="beefup example2" id="example2-3">
-        <h2 class="beefup__head">
-            Open single 3
-        </h2>
-
-        <div class="beefup__body">
-            <p>
-                Leave me open
-            </p>
-        </div>
-    </article>
 
     <hr>
 
+    <h2>Animations</h2>
+
+    <p>
+        By default the accordion will slide down and up.
+        It is possible to set the animation type to "slide", "fade" or leave empty "" and to define the open and the
+        cloase animation speed.
+    </p>
+
     <article class="beefup example3">
-        <h2 class="beefup__head">
-            Fade animation
-        </h2>
+        <h3 class="beefup__head">
+            Fade
+        </h3>
 
         <div class="beefup__body">
             <p>
-                Change the animation type to "slide", "fade" or leave empty "".
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
             </p>
+        </div>
+    </article>
+
 <pre>
 $('.example3').beefup({
     animation: 'fade',
@@ -103,92 +147,167 @@ $('.example3').beefup({
     closeSpeed: 400
 });
 </pre>
-        </div>
-    </article>
 
     <hr>
 
-    <article class="beefup example4" id="beefup">
-        <h2 class="beefup__head">
-            Open via JS
-        </h2>
+    <h2>Scroll</h2>
+
+    <p>
+        Scroll to the top of the open accordion. Use the property "scrollOffset" to add additional space or
+        "scrollSpeed" to define the animation speed.
+    </p>
+
+    <article class="beefup example4">
+        <h3 class="beefup__head">
+            Item 1
+        </h3>
 
         <div class="beefup__body">
-<pre>
-var $beefup = $('.example4').beefup();
-$beefup.open($('#beefup'));
-</pre>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            </p>
         </div>
     </article>
 
+    <article class="beefup example4">
+        <h3 class="beefup__head">
+            Item 2
+        </h3>
+
+        <div class="beefup__body">
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            </p>
+        </div>
+    </article>
+
+<pre>
+$('.example4').beefup({
+    scroll: true,
+    scrollOffset: -10
+});
+</pre>
+
     <hr>
+
+    <h2>
+        Self close
+    </h2>
+
+    <p>
+        Close the accordion on click outside of the element.
+    </p>
 
     <article class="beefup example5">
-        <h2 class="beefup__head">
-            Scroll
-        </h2>
+        <h3 class="beefup__head">
+            Item
+        </h3>
 
         <div class="beefup__body">
             <p>
-                Scroll to the top of the open accordion.
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
             </p>
+        </div>
+    </article>
+
 <pre>
 $('.example5').beefup({
-    scroll: true
-});
-</pre>
-        </div>
-    </article>
-
-    <hr>
-
-    <article class="beefup example6">
-        <h2 class="beefup__head">
-            Callback
-        </h2>
-
-        <div class="beefup__body">
-<pre>
-$('.example6').beefup({
-    onOpen: function($el) {
-        $el.css('border-color', 'red');
-    },
-    onClose: function($el) {
-        $el.css('border-color', '');
-    }
-});
-</pre>
-        </div>
-    </article>
-
-    <hr>
-
-    <article class="beefup example7">
-        <h2 class="beefup__head">
-            Self close
-        </h2>
-
-        <div class="beefup__body">
-            <p>
-                Close the accordion on click outside of the element.
-            </p>
-<pre>
-$('.example7').beefup({
     selfClose: true
 });
 </pre>
-        </div>
-    </article>
 
     <hr>
 
-    <article class="beefup example8" data-beefup-options='{"animation": "", "openSpeed": 800}'>
-        <h2 class="beefup__head">
-            Use HTML5 data attributes
-        </h2>
+    <h2>API Methods</h2>
+
+    <p>Trigger open, close or click events.</p>
+
+    <article class="beefup example6" id="beefup">
+        <h3 class="beefup__head">
+            Open
+        </h3>
 
         <div class="beefup__body">
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            </p>
+        </div>
+    </article>
+
 <pre>
+var $beefup = $('.example6').beefup();
+$beefup.open($('#beefup'));
+</pre>
+
+    <hr>
+
+    <h2>Callbacks</h2>
+
+    <p>
+        Also available are event driven callback methods on init, open and close.
+    </p>
+
+    <article class="beefup example7">
+        <h3 class="beefup__head">
+            Callback
+        </h3>
+
+        <div class="beefup__body">
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            </p>
+        </div>
+    </article>
+
+    <pre>
+$('.example7').beefup({
+    onInit: function($el) {
+        $el.css('border-color', 'blue');
+    },
+    onOpen: function($el) {
+        $el.css('border-color', 'green');
+    },
+    onClose: function($el) {
+        $el.css('border-color', 'red');
+    }
+});
+</pre>
+
+    <hr>
+
+    <h2>
+        HTML5 data attributes
+    </h2>
+
+    <p>
+        Overwrite default options by using HTML5 data attributes.
+    </p>
+
+    <article class="beefup example8" data-beefup-options='{"animation": "", "openSpeed": 800}'>
+        <h3 class="beefup__head">
+            Item
+        </h3>
+
+        <div class="beefup__body">
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            </p>
+        </div>
+    </article>
+
+    <pre>
 &lt;script&gt;
     $('.example8').beefup();
 &lt;/script&gt;
@@ -197,8 +316,6 @@ $('.example7').beefup({
     ...
 &lt;/article&gt;
 </pre>
-        </div>
-    </article>
 
     <hr>
 
@@ -230,7 +347,9 @@ $('.example7').beefup({
 
             <div class="beefup__body">
                 <p>
-                    Tab 1
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                    mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
                 </p>
             </div>
         </article>
@@ -242,7 +361,8 @@ $('.example7').beefup({
 
             <div class="beefup__body">
                 <p>
-                    Tab 2
+                    Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
                 </p>
             </div>
         </article>
@@ -254,11 +374,29 @@ $('.example7').beefup({
 
             <div class="beefup__body">
                 <p>
-                    Tab 3
+                    Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum
+                    semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae,
+                    eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
+                    viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
+                    augue. Curabitur ullamcorper ultricies nisi.
                 </p>
             </div>
         </article>
     </div>
+
+<pre>
+$('.tab__item').beefup({
+    animation: '',
+    openSingle: true,
+    openSpeed: 0,
+    closeSpeed: 0,
+    onOpen: function($el) {
+        // Add active class to tabs
+        $('a[href="#' + $el.attr('id') + '"]').parent().addClass(this.openClass)
+                .siblings().removeClass(this.openClass);
+    }
+});
+</pre>
 
     <hr>
 
@@ -266,27 +404,35 @@ $('.example7').beefup({
 
     <div class="beefup dropdown">
         <button class="beefup__head">
-            Dropdown
+            Button
         </button>
 
         <ul class="beefup__body dropdown__menu">
             <li>
-                <a href="#" title="">
+                <a title="">
                     Item 1
                 </a>
             </li>
             <li>
-                <a href="#" title="">
+                <a title="">
                     Item 2
                 </a>
             </li>
             <li>
-                <a href="#" title="">
+                <a title="">
                     Item 3
                 </a>
             </li>
         </ul>
     </div>
+
+<pre>
+    $('.dropdown').beefup({
+        animation: 'fade',
+        openSingle: true,
+        selfClose: true
+    });
+</pre>
 
 </main>
 
@@ -305,8 +451,7 @@ $('.example7').beefup({
         // Open single
         $('.example2').beefup({
             openSingle: true,
-            stayOpen: 2,
-            selfClose: true
+            stayOpen: '#example2-3'
         });
 
         // Fade animation
@@ -316,28 +461,32 @@ $('.example7').beefup({
             closeSpeed: 400
         });
 
-        // Open via JS
-        var $beefup = $('.example4').beefup();
-        $beefup.open($('#beefup'));
-
         // Scroll
-        $('.example5').beefup({
-            scroll: true
-        });
-
-        // Callback
-        $('.example6').beefup({
-            onOpen: function($el) {
-                $el.css('border-color', 'red');
-            },
-            onClose: function($el) {
-                $el.css('border-color', '');
-            }
+        $('.example4').beefup({
+            scroll: true,
+            scrollOffset: -10
         });
 
         // Self close
-        $('.example7').beefup({
+        $('.example5').beefup({
             selfClose: true
+        });
+
+        // Open via JS
+        var $beefup = $('.example6').beefup();
+        $beefup.open($('#beefup'));
+
+        // Callback
+        $('.example7').beefup({
+            onInit: function($el) {
+                $el.css('border-color', 'blue');
+            },
+            onOpen: function($el) {
+                $el.css('border-color', 'green');
+            },
+            onClose: function($el) {
+                $el.css('border-color', 'red');
+            }
         });
 
         // Use HTML5 data attributes
@@ -353,7 +502,6 @@ $('.example7').beefup({
                 // Add active class to tabs
                 $('a[href="#' + $el.attr('id') + '"]').parent().addClass(this.openClass)
                         .siblings().removeClass(this.openClass);
-
             }
         });
 
