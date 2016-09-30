@@ -4,6 +4,16 @@ A jQuery Accordion Plugin
 
 Demo: http://beefup.schaschaweb.de/
 
+## Package Managers
+
+    ```sh
+    # Bower
+    bower install beefup --save
+    
+    # npm
+    npm install beefup --save
+    ```
+
 ## Usage
 
 1. Include jQuery
@@ -44,7 +54,8 @@ Demo: http://beefup.schaschaweb.de/
     ```
 
 ## Configuration
-
+    
+    ```javascript
     trigger			: '.beefup__head',      // String: Name of the trigger element
     content			: '.beefup__body',      // String: Name of the collapsible content
     openClass		: 'is-open',		    // String: Name of the class which shows if a accordion is triggered or not
@@ -61,6 +72,7 @@ Demo: http://beefup.schaschaweb.de/
     onInit			: function(){},			// Callback: Fires after the accordions initially setup
     onOpen			: function(){},			// Callback: Fires after accordion opens content
     onClose			: function(){}			// Callback: Fires after accordion close content
+    ```
 
 ## Advanced
     
