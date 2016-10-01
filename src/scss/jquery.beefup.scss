@@ -42,7 +42,7 @@ $beefup-triangle-width: 20px;
     }
 
     &.is-open {
-        .#{$beefup}__head {
+        > .#{$beefup}__head {
             &::after {
                 border-width: 0 ($beefup-triangle-width / 2) $beefup-triangle-height;
                 border-color: transparent transparent $beefup-triangle-color;
