@@ -1,44 +1,12 @@
 // Utils
-
 @import 'utils/variables';
 
 // Base
-
 @import 'base/base';
 @import 'base/typography';
-
-// Basic Layout
-
-html {
-    background: $base-background-color;
-}
-
-header, footer, main {
-    padding: 40px 10%;
-}
-
-header, footer {
-    text-align: center;
-}
-
-header {
-    background: $white;
-    padding-top: 40px;
-}
-
-footer {
-    > p {
-        font-size: 16px;
-        margin: 0;
-    }
-}
-
-article {
-    background: $white;
-}
+@import 'base/layout';
 
 // Moduls
-
 @import 'moduls/buttons';
 @import 'moduls/dropdown';
 @import 'moduls/tabs';
