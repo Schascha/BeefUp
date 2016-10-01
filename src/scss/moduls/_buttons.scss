@@ -2,9 +2,9 @@
 
 $button-border-color: $base-border-color;
 $button-color: $base-color;
-$button-active-background-color: #596068;
+$button-active-background-color: $base-color;
 $button-active-color: $white;
-$button-active-border-color: #596068;
+$button-active-border-color: $base-color;
 
 .button {
     border: solid 1px $button-border-color;

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/demo.css">
     <link rel="stylesheet" href="css/jquery.beefup.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet'>
 </head>
 
 <body>
@@ -222,14 +222,16 @@ $('.example5').beefup({
 
     <hr>
 
-    <h2>API Methods</h2>
+    <h2>Advanced</h2>
+
+    <h3>API Methods</h3>
 
     <p>Trigger open, close, click or scroll events.</p>
 
     <article class="beefup example6" id="beefup">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Open
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -247,16 +249,16 @@ $beefup.open($('#beefup'));
 
     <hr>
 
-    <h2>Callbacks</h2>
+    <h3>Callbacks</h3>
 
     <p>
         Also available are event driven callback methods on init, open and close.
     </p>
 
     <article class="beefup example7">
-        <h3 class="beefup__head">
-            Callback
-        </h3>
+        <h4 class="beefup__head">
+            Item
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -283,18 +285,18 @@ $('.example7').beefup({
 
     <hr>
 
-    <h2>
+    <h3>
         HTML5 data attributes
-    </h2>
+    </h3>
 
     <p>
         Overwrite default options by using HTML5 data attributes.
     </p>
 
     <article class="beefup example8" data-beefup-options='{"animation": "", "openSpeed": 800}'>
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Item
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -317,7 +319,9 @@ $('.example7').beefup({
 
     <hr>
 
-    <h2>Tabs</h2>
+    <h2>Customize</h2>
+
+    <h3>Tabs</h3>
 
     <div class="tab">
         <ul class="tab__head">
@@ -398,7 +402,7 @@ $('.tab__item').beefup({
 
     <hr>
 
-    <h2>Dropdown</h2>
+    <h3>Dropdown</h3>
 
     <div class="beefup dropdown">
         <button class="beefup__head">
@@ -435,7 +439,12 @@ $('.tab__item').beefup({
 </main>
 
 <footer>
-    <p>&COPY; 2016 Sascha Künstler.</p>
+    <p>
+        &COPY; 2016
+        <a href="http://www.schaschaweb.de/" title="www.schaschaweb.de" target="_blank">
+            Sascha Künstler
+        </a>
+    </p>
 </footer>
 
 <script src="js/jquery.min.js"></script>
