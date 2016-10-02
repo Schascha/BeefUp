@@ -2,7 +2,9 @@
 
 module.exports = {
     options: {
-        preserveComments: 'some'
+        preserveComments: function(node, comment) {
+            return /^!|@preserve|@license|@cc_on/i.test(comment.value);
+        }
     },
     js: {
         files: {

@@ -13,7 +13,8 @@ module.exports = {
     'js': [
         'jshint',
         'jscs',
-        'uglify'
+        'uglify',
+        'qunit'
     ],
     'scss': [
         'scsslint',

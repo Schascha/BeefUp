@@ -155,7 +155,7 @@
         /**
          * Open
          *
-         * @param {jQuery} $el
+         * @param {jQuery} [$el]
          * @param {function} [callback]
          * @returns {jQuery}
          */
@@ -193,7 +193,7 @@
         /**
          * Close
          *
-         * @param {jQuery} $el
+         * @param {jQuery} [$el]
          * @param {function} [callback]
          * @returns {jQuery}
          */
