@@ -1,37 +1,37 @@
 {
-    "name": "beefup",
-    "version": "1.1.5",
-    "description": "BeefUp - A jQuery Accordion Plugin",
-    "homepage": "https://github.com/Schascha/BeefUp",
-    "authors": [
-        "Sascha Künstler <contact.schascha@gmail.com> (http://www.schaschaweb.de)"
-    ],
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/Schascha/BeefUp"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/Schascha/BeefUp/issues"
-    },
-    "devDependencies": {
-        "autoprefixer": "~6.0",
-        "bower": "~1.4",
-        "grunt": "~0.4",
-        "grunt-bump": "~0.8",
-        "grunt-contrib-copy": "~1.0",
-        "grunt-contrib-jshint": "~1.0",
-        "grunt-contrib-uglify": "~0.9",
-        "grunt-contrib-watch": "~0.6",
-        "grunt-jscs": "~2.8",
-        "grunt-postcss": "~0.8",
-        "grunt-sass": "~1.2",
-        "grunt-scss-lint": "~0.5",
-        "jit-grunt": "~0.10",
-        "load-grunt-config": "~0.19",
-        "load-grunt-tasks": "~3.3"
-    },
-    "engines": {
-        "node": "*"
-    }
+  "name": "beefup",
+  "version": "1.1.5",
+  "description": "BeefUp - A jQuery Accordion Plugin",
+  "homepage": "https://github.com/Schascha/BeefUp",
+  "authors": [
+    "Sascha Künstler <contact.schascha@gmail.com> (http://www.schaschaweb.de)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Schascha/BeefUp"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Schascha/BeefUp/issues"
+  },
+  "devDependencies": {
+    "autoprefixer": "~6.0",
+    "bower": "~1.4",
+    "grunt": "~1.0",
+    "grunt-bump": "~0.8",
+    "grunt-contrib-copy": "~1.0",
+    "grunt-contrib-jshint": "~1.0",
+    "grunt-contrib-uglify": "~2.0",
+    "grunt-contrib-watch": "~1.0",
+    "grunt-jscs": "~2.8",
+    "grunt-postcss": "~0.8",
+    "grunt-sass": "~1.2",
+    "grunt-scss-lint": "~0.5",
+    "jit-grunt": "~0.10",
+    "load-grunt-config": "~0.19",
+    "load-grunt-tasks": "~3.3"
+  },
+  "engines": {
+    "node": "*"
+  }
 }
