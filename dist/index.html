@@ -17,7 +17,7 @@
 
 <main>
 
-    <article class="beefup example1">
+    <article class="beefup example">
         <h3 class="beefup__head">
             Item 1
         </h3>
@@ -31,13 +31,13 @@
         </div>
     </article>
 
-    <article class="beefup example1">
+    <article class="beefup example">
         <h3 class="beefup__head">
             Item 2
         </h3>
 
         <div class="beefup__body">
-            <article class="beefup example1">
+            <article class="beefup example">
                 <h4 class="beefup__head">
                     Nested Item
                 </h4>
@@ -64,7 +64,7 @@ $('.example').beefup();
         Open just one accordion at once. It is possible to choose one item that will not automatically close.
     </p>
 
-    <article class="beefup example2 is-open" id="example2-1">
+    <article class="beefup example-opensingle is-open">
         <h3 class="beefup__head">
             Item 1
         </h3>
@@ -78,7 +78,7 @@ $('.example').beefup();
         </div>
     </article>
 
-    <article class="beefup example2" id="example2-2">
+    <article class="beefup example-opensingle">
         <h3 class="beefup__head">
             Item 2
         </h3>
@@ -91,7 +91,7 @@ $('.example').beefup();
         </div>
     </article>
 
-    <article class="beefup example2" id="example2-3">
+    <article class="beefup example-opensingle">
         <h3 class="beefup__head">
             Locked item
         </h3>
@@ -124,7 +124,7 @@ $('.example-opensingle').beefup({
         close animation speed.
     </p>
 
-    <article class="beefup example3">
+    <article class="beefup example-fade">
         <h3 class="beefup__head">
             Fade
         </h3>
@@ -155,7 +155,7 @@ $('.example-fade').beefup({
         "scrollSpeed" to define the animation speed.
     </p>
 
-    <article class="beefup example4">
+    <article class="beefup example-scroll">
         <h3 class="beefup__head">
             Item 1
         </h3>
@@ -169,7 +169,7 @@ $('.example-fade').beefup({
         </div>
     </article>
 
-    <article class="beefup example4">
+    <article class="beefup example-scroll">
         <h3 class="beefup__head">
             Item 2
         </h3>
@@ -200,7 +200,7 @@ $('.example-scroll').beefup({
         Close the accordion on click outside of the element.
     </p>
 
-    <article class="beefup example5">
+    <article class="beefup example-selfclose">
         <h3 class="beefup__head">
             Item
         </h3>
@@ -265,7 +265,7 @@ $('.example-selfclose').beefup({
 
     <p>Trigger open, close, click or scroll events.</p>
 
-    <article class="beefup example6" id="beefup">
+    <article class="beefup example-api" id="beefup">
         <h4 class="beefup__head">
             Open
         </h4>
@@ -292,7 +292,7 @@ $beefup.open($('#beefup'));
         Also available are event driven callback methods on init, open and close.
     </p>
 
-    <article class="beefup example7">
+    <article class="beefup example-callbacks">
         <h4 class="beefup__head">
             Item
         </h4>
@@ -330,7 +330,7 @@ $('.example-callbacks').beefup({
         Overwrite default options by using HTML5 data attributes.
     </p>
 
-    <article class="beefup example8" data-beefup-options='{"animation": "", "openSpeed": 800}'>
+    <article class="beefup example-data" data-beefup-options='{"animation": "", "openSpeed": 800}'>
         <h4 class="beefup__head">
             Item
         </h4>
@@ -495,7 +495,7 @@ $('.tab__item').beefup({
         // Open single
         $('.example-opensingle').beefup({
             openSingle: true,
-            stayOpen: '#example2-3'
+            stayOpen: 2
         });
 
         // Fade animation
@@ -544,7 +544,7 @@ $('.tab__item').beefup({
         $beefup.open($('#beefup'));
 
         // Callback
-        $('.example-callback').beefup({
+        $('.example-callbacks').beefup({
             onInit: function($el) {
                 $el.css('border-color', 'blue');
             },
