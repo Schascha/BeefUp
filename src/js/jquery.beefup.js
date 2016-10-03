@@ -25,6 +25,7 @@
         stayOpen: null,             // Mixed: Leave one item open, accepts null, integer or string
         selfClose: false,           // Boolean: Close on click outside
         hash: true,                 // Boolean: Open accordion with id on hash change
+        breakpoints: null,          // Mixed: Null or array of objects
 
         // Callback: Fires after the accordions initially setup
         onInit: function() {
@@ -48,7 +49,35 @@
          * @param {jQuery} $el
          */
         getVars: function($el) {
-            return $.extend({}, $el.data('beefup'), $el.data('beefup-options'));
+            var vars = $.extend({}, $el.data('beefup'), $el.data('beefup-options'));
+
+            if (vars.breakpoints) {
+                vars = beefup.methods.getResponsiveVars(vars);
+            }
+
+            return vars;
+        },
+
+        /**
+         *
+         * @param {object} vars
+         * @returns {*}
+         */
+        getResponsiveVars: function(vars) {
+            var windowWidth = window.innerWidth || $(window).width();
+
+            // Sort
+            vars.breakpoints.sort(function(a, b) {
+                return ((a.breakpoint < b.breakpoint) ? -1 : ((a.breakpoint > b.breakpoint) ? 1 : 0));
+            });
+
+            $.each(vars.breakpoints, function(index, value) {
+                if (windowWidth > value.breakpoint) {
+                    vars = $.extend({}, vars, value.settings);
+                }
+            });
+
+            return vars;
         },
 
         /**
@@ -281,6 +310,10 @@
             }
 
             $el.data('beefup', vars);
+
+            if (vars.breakpoints) {
+                vars = beefup.methods.getResponsiveVars(vars);
+            }
 
             if (vars.stayOpen && $el.is(beefup.methods.getStayOpen($obj, vars.stayOpen))) {
                 $el.addClass(vars.openClass);

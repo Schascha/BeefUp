@@ -1,7 +1,7 @@
-// https://github.com/vojtajina/grunt-bump
+// https://github.com/gruntjs/grunt-contrib-qunit
 
 module.exports = {
-    qunit: {
+    all: {
         src: ['test/**/*.html']
     }
 };

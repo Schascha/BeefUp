@@ -53,7 +53,7 @@
     </article>
 
 <pre>
-$('.example1').beefup();
+$('.example').beefup();
 </pre>
 
     <hr>
@@ -108,7 +108,7 @@ $('.example1').beefup();
     </article>
 
 <pre>
-$('.example2').beefup({
+$('.example-opensingle').beefup({
     openSingle: true,
     stayOpen: 2
 });
@@ -139,7 +139,7 @@ $('.example2').beefup({
     </article>
 
 <pre>
-$('.example3').beefup({
+$('.example-fade').beefup({
     animation: 'fade',
     openSpeed: 400,
     closeSpeed: 400
@@ -184,7 +184,7 @@ $('.example3').beefup({
     </article>
 
 <pre>
-$('.example4').beefup({
+$('.example-scroll').beefup({
     scroll: true,
     scrollOffset: -10
 });
@@ -215,10 +215,47 @@ $('.example4').beefup({
     </article>
 
 <pre>
-$('.example5').beefup({
+$('.example-selfclose').beefup({
     selfClose: true
 });
 </pre>
+
+    <hr>
+
+    <h2>
+        Breakpoints
+    </h2>
+
+    <p>
+        Change settings on different screen sizes.
+    </p>
+
+    <article class="beefup example-breakpoints">
+        <h3 class="beefup__head">
+            Item 1
+        </h3>
+
+        <div class="beefup__body">
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            </p>
+        </div>
+    </article>
+
+    <article class="beefup example-breakpoints">
+        <h3 class="beefup__head">
+            Item 2
+        </h3>
+
+        <div class="beefup__body">
+            <p>
+                Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            </p>
+        </div>
+    </article>
 
     <hr>
 
@@ -243,7 +280,7 @@ $('.example5').beefup({
     </article>
 
 <pre>
-var $beefup = $('.example6').beefup();
+var $beefup = $('.example-api').beefup();
 $beefup.open($('#beefup'));
 </pre>
 
@@ -270,7 +307,7 @@ $beefup.open($('#beefup'));
     </article>
 
     <pre>
-$('.example7').beefup({
+$('.example-callbacks').beefup({
     onInit: function($el) {
         $el.css('border-color', 'blue');
     },
@@ -308,7 +345,7 @@ $('.example7').beefup({
     </article>
 
 <pre>
-$('.example8').beefup();
+$('.example-data').beefup();
 </pre>
     
 <pre>
@@ -453,38 +490,61 @@ $('.tab__item').beefup({
     $(function() {
 
         // Default
-        $('.example1').beefup();
+        $('.example').beefup();
 
         // Open single
-        $('.example2').beefup({
+        $('.example-opensingle').beefup({
             openSingle: true,
             stayOpen: '#example2-3'
         });
 
         // Fade animation
-        $('.example3').beefup({
+        $('.example-fade').beefup({
             animation: 'fade',
             openSpeed: 400,
             closeSpeed: 400
         });
 
         // Scroll
-        $('.example4').beefup({
+        $('.example-scroll').beefup({
             scroll: true,
             scrollOffset: -10
         });
 
         // Self close
-        $('.example5').beefup({
+        $('.example-selfclose').beefup({
             selfClose: true
         });
 
-        // Open via JS
-        var $beefup = $('.example6').beefup();
+        // Breakpoints
+        $('.example-breakpoints').beefup({
+            scroll: true,
+            scrollOffset: -10,
+            breakpoints: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        animation: 'fade',
+                        scroll: false
+                    }
+                },
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        animation: 'slide',
+                        openSpeed: 800,
+                        openSingle: true
+                    }
+                }
+            ]
+        });
+
+        // API Methods
+        var $beefup = $('.example-api').beefup();
         $beefup.open($('#beefup'));
 
         // Callback
-        $('.example7').beefup({
+        $('.example-callback').beefup({
             onInit: function($el) {
                 $el.css('border-color', 'blue');
             },
@@ -497,7 +557,7 @@ $('.tab__item').beefup({
         });
 
         // Use HTML5 data attributes
-        $('.example8').beefup();
+        $('.example-data').beefup();
 
         // Tabs
         $('.tab__item').beefup({
