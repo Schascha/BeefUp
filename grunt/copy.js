@@ -2,7 +2,7 @@
 
 module.exports = {
     jquery: {
-        cwd: 'bower_components/jquery/dist/',
+        cwd: 'node_modules/jquery/dist/',
         src: 'jquery.min.js',
         dest: 'dist/js/',
         expand: true
