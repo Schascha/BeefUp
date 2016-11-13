@@ -1,7 +1,6 @@
 /*!
- * BeefUp v1.1.5 - A jQuery Accordion Plugin
+ * BeefUp v1.1.6 - A jQuery Accordion Plugin
  * Copyright 2016 Sascha Künstler http://www.schaschaweb.de/
- *
  */
 
 (function($) {
@@ -26,18 +25,10 @@
         selfClose: false,           // Boolean: Close on click outside
         hash: true,                 // Boolean: Open accordion with id on hash change
         breakpoints: null,          // Mixed: Null or array of objects
-
-        // Callback: Fires after the accordions initially setup
-        onInit: function() {
-        },
-
-        // Callback: Fires after accordion opens content
-        onOpen: function() {
-        },
-
-        // Callback: Fires after accordion close content
-        onClose: function() {
-        }
+        onInit: function() {},      // Callback: Fires after the accordions initially setup
+        onOpen: function() {},      // Callback: Fires after accordion opens content
+        onClose: function() {},     // Callback: Fires after accordion close content
+        onScroll: function() {}     // Callback: Fires after scroll animation
     };
 
     // Private methods
@@ -49,7 +40,7 @@
          * @param {jQuery} $el
          */
         getVars: function($el) {
-            var vars = $.extend({}, $el.data('beefup'), $el.data('beefup-options'));
+            var vars = $.extend(true, {}, $el.data('beefup'), $el.data('beefup-options'));
 
             if (vars.breakpoints) {
                 vars = beefup.methods.getResponsiveVars(vars);
@@ -59,6 +50,7 @@
         },
 
         /**
+         * Overwrite options depending on breakpoints
          *
          * @param {object} vars
          * @returns {*}
@@ -206,11 +198,11 @@
                     $content.css('overflow', '');
 
                     // Callbacks
-                    if (callback) {
+                    if (callback && typeof callback === 'function') {
                         callback();
                     }
 
-                    if (vars.onOpen) {
+                    if (vars.onOpen && typeof vars.onOpen === 'function') {
                         vars.onOpen($this);
                     }
                 });
@@ -244,11 +236,11 @@
                     $content.css('overflow', '');
 
                     // Callbacks
-                    if (callback) {
+                    if (callback && typeof callback === 'function') {
                         callback();
                     }
 
-                    if (vars.onClose) {
+                    if (vars.onClose && typeof vars.onClose === 'function') {
                         vars.onClose($this);
                     }
                 });
@@ -266,7 +258,14 @@
         this.scroll = function($el) {
             var vars = beefup.methods.getVars($el);
 
-            $('html, body').animate({scrollTop: $el.offset().top + vars.scrollOffset}, vars.scrollSpeed);
+            $('html, body').animate(
+                {scrollTop: $el.offset().top + vars.scrollOffset},
+                vars.scrollSpeed
+            ).promise().done(function() {
+                if (vars.onScroll && typeof vars.onScroll === 'function') {
+                    vars.onScroll($el);
+                }
+            });
 
             return $obj;
         };
@@ -322,7 +321,7 @@
             $el.not('.' + vars.openClass).find(vars.content + ':first').hide();
 
             // Callback
-            if (vars.onInit) {
+            if (vars.onInit && typeof vars.onInit === 'function') {
                 vars.onInit($el);
             }
 

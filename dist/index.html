@@ -257,6 +257,30 @@ $('.example-selfclose').beefup({
         </div>
     </article>
 
+<pre>
+$('.example-breakpoints').beefup({
+    scroll: true,
+    scrollOffset: -10,
+    breakpoints: [
+        {
+            breakpoint: 768,
+            settings: {
+                animation: 'fade',
+                scroll: false
+            }
+        },
+        {
+            breakpoint: 1024,
+            settings: {
+                animation: 'slide',
+                openSpeed: 800,
+                openSingle: true
+            }
+        }
+    ]
+});
+</pre>
+
     <hr>
 
     <h2>Advanced</h2>
@@ -306,7 +330,7 @@ $beefup.open($('#beefup'));
         </div>
     </article>
 
-    <pre>
+<pre>
 $('.example-callbacks').beefup({
     onInit: function($el) {
         $el.css('border-color', 'blue');
@@ -437,6 +461,50 @@ $('.tab__item').beefup({
 });
 </pre>
 
+<pre>
+.tab__head {
+  list-style: none;
+  margin: 0 0 -1px;
+  padding: 0;
+}
+
+.tab__head li {
+  background: #fff;
+  border: 1px solid #ddd;
+  display: inline-block;
+  font-weight: bold;
+  z-index: 100;
+}
+
+.tab__head li.is-open {
+  border-bottom-color: transparent;
+}
+
+.tab__head a {
+  color: inherit;
+  display: block;
+  font-size: 16px;
+  line-height: 2.5;
+  padding: 0 10px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.tab__item.beefup {
+  border-radius: 0;
+  display: none;
+  margin: 0;
+}
+
+.tab__item.beefup.is-open {
+  display: block;
+}
+
+.tab__item .beefup__head {
+  display: none;
+}
+</pre>
+
     <hr>
 
     <h3>Dropdown</h3>
@@ -466,11 +534,86 @@ $('.tab__item').beefup({
     </div>
 
 <pre>
-    $('.dropdown').beefup({
-        animation: 'fade',
-        openSingle: true,
-        selfClose: true
-    });
+$('.dropdown').beefup({
+    animation: 'fade',
+    openSingle: true,
+    selfClose: true
+});
+</pre>
+
+<pre>
+.dropdown__menu li {
+  font-size: 16px;
+}
+
+.dropdown__menu a {
+  clear: both;
+  color: inherit;
+  display: block;
+  padding: 3px 10px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown__menu a:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown.beefup {
+  border: 0;
+  border-radius: 0;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.dropdown.beefup.is-open .beefup__head::after {
+  border-width: 0 4px 4px;
+  border-color: transparent transparent #222;
+}
+
+.dropdown .beefup__head {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 2.5;
+  margin-bottom: 0;
+  padding: 0 30px 0 10px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.dropdown .beefup__head::after {
+  border-style: solid;
+  border-width: 4px 4px 0;
+  border-color: #222 transparent transparent;
+  margin-top: -2px;
+  right: 10px;
+}
+
+.dropdown .beefup__body {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
 </pre>
 
 </main>
