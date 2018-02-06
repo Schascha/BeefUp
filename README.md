@@ -1,10 +1,12 @@
-#BeefUp
+# BeefUp
 
-A jQuery Accordion Plugin
+Just a jQuery accordion plugin
 
 Demo: http://beefup.schaschaweb.de/
 
-## Package Managers
+## Installation
+   
+You can use BeefUp in your project by installing it using a package manager:
 
 ### Bower
 
@@ -76,24 +78,29 @@ hash: true,                 // Boolean: Open accordion with id on hash change
 breakpoints: null,          // Mixed: Null or array of objects
 onInit: function() {},      // Callback: Fires after the accordions initially setup
 onOpen: function() {},      // Callback: Fires after accordion opens content
-onClose: function() {}      // Callback: Fires after accordion close content
+onClose: function() {},     // Callback: Fires after accordion close content
 onScroll: function() {}     // Callback: Fires after scroll animation
 ```
 
 ## Advanced
 
 ### API Methods
+
+
+
+```javascript
+var $beefup = $('.beefup').beefup();
+```    
     
 #### Open
 
 ```javascript
-var $beefup = $('.beefup').beefup():
 $beefup.open($('#beefupID'));
 ```
 
 #### Close
     
-```javascript    
+```javascript
 $beefup.close($('#beefupID'));
 ```
 

@@ -1,17 +1,15 @@
 @font-face {
-    font-family: 'redactedregular';
+    font-family: 'Redacted';
     src: url('../fonts/redacted-regular.eot');
     src: url('../fonts/redacted-regular.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/redacted-regular.woff2') format('woff2'),
-    url('../fonts/redacted-regular.woff') format('woff'),
-    url('../fonts/redacted-regular.ttf') format('truetype'),
-    url('../fonts/redacted-regular.svg#redactedregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+        url('../fonts/redacted-regular.woff2') format('woff2'),
+        url('../fonts/redacted-regular.woff') format('woff'),
+        url('../fonts/redacted-regular.ttf') format('truetype'),
+        url('../fonts/redacted-regular.svg#redactedregular') format('svg');
 }
 
 body {
-    color: $base-color;
+    color: $color-text;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
@@ -63,7 +61,7 @@ p {
 }
 
 hr {
-    border: solid $base-border-color;
+    border: solid $color-border;
     border-width: 1px 0 0;
     clear: both;
     margin: 40px 0;
@@ -71,7 +69,10 @@ hr {
 }
 
 pre {
-    background: $code-background-color;
+    background-color: $color-code;
+    border-radius: 4px;
+    box-shadow: 0 12px 36px 8px rgba($color-black, .1);
+    color: $color-white;
     font-family: Courier, monospace;
     font-size: .85em;
     font-style: normal;
@@ -86,6 +87,6 @@ pre {
 }
 
 article p {
-    color: $base-border-color;
-    font-family: redactedregular;
+    color: $color-border;
+    font-family: 'Redacted';
 }

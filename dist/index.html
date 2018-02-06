@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Beefup - A jQuery Accordion Plugin</title>
+    <title>Beefup - Just a jQuery accordion plugin</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/demo.css">
@@ -11,16 +11,18 @@
 
 <body>
 <header>
-    <h1>BeefUp <span>A jQuery Accordion Plugin</span></h1>
+    <h1>BeefUp <span>Just a jQuery accordion plugin</span></h1>
     <a href="https://github.com/Schascha/BeefUp" title="View on GitHub" class="button">GitHub</a>
 </header>
 
 <main>
 
+    <h2>Examples</h2>
+
     <article class="beefup example">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Item 1
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -32,9 +34,9 @@
     </article>
 
     <article class="beefup example">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Item 2
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <article class="beefup example">
@@ -58,16 +60,16 @@ $('.example').beefup();
 
     <hr>
 
-    <h2>Open single</h2>
+    <h3>Open single</h3>
 
     <p>
         Open just one accordion at once. It is possible to choose one item that will not automatically close.
     </p>
 
     <article class="beefup example-opensingle is-open">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Item 1
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -79,9 +81,9 @@ $('.example').beefup();
     </article>
 
     <article class="beefup example-opensingle">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Item 2
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -92,17 +94,15 @@ $('.example').beefup();
     </article>
 
     <article class="beefup example-opensingle">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Locked item
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
                 Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum
                 semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae,
-                eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-                viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-                augue. Curabitur ullamcorper ultricies nisi.
+                eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
             </p>
         </div>
     </article>
@@ -116,7 +116,7 @@ $('.example-opensingle').beefup({
 
     <hr>
 
-    <h2>Animations</h2>
+    <h3>Animations</h3>
 
     <p>
         By default the accordion will slide down and up.
@@ -125,9 +125,9 @@ $('.example-opensingle').beefup({
     </p>
 
     <article class="beefup example-fade">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Fade
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -148,7 +148,7 @@ $('.example-fade').beefup({
 
     <hr>
 
-    <h2>Scroll</h2>
+    <h3>Scroll</h3>
 
     <p>
         Scroll to the top of the open accordion. Use the property "scrollOffset" to add additional space or
@@ -156,9 +156,9 @@ $('.example-fade').beefup({
     </p>
 
     <article class="beefup example-scroll">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Item 1
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -170,9 +170,9 @@ $('.example-fade').beefup({
     </article>
 
     <article class="beefup example-scroll">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Item 2
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -192,18 +192,18 @@ $('.example-scroll').beefup({
 
     <hr>
 
-    <h2>
+    <h3>
         Self close
-    </h2>
+    </h3>
 
     <p>
         Close the accordion on click outside of the element.
     </p>
 
     <article class="beefup example-selfclose">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Item
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -222,18 +222,18 @@ $('.example-selfclose').beefup({
 
     <hr>
 
-    <h2>
+    <h3>
         Breakpoints
-    </h2>
+    </h3>
 
     <p>
         Change settings on different screen sizes.
     </p>
 
     <article class="beefup example-breakpoints">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Item 1
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -245,9 +245,9 @@ $('.example-selfclose').beefup({
     </article>
 
     <article class="beefup example-breakpoints">
-        <h3 class="beefup__head">
+        <h4 class="beefup__head">
             Item 2
-        </h3>
+        </h4>
 
         <div class="beefup__body">
             <p>
@@ -371,7 +371,7 @@ $('.example-callbacks').beefup({
 <pre>
 $('.example-data').beefup();
 </pre>
-    
+
 <pre>
 &lt;article class="beefup example-data" data-beefup-options='{"animation": "", "openSpeed": 800}'&gt;
     ...
@@ -439,9 +439,7 @@ $('.example-data').beefup();
                 <p>
                     Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum
                     semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae,
-                    eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-                    viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-                    augue. Curabitur ullamcorper ultricies nisi.
+                    eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
                 </p>
             </div>
         </article>

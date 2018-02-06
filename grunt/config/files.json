@@ -1,5 +1,7 @@
 {
     "js": [
+        "Gruntfile.js",
+        "grunt/**/*.js",
         "src/js/**/*.js"
     ],
     "css": [

@@ -1,7 +1,25 @@
-$base-background-color: #f7f7f5;
-$base-border-color: #ddd;
-$base-color: #222;
+// Colors
+$color-background: #f8f8fa;
+$color-border: #ddd;
+$color-text: #222;
+$color-black: #000;
+$color-white: #fff;
+$color-code: #232323;
 
-$white: #fff;
+// Buttons
+$button-border-color: $color-border;
+$button-color: $color-text;
+$button-active-background-color: $color-text;
+$button-active-color: $color-white;
+$button-active-border-color: $color-text;
 
-$code-background-color: #f6f4e9;
+// Dropdown
+$dropdown-background-color: $color-white;
+$dropdown-border-color: $color-border;
+$dropdown-active-background-color: #f5f5f5;
+$dropdown-box-shadow-color: rgba(0, 0, 0, .175);
+$dropdown-triangle-color: $color-text;
+
+// Tabs
+$tab-background-color: $color-white;
+$tab-border-color: $color-border;

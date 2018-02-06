@@ -1,5 +1,5 @@
 html {
-    background: $base-background-color;
+    background: $color-background;
 }
 
 header,
@@ -14,7 +14,7 @@ footer {
 }
 
 header {
-    background: $white;
+    background: $color-white;
     padding-top: 40px;
 }
 
@@ -26,5 +26,5 @@ footer {
 }
 
 article {
-    background: $white;
+    background: $color-white;
 }
