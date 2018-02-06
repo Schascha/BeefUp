@@ -11,24 +11,24 @@
 
     // Defaults
     beefup.defaults = {
-        trigger: '.beefup__head',   // String: Name of the trigger element
-        content: '.beefup__body',   // String: Name of the collapsible content
-        openClass: 'is-open',       // String: Name of the class which shows if a accordion is triggered or not
-        animation: 'slide',         // String: Set animation type to "slide", "fade" or leave empty ""
-        openSpeed: 200,             // Integer: Set the speed of the open animation
-        closeSpeed: 200,            // Integer: Set the speed of the close animation
-        scroll: false,              // Boolean: Scroll to accordion
-        scrollSpeed: 400,           // Integer: Set the speed of the scroll feature
-        scrollOffset: 0,            // Integer: Additional offset to accordion position
-        openSingle: false,          // Boolean: Open just one accordion at once
-        stayOpen: null,             // Mixed: Leave one item open, accepts null, integer or string
-        selfClose: false,           // Boolean: Close on click outside
-        hash: true,                 // Boolean: Open accordion with id on hash change
-        breakpoints: null,          // Mixed: Null or array of objects
-        onInit: function() {},      // Callback: Fires after the accordions initially setup
-        onOpen: function() {},      // Callback: Fires after accordion opens content
-        onClose: function() {},     // Callback: Fires after accordion close content
-        onScroll: function() {}     // Callback: Fires after scroll animation
+        trigger: '.beefup__head',       // String: Name of the trigger element
+        content: '.beefup__body',       // String: Name of the collapsible content
+        openClass: 'is-open',           // String: Name of the class which shows if a accordion is triggered or not
+        animation: 'slide',             // String: Set animation type to "slide", "fade" or leave empty ""
+        openSpeed: 200,                 // Integer: Set the speed of the open animation
+        closeSpeed: 200,                // Integer: Set the speed of the close animation
+        scroll: false,                  // Boolean: Scroll to accordion
+        scrollSpeed: 400,               // Integer: Set the speed of the scroll feature
+        scrollOffset: 0,                // Integer: Additional offset to accordion position
+        openSingle: false,              // Boolean: Open just one accordion at once
+        stayOpen: null,                 // Mixed: Leave one item open, accepts null, integer or string
+        selfClose: false,               // Boolean: Close on click outside
+        hash: true,                     // Boolean: Open accordion with id on hash change
+        breakpoints: null,              // Mixed: Null or array of objects
+        onInit: function() {},          // Callback: Fires after the accordions initially setup
+        onOpen: function() {},          // Callback: Fires after accordion opens content
+        onClose: function() {},         // Callback: Fires after accordion close content
+        onScroll: function() {}         // Callback: Fires after scroll animation
     };
 
     // Private methods
@@ -138,7 +138,7 @@
                     $el = $obj.filter('.' + vars.openClass);
 
                     // Exclude stayOpen item
-                    if (vars.stayOpen) {
+                    if (vars.stayOpen !== null) {
                         $el = $el.not(beefup.methods.getStayOpen($obj, vars.stayOpen));
                     }
 
@@ -280,7 +280,7 @@
             var vars = beefup.methods.getVars($el);
 
             if (vars.openSingle) {
-                if (vars.stayOpen) {
+                if (vars.stayOpen !== null) {
                     $obj.close($obj.not($el).not(beefup.methods.getStayOpen($obj, vars.stayOpen)));
                 } else {
                     $obj.close($obj.not($el));
@@ -314,7 +314,7 @@
                 vars = beefup.methods.getResponsiveVars(vars);
             }
 
-            if (vars.stayOpen && $el.is(beefup.methods.getStayOpen($obj, vars.stayOpen))) {
+            if (vars.stayOpen !== null && $el.is(beefup.methods.getStayOpen($obj, vars.stayOpen))) {
                 $el.addClass(vars.openClass);
             }
 
