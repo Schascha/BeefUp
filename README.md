@@ -5,7 +5,7 @@ Just a jQuery accordion plugin
 **Demo:** http://beefup.schaschaweb.de/
 
 **Examples:**
-* [Toggle buttons](https://jsfiddle.net/cz0jLspL/13/)
+* [Toggle buttons](https://jsfiddle.net/cz0jLspL/16/)
 
 ## Installation
    
