@@ -6,6 +6,7 @@ Just a jQuery accordion plugin
 
 **Examples:**
 * [Toggle buttons](https://jsfiddle.net/Schascha/2Lzmfdb1/)
+* [CSS animations](https://jsfiddle.net/Schascha/ohb07vzq/)
 
 ## Installation
    
