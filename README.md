@@ -150,3 +150,7 @@ $('.beefup').beefup({
 ## Bugs?
 
 Please let me know: https://github.com/Schascha/BeefUp/issues
+
+## License
+
+[LICENSE (MIT)](./LICENSE)
