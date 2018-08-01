@@ -231,10 +231,6 @@
                     animation = (vars.animation === 'slide') ? 'slideUp' :
                         (vars.animation === 'fade') ? 'fadeOut' : 'hide';
 
-                if (vars.options.selfBlock) {
-                    return;
-                }
-
                 // Animation
                 beefup.methods.animation(animation, $content, vars.closeSpeed, function() {
                     $this.removeClass(vars.openClass);
