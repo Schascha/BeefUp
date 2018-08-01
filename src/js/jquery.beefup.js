@@ -23,6 +23,7 @@
         openSingle: false,              // Boolean: Open just one accordion at once
         stayOpen: null,                 // Mixed: Leave one item open, accepts null, integer or string
         selfClose: false,               // Boolean: Close on click outside
+        selfBlock: false,               // Boolean: Block close event on click
         hash: true,                     // Boolean: Open accordion with id on hash change
         breakpoints: null,              // Mixed: Null or array of objects
         onInit: function() {},          // Callback: Fires after the accordions initially setup
@@ -230,6 +231,10 @@
                     animation = (vars.animation === 'slide') ? 'slideUp' :
                         (vars.animation === 'fade') ? 'fadeOut' : 'hide';
 
+                if (vars.options.selfBlock) {
+                    return;
+                }
+
                 // Animation
                 beefup.methods.animation(animation, $content, vars.closeSpeed, function() {
                     $this.removeClass(vars.openClass);
@@ -294,7 +299,9 @@
                     }
                 });
             } else {
-                $obj.close($el);
+                if (!vars.selfBlock) {
+                    $obj.close($el);
+                }
             }
 
             return $obj;
