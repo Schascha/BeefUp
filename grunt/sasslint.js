@@ -3,6 +3,6 @@
 module.exports = {
     allFiles: '<%= files.scss %>',
     options: {
-        config: '.scss-lint.yml'
+        configFile: '.sass-lint.yml'
     }
 };

@@ -17,7 +17,7 @@ module.exports = {
         'qunit'
     ],
     'scss': [
-        'scsslint',
+        'sasslint',
         'sass',
         'postcss'
     ]
