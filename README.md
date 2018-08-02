@@ -7,9 +7,10 @@ Just a jQuery accordion plugin
 **Examples:**
 * [Toggle buttons](https://jsfiddle.net/Schascha/2Lzmfdb1/)
 * [CSS animations](https://jsfiddle.net/Schascha/ohb07vzq/)
+* [Self block](https://jsfiddle.net/Schascha/cek0g8ah/)
 
 ## Installation
-   
+
 You can use BeefUp in your project by installing it using a package manager:
 
 ### Bower
@@ -17,7 +18,7 @@ You can use BeefUp in your project by installing it using a package manager:
 ```sh
 bower install beefup --save
 ```
-   
+
 ### npm
 
 ```sh
@@ -33,7 +34,7 @@ npm install beefup --save
     ```
 
 2. Include plugin
-  
+
     ```html
     <script src="js/jquery.beefup.min.js"></script>
     ```
@@ -45,7 +46,7 @@ npm install beefup --save
     ```
 
 4. Add markup
- 
+
     ```html
     <article class="beefup">
         <h2 class="beefup__head">Headline</h2>
@@ -77,6 +78,7 @@ scrollSpeed: 400,           // Integer: Set the speed of the scroll feature
 scrollOffset: 0,            // Integer: Additional offset to accordion position
 openSingle: false,          // Boolean: Open just one accordion at once
 stayOpen: null,             // Mixed: Leave one item open, accepts null, integer or string
+selfBlock: false,           // Boolean: Block close event on click
 selfClose: false,           // Boolean: Close on click outside
 hash: true,                 // Boolean: Open accordion with id on hash change
 breakpoints: null,          // Mixed: Null or array of objects
@@ -95,7 +97,7 @@ onScroll: function() {}     // Callback: Fires after scroll animation
 ```javascript
 var $beefup = $('.beefup').beefup();
 ```    
-    
+
 #### Open
 
 ```javascript
@@ -103,7 +105,7 @@ $beefup.open($('#beefupID'));
 ```
 
 #### Close
-    
+
 ```javascript
 $beefup.close($('#beefupID'));
 ```

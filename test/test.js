@@ -1,11 +1,10 @@
-var $template = $('#template');
-    html = $template.html();
+var $template = $('#template'), html = $template.html();
 
 // Clear
 $template.remove();
 
 QUnit.module('BeefUp', {
-    beforeEach: function () {
+    beforeEach: function() {
         this.root = $('#qunit-fixture');
         this.root.append(html);
         this.$el = $('.beefup');
@@ -14,7 +13,7 @@ QUnit.module('BeefUp', {
             openSpeed: 0,
             closeSpeed: 0,
             scrollSpeed: 0
-        }
+        };
     }
 });
 
