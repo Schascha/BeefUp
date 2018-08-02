@@ -40,8 +40,8 @@ rules:
     - 1
     - convention: hyphenatedbem
   indentation:
-    - 1
-    - size: 4
+    - 0
+    - size: 2
   leading-zero:
     - 1
     - include: false

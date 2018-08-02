@@ -1,30 +1,30 @@
 html {
-    background: $color-background;
+	background: $color-background;
 }
 
 header,
 footer,
 main {
-    padding: 40px 10%;
+	padding: 40px 10%;
 }
 
 header,
 footer {
-    text-align: center;
+	text-align: center;
 }
 
 header {
-    background: $color-white;
-    padding-top: 40px;
+	background: $color-white;
+	padding-top: 40px;
 }
 
 footer {
-    > p {
-        font-size: 16px;
-        margin: 0;
-    }
+	> p {
+		font-size: 16px;
+		margin: 0;
+	}
 }
 
 article {
-    background: $color-white;
+	background: $color-white;
 }
