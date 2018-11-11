@@ -224,6 +224,34 @@ $('.example-selfclose').beefup({
 
     <hr>
 
+    <h3 id="hashchange">Hashchange</h3>
+
+    <p>
+        Use anchor links to open the accordion: <a href="#hash">#hash</a>
+    </p>
+
+    <article class="beefup example-hash" id="hash">
+        <h4 class="beefup__head">
+            Item
+        </h4>
+
+        <div class="beefup__body">
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            </p>
+        </div>
+    </article>
+
+<pre>
+$('.example-hash').beefup({
+    hash: true
+});
+</pre>
+
+    <hr>
+
     <h3 id="breakpoints">
         Breakpoints
     </h3>
@@ -657,6 +685,11 @@ $('.dropdown').beefup({
         // Self close
         $('.example-selfclose').beefup({
             selfClose: true
+        });
+
+        // Hash
+        $('.example-hash').beefup({
+            hash: true
         });
 
         // Breakpoints

@@ -60,6 +60,10 @@ p {
     margin-bottom: 20px;
 }
 
+a {
+    color: inherit;
+}
+
 hr {
     border: solid $color-border;
     border-width: 1px 0 0;
