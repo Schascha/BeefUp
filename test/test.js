@@ -1,3 +1,4 @@
+/* global QUnit, $ */
 var $template = $('#template'), html = $template.html();
 
 // Clear
