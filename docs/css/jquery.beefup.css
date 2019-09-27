@@ -1,0 +1,47 @@
+.beefup {
+  margin: 1em 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.beefup:hover {
+  border-color: #ccc;
+}
+
+.beefup:first-child {
+  margin-top: 0;
+}
+
+.beefup__head, .beefup__body {
+  padding: 10px 20px;
+}
+
+.beefup__head {
+  transition: border 0.2s ease-out;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding-right: 50px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.beefup__head::after {
+  transition: transform 0.2s ease-out;
+  content: '';
+  transform: translate(0, -50%) rotate(45deg);
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  margin-top: -2px;
+  padding: 3px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  color: #ccc;
+}
+
+.beefup.is-open > .beefup__head::after {
+  transform: translate(0, -50%) rotate(225deg);
+  margin-top: 2px;
+}

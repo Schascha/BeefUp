@@ -101,9 +101,7 @@ pre {
   font-weight: normal;
   font-style: normal;
   line-height: 1.6;
-  -moz-tab-size: 2;
-    -o-tab-size: 2;
-       tab-size: 2;
+  tab-size: 2;
   -webkit-font-smoothing: auto;
 }
 
@@ -126,21 +124,15 @@ main {
 }
 
 header > div {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header h1 {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-align: center;
-      align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 header h1 > strong {

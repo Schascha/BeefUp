@@ -13,6 +13,6 @@
 	],
 	"sassBuild": {
 		"dist/css/jquery.beefup.css": "src/scss/jquery.beefup.scss",
-		"dist/css/demo.css": "src/scss/demo.scss"
+		"docs/css/styles.css": "src/scss/styles.scss"
 	}
 }
