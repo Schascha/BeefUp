@@ -1,12 +1,13 @@
-// Utils
-@import 'utils/variables';
+// Settings
+@import 'settings/variables';
 
 // Base
 @import 'base/base';
 @import 'base/typography';
 @import 'base/layout';
 
-// Moduls
-@import 'moduls/buttons';
-@import 'moduls/dropdown';
-@import 'moduls/tabs';
+// Modules
+@import 'modules/buttons';
+@import 'modules/dropdown';
+@import 'modules/mockup';
+@import 'modules/tabs';

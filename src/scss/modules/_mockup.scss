@@ -1,0 +1,32 @@
+@mixin mockup($color, $amount: 3, $size: 25px, $space: 15px) {
+	$image: null;
+	$length: null;
+	$lenghts: 90%, 80%, 60%, 75%, 95%;
+
+	@for $i from 0 through $amount {
+		@each $j in $lenghts {
+			@if $i % index($lenghts, $j) == 0 {
+				$length: $j;
+			}
+		}
+
+		$image: append($image, linear-gradient(to right, $color-border $length, transparent 0) 0 ($i * ($size + $space)), comma);
+	}
+
+	height: ($size + $space) * $amount;
+	background: $image;
+	background-repeat: no-repeat;
+	background-size: 100% $size;
+}
+
+.mockup {
+	@include mockup($color-border);
+
+	&-sm {
+		@include mockup($color-border, 2)
+	}
+
+	&-lg {
+		@include mockup($color-border, 4)
+	}
+}

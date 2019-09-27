@@ -1,13 +1,3 @@
-@font-face {
-	font-family: 'Redacted';
-	src: url('../fonts/redacted-regular.eot');
-	src: url('../fonts/redacted-regular.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/redacted-regular.woff2') format('woff2'),
-	url('../fonts/redacted-regular.woff') format('woff'),
-	url('../fonts/redacted-regular.ttf') format('truetype'),
-	url('../fonts/redacted-regular.svg#redactedregular') format('svg');
-}
-
 body {
 	color: $color-text;
 	font-family: 'Roboto', sans-serif;
@@ -88,9 +78,4 @@ pre {
 	tab-size: 2;
 	line-height: 1.6;
 	-webkit-font-smoothing: auto;
-}
-
-article p {
-	color: $color-border;
-	font-family: 'Redacted';
 }

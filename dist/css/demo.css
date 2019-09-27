@@ -34,12 +34,6 @@ img {
   height: auto;
 }
 
-@font-face {
-  font-family: 'Redacted';
-  src: url("../fonts/redacted-regular.eot");
-  src: url("../fonts/redacted-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/redacted-regular.woff2") format("woff2"), url("../fonts/redacted-regular.woff") format("woff"), url("../fonts/redacted-regular.ttf") format("truetype"), url("../fonts/redacted-regular.svg#redactedregular") format("svg");
-}
-
 body {
   color: #222;
   font-family: 'Roboto', sans-serif;
@@ -123,11 +117,6 @@ pre {
   -webkit-font-smoothing: auto;
 }
 
-article p {
-  color: #ddd;
-  font-family: 'Redacted';
-}
-
 html {
   background: #f8f8fa;
 }
@@ -136,12 +125,18 @@ header,
 footer,
 main {
   display: block;
-  padding: 40px 10%;
 }
 
 header,
 footer {
+  padding: 40px 20px;
   text-align: center;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 40px 20px;
 }
 
 header {
@@ -248,6 +243,30 @@ article {
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.mockup {
+  height: 120px;
+  background: -webkit-linear-gradient(left, #ddd 95%, transparent 0) 0 0px, -webkit-linear-gradient(left, #ddd 90%, transparent 0) 0 40px, -webkit-linear-gradient(left, #ddd 80%, transparent 0) 0 80px, -webkit-linear-gradient(left, #ddd 60%, transparent 0) 0 120px;
+  background: linear-gradient(to right, #ddd 95%, transparent 0) 0 0px, linear-gradient(to right, #ddd 90%, transparent 0) 0 40px, linear-gradient(to right, #ddd 80%, transparent 0) 0 80px, linear-gradient(to right, #ddd 60%, transparent 0) 0 120px;
+  background-repeat: no-repeat;
+  background-size: 100% 25px;
+}
+
+.mockup-sm {
+  height: 80px;
+  background: -webkit-linear-gradient(left, #ddd 95%, transparent 0) 0 0px, -webkit-linear-gradient(left, #ddd 90%, transparent 0) 0 40px, -webkit-linear-gradient(left, #ddd 80%, transparent 0) 0 80px;
+  background: linear-gradient(to right, #ddd 95%, transparent 0) 0 0px, linear-gradient(to right, #ddd 90%, transparent 0) 0 40px, linear-gradient(to right, #ddd 80%, transparent 0) 0 80px;
+  background-repeat: no-repeat;
+  background-size: 100% 25px;
+}
+
+.mockup-lg {
+  height: 160px;
+  background: -webkit-linear-gradient(left, #ddd 95%, transparent 0) 0 0px, -webkit-linear-gradient(left, #ddd 90%, transparent 0) 0 40px, -webkit-linear-gradient(left, #ddd 80%, transparent 0) 0 80px, -webkit-linear-gradient(left, #ddd 60%, transparent 0) 0 120px, -webkit-linear-gradient(left, #ddd 75%, transparent 0) 0 160px;
+  background: linear-gradient(to right, #ddd 95%, transparent 0) 0 0px, linear-gradient(to right, #ddd 90%, transparent 0) 0 40px, linear-gradient(to right, #ddd 80%, transparent 0) 0 80px, linear-gradient(to right, #ddd 60%, transparent 0) 0 120px, linear-gradient(to right, #ddd 75%, transparent 0) 0 160px;
+  background-repeat: no-repeat;
+  background-size: 100% 25px;
 }
 
 .tab__head {

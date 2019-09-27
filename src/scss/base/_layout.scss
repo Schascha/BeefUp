@@ -6,12 +6,18 @@ header,
 footer,
 main {
 	display: block;
-	padding: 40px 10%;
 }
 
 header,
 footer {
+	padding: 40px 20px;
 	text-align: center;
+}
+
+main {
+	margin: 0 auto;
+	max-width: 1240px;
+	padding: 40px 20px;
 }
 
 header {
