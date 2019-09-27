@@ -1,5 +1,7 @@
 # BeefUp
 
+[![Travis Status](https://travis-ci.org/Schascha/BeefUp.svg?branch=master)](https://travis-ci.org/Schascha/BeefUp)
+
 Just a jQuery accordion plugin
 
 https://schascha.github.io/BeefUp/
