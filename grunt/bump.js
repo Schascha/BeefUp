@@ -3,8 +3,7 @@
 module.exports = {
 	options: {
 		files: [
-			'package.json',
-			'bower.json'
+			'package.json'
 		],
 		commit: false,
 		createTag: false,

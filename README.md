@@ -12,19 +12,11 @@ Just a jQuery accordion plugin
 
 ## Installation
 
-You can use BeefUp in your project by installing it using a package manager:
-
-### Bower
-
-```sh
-bower install beefup --save
-```
-
-### npm
+You can use BeefUp in your project by installing it using [npm](https://www.npmjs.com/package/beefup):
 
 ```sh
 npm install beefup --save
-```    
+```
 
 ## Usage
 
@@ -97,7 +89,7 @@ onScroll: function() {}     // Callback: Fires after scroll animation
 
 ```javascript
 var $beefup = $('.beefup').beefup();
-```    
+```
 
 #### Open
 
