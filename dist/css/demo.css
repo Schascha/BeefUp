@@ -92,6 +92,10 @@ p {
   margin-bottom: 20px;
 }
 
+a {
+  color: inherit;
+}
+
 hr {
   border: solid #ddd;
   border-width: 1px 0 0;
@@ -131,6 +135,7 @@ html {
 header,
 footer,
 main {
+  display: block;
   padding: 40px 10%;
 }
 
@@ -150,6 +155,7 @@ footer > p {
 }
 
 article {
+  display: block;
   background: #fff;
 }
 

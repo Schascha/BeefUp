@@ -5,6 +5,7 @@ html {
 header,
 footer,
 main {
+	display: block;
 	padding: 40px 10%;
 }
 
@@ -26,5 +27,6 @@ footer {
 }
 
 article {
+	display: block;
 	background: $color-white;
 }
