@@ -2,7 +2,7 @@
 
 Just a jQuery accordion plugin
 
-**Demo:** http://beefup.schaschaweb.de/
+**Demo:** https://schascha.github.io/BeefUp/
 
 **Examples:**
 * [Toggle buttons](https://jsfiddle.net/Schascha/2Lzmfdb1/)
