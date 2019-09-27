@@ -4,9 +4,7 @@ module.exports = {
 	options: {
 		map: false,
 		processors: [
-			require('autoprefixer')({
-				browsers: ['last 4 versions', 'Explorer >= 8', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7']
-			})
+			require('autoprefixer')
 		]
 	},
 	all: {

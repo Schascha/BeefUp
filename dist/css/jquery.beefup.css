@@ -1,17 +1,15 @@
 .beefup {
+  margin: 1em 0;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin: 1em 0;
-  -webkit-transition: border .2s ease;
-  transition: border .2s ease;
+}
+
+.beefup:hover {
+  border-color: #ccc;
 }
 
 .beefup:first-child {
   margin-top: 0;
-}
-
-.beefup:hover {
-  border-color: #aaa;
 }
 
 .beefup__head, .beefup__body {
@@ -19,35 +17,31 @@
 }
 
 .beefup__head {
+  transition: border 0.2s ease-out;
   cursor: pointer;
-  margin: 0;
   overflow: hidden;
-  padding-right: 50px;
   position: relative;
-  text-overflow: ellipsis;
+  margin: 0;
+  padding-right: 50px;
   white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .beefup__head::after {
-  border-style: solid;
-  border-width: 10px 10px 0;
-  border-color: #ddd transparent transparent;
+  transition: transform 0.2s ease-out;
   content: '';
+  transform: translate(0, -50%) rotate(45deg);
   position: absolute;
-  right: 20px;
-  height: 0;
-  margin-top: -5px;
   top: 50%;
-  -webkit-transition: border .2s ease;
-  transition: border .2s ease;
-  width: 0;
-}
-
-.beefup__body {
-  padding-top: 20px;
+  right: 20px;
+  margin-top: -2px;
+  padding: 3px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  color: #ccc;
 }
 
 .beefup.is-open > .beefup__head::after {
-  border-width: 0 10px 10px;
-  border-color: transparent transparent #ddd;
+  transform: translate(0, -50%) rotate(225deg);
+  margin-top: 2px;
 }

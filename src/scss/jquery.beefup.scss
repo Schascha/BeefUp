@@ -1,22 +1,20 @@
 $beefup: 'beefup' !default;
 $beefup-border-color: #ddd !default;
-$beefup-border-color-hover: #aaa !default;
-$beefup-triangle-color: #ddd !default;
-$beefup-triangle-height: 10px !default;
-$beefup-triangle-width: 20px !default;
+$beefup-border-color-hover: #ccc !default;
+$beefup-triangle-color: #ccc !default;
+$beefup-triangle-size: 6px !default;
 
 .#{$beefup} {
+	margin: 1em 0;
 	border: 1px solid $beefup-border-color;
 	border-radius: 4px;
-	margin: 1em 0;
-	transition: border .2s ease;
-
-	&:first-child {
-		margin-top: 0;
-	}
 
 	&:hover {
 		border-color: $beefup-border-color-hover;
+	}
+
+	&:first-child {
+		margin-top: 0;
 	}
 
 	&__head,
@@ -25,38 +23,35 @@ $beefup-triangle-width: 20px !default;
 	}
 
 	&__head {
+		transition: border 0.2s ease-out;
 		cursor: pointer;
-		margin: 0;
 		overflow: hidden;
-		padding-right: 50px;
 		position: relative;
-		text-overflow: ellipsis;
+		margin: 0;
+		padding-right: 50px;
 		white-space: nowrap;
+		text-overflow: ellipsis;
 
 		&::after {
-			border-style: solid;
-			border-width: $beefup-triangle-height ($beefup-triangle-width / 2) 0;
-			border-color: $beefup-triangle-color transparent transparent;
+			transition: transform 0.2s ease-out;
 			content: '';
+			transform: translate(0, -50%) rotate(45deg);
 			position: absolute;
-			right: 20px;
-			height: 0;
-			margin-top: -5px;
 			top: 50%;
-			transition: border .2s ease;
-			width: 0;
+			right: 20px;
+			margin-top: -$beefup-triangle-size / 3;
+			padding: $beefup-triangle-size / 2;
+			border-width: 0 2px 2px 0;
+			border-style: solid;
+			color: $beefup-triangle-color;
 		}
-	}
-
-	&__body {
-		padding-top: 20px;
 	}
 
 	&.is-open {
 		> .#{$beefup}__head {
 			&::after {
-				border-width: 0 ($beefup-triangle-width / 2) $beefup-triangle-height;
-				border-color: transparent transparent $beefup-triangle-color;
+				transform: translate(0, -50%) rotate(225deg);
+				margin-top: $beefup-triangle-size / 3;
 			}
 		}
 	}

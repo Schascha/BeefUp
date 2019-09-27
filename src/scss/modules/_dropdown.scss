@@ -5,10 +5,11 @@
 		}
 
 		a {
-			clear: both;
-			color: inherit;
+			cursor: pointer;
 			display: block;
+			clear: both;
 			padding: 3px 10px;
+			color: inherit;
 			text-decoration: none;
 			white-space: nowrap;
 
@@ -19,58 +20,45 @@
 	}
 
 	&.beefup {
-		border: 0;
-		border-radius: 0;
 		display: inline-block;
+		position: relative;
 		margin: 0;
 		padding: 0;
-		position: relative;
-
-		&.is-open .beefup__head::after {
-			border-width: 0 4px 4px;
-			border-color: transparent transparent $dropdown-triangle-color;
-		}
+		border: 0;
+		border-radius: 0;
 	}
 
 	.beefup__head {
+		cursor: pointer;
+		display: inline-block;
+		margin-bottom: 0;
+		padding: 0 40px 0 10px;
 		background: $dropdown-background-color;
 		border: 1px solid $dropdown-border-color;
 		border-radius: 4px;
-		cursor: pointer;
-		display: inline-block;
 		font-size: 16px;
 		font-weight: bold;
 		line-height: 2.5;
-		margin-bottom: 0;
-		padding: 0 30px 0 10px;
 		text-align: center;
 		vertical-align: middle;
 		white-space: nowrap;
-
-		&::after {
-			border-style: solid;
-			border-width: 4px 4px 0;
-			border-color: $dropdown-triangle-color transparent transparent;
-			margin-top: -2px;
-			right: 10px;
-		}
 	}
 
 	.beefup__body {
+		float: left;
 		position: absolute;
 		top: 100%;
 		left: 0;
 		z-index: 1000;
-		float: left;
-		min-width: 160px;
-		padding: 5px 0;
 		margin: 2px 0 0;
-		font-size: 14px;
-		text-align: left;
-		list-style: none;
+		padding: 5px 0;
+		min-width: 160px;
 		background-color: $dropdown-background-color;
 		border: 1px solid $dropdown-border-color;
 		border-radius: 4px;
 		box-shadow: 0 6px 12px $dropdown-box-shadow-color;
+		font-size: 14px;
+		list-style: none;
+		text-align: left;
 	}
 }

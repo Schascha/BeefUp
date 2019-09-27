@@ -1,25 +1,27 @@
 // Colors
-$color-background: #f8f8fa;
+$color-background: #fff;
 $color-border: #ddd;
+$color-brand: #650dde;
 $color-text: #222;
-$color-black: #000;
-$color-white: #fff;
-$color-code: #232323;
+
+// Typography
+$font-family: 'Roboto', sans-serif;
+$font-family-code: Courier, monospace;
 
 // Buttons
 $button-border-color: $color-border;
-$button-color: $color-text;
+$button-color: $color-background;
 $button-active-background-color: $color-text;
-$button-active-color: $color-white;
+$button-active-color: $color-background;
 $button-active-border-color: $color-text;
 
 // Dropdown
-$dropdown-background-color: $color-white;
+$dropdown-background-color: $color-background;
 $dropdown-border-color: $color-border;
 $dropdown-active-background-color: #f5f5f5;
-$dropdown-box-shadow-color: rgba(0, 0, 0, .175);
+$dropdown-box-shadow-color: rgba(0, 0, 0, 0.2);
 $dropdown-triangle-color: $color-text;
 
 // Tabs
-$tab-background-color: $color-white;
+$tab-background-color: $color-background;
 $tab-border-color: $color-border;

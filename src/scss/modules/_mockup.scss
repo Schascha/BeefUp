@@ -1,4 +1,4 @@
-@mixin mockup($color, $amount: 3, $size: 25px, $space: 15px) {
+@mixin mockup($color, $amount: 3, $size: 20px, $space: 10px) {
 	$image: null;
 	$length: null;
 	$lenghts: 90%, 80%, 60%, 75%, 95%;
