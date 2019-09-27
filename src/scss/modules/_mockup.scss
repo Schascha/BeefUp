@@ -10,7 +10,7 @@
 			}
 		}
 
-		$image: append($image, linear-gradient(to right, $color-border $length, transparent 0) 0 ($i * ($size + $space)), comma);
+		$image: append($image, linear-gradient(to right, $color $length, transparent 0) 0 ($i * ($size + $space)), comma);
 	}
 
 	height: ($size + $space) * $amount;
@@ -23,10 +23,10 @@
 	@include mockup($color-border);
 
 	&-sm {
-		@include mockup($color-border, 2)
+		@include mockup($color-border, 2);
 	}
 
 	&-lg {
-		@include mockup($color-border, 4)
+		@include mockup($color-border, 4);
 	}
 }
