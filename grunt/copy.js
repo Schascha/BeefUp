@@ -6,11 +6,5 @@ module.exports = {
 		src: 'jquery.min.js',
 		dest: 'dist/js/',
 		expand: true
-	},
-	docs: {
-		cwd: 'dist/',
-		src: '**/*',
-		dest: 'docs/',
-		expand: true
 	}
 };
