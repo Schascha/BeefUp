@@ -92,10 +92,36 @@ $('.example').beefup();
 				Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
 				In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
 			</p>
+
+			<article class="beefup example-opensingle">
+				<h4 class="beefup__head">
+					Nested Item 1
+				</h4>
+
+				<div class="beefup__body">
+					<p>
+						Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
+						arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+					</p>
+				</div>
+			</article>
+
+			<article class="beefup example-opensingle">
+				<h4 class="beefup__head">
+					Nested Item 2
+				</h4>
+
+				<div class="beefup__body">
+					<p>
+						Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
+						arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+					</p>
+				</div>
+			</article>
 		</div>
 	</article>
 
-	<article class="beefup example-opensingle">
+	<article class="beefup example-opensingle locked">
 		<h4 class="beefup__head">
 			Locked item
 		</h4>
@@ -112,7 +138,7 @@ $('.example').beefup();
 <pre>
 $('.example-opensingle').beefup({
 	openSingle: true,
-	stayOpen: 2
+	stayOpen: '.locked'
 });
 </pre>
 
@@ -620,7 +646,7 @@ $('.dropdown').beefup({
 
 <footer>
 	<p>
-		&COPY; 2016
+		&COPY; 2014
 		<a href="http://www.schaschaweb.de/" title="www.schaschaweb.de" target="_blank">
 			Sascha Künstler
 		</a>
@@ -638,7 +664,7 @@ $('.dropdown').beefup({
 		// Open single
 		$('.example-opensingle').beefup({
 			openSingle: true,
-			stayOpen: 2
+			stayOpen: '.locked'
 		});
 
 		// Fade animation

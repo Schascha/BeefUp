@@ -1,6 +1,6 @@
 /*!
- * BeefUp v1.1.7 - A jQuery Accordion Plugin
- * Copyright 2016 Sascha Künstler http://www.schaschaweb.de/
+ * BeefUp v1.1.8 - A jQuery Accordion Plugin
+ * Copyright 2014 Sascha Künstler http://www.schaschaweb.de/
  */
 
 (function($) {
@@ -187,11 +187,13 @@
 			}
 
 			$el.each(function() {
-				var $this = $(this),
+				var
+					$this = $(this),
 					vars = beefup.methods.getVars($this),
 					$content = $this.find(vars.content + ':first'),
 					animation = (vars.animation === 'slide') ? 'slideDown' :
-						(vars.animation === 'fade') ? 'fadeIn' : 'show';
+						(vars.animation === 'fade') ? 'fadeIn' : 'show'
+				;
 
 				// Animation
 				beefup.methods.animation(animation, $content, vars.openSpeed, function() {
@@ -225,11 +227,13 @@
 			}
 
 			$el.each(function() {
-				var $this = $(this),
+				var
+					$this = $(this),
 					vars = beefup.methods.getVars($this),
 					$content = $this.find(vars.content + ':first'),
 					animation = (vars.animation === 'slide') ? 'slideUp' :
-						(vars.animation === 'fade') ? 'fadeOut' : 'hide';
+						(vars.animation === 'fade') ? 'fadeOut' : 'hide'
+				;
 
 				// Animation
 				beefup.methods.animation(animation, $content, vars.closeSpeed, function() {
@@ -282,7 +286,11 @@
 
 			if (vars.openSingle) {
 				if (vars.stayOpen !== null) {
-					$obj.close($obj.not($el).not(beefup.methods.getStayOpen($obj, vars.stayOpen)));
+					$obj.close($obj.not(beefup.methods.getStayOpen($obj, vars.stayOpen)).filter(function() {
+						var $this = $(this);
+
+						return $this !== $el && !$this.find($el).length;
+					}));
 				} else {
 					$obj.close($obj.not($el));
 				}
@@ -304,8 +312,10 @@
 		};
 
 		return this.each(function(index, el) {
-			var $el = $(el),
-				vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options'));
+			var
+				$el = $(el),
+				vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options'))
+			;
 
 			if ($el.data('beefup')) {
 				return;
