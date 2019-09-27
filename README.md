@@ -2,9 +2,10 @@
 
 Just a jQuery accordion plugin
 
-**Demo:** https://schascha.github.io/BeefUp/
+https://schascha.github.io/BeefUp/
 
 **Examples:**
+
 * [Toggle buttons](https://jsfiddle.net/Schascha/2Lzmfdb1/)
 * [Hashchange](http://jsfiddle.net/Schascha/kovejmab/)
 * [CSS animations](https://jsfiddle.net/Schascha/ohb07vzq/)
@@ -23,19 +24,19 @@ npm install beefup --save
 1. Include jQuery
 
     ```html
-    <script src="js/jquery.min.js"></script>
+    <script src="dist/js/jquery.min.js"></script>
     ```
 
 2. Include plugin
 
     ```html
-    <script src="js/jquery.beefup.min.js"></script>
+    <script src="dist/js/jquery.beefup.min.js"></script>
     ```
 
 3. Add styles
 
     ```html
-    <link rel="stylesheet" href="css/jquery.beefup.css">
+    <link rel="stylesheet" href="dist/css/jquery.beefup.css">
     ```
 
 4. Add markup
