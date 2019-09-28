@@ -191,9 +191,21 @@
 					$this = $(this),
 					vars = beefup.methods.getVars($this),
 					$content = $this.find(vars.content + ':first'),
+					$close = $obj.not($el),
 					animation = (vars.animation === 'slide') ? 'slideDown' :
 						(vars.animation === 'fade') ? 'fadeIn' : 'show'
 				;
+
+				// Open single
+				if (vars.openSingle) {
+					if (vars.stayOpen !== null) {
+						$close = $close.not(beefup.methods.getStayOpen($obj, vars.stayOpen));
+					}
+
+					$obj.close($close.filter(function() {
+						return !$(this).find($el).length;
+					}));
+				}
 
 				// Animation
 				beefup.methods.animation(animation, $content, vars.openSpeed, function() {
@@ -283,18 +295,6 @@
 		 */
 		this.click = function($el) {
 			var vars = beefup.methods.getVars($el);
-
-			if (vars.openSingle) {
-				if (vars.stayOpen !== null) {
-					$obj.close($obj.not(beefup.methods.getStayOpen($obj, vars.stayOpen)).filter(function() {
-						var $this = $(this);
-
-						return $this !== $el && !$this.find($el).length;
-					}));
-				} else {
-					$obj.close($obj.not($el));
-				}
-			}
 
 			if (!$el.hasClass(vars.openClass)) {
 				$obj.open($el, function() {
