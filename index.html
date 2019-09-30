@@ -109,7 +109,7 @@ $('.example').beefup();
 		</div>
 	</article>
 
-	<article class="beefup example-opensingle locked">
+	<article class="beefup example-opensingle">
 		<h4 class="beefup__head">
 			Locked item
 		</h4>
@@ -122,7 +122,7 @@ $('.example').beefup();
 <pre>
 $('.example-opensingle').beefup({
 	openSingle: true,
-	stayOpen: '.locked'
+	stayOpen: 'last'
 });
 </pre>
 
@@ -132,8 +132,7 @@ $('.example-opensingle').beefup({
 
 	<p>
 		By default the accordion will slide down and up.
-		It is possible to set the animation type to "slide", "fade" or leave empty "" and to define the open and the
-		close animation speed.
+		It is possible to set the animation type to "slide", "fade" or leave empty "", and to define the open and the close animation speed.
 	</p>
 
 	<article class="beefup example-fade">
@@ -592,7 +591,7 @@ $('.dropdown').beefup({
 		// Open single
 		$('.example-opensingle').beefup({
 			openSingle: true,
-			stayOpen: '.locked'
+			stayOpen: 'last'
 		});
 
 		// Fade animation

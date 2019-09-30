@@ -11,25 +11,62 @@
 
 	// Defaults
 	beefup.defaults = {
-		trigger: '.beefup__head',       // String: Name of the trigger element
-		content: '.beefup__body',       // String: Name of the collapsible content
-		openClass: 'is-open',           // String: Name of the class which shows if a accordion is triggered or not
-		animation: 'slide',             // String: Set animation type to "slide", "fade" or leave empty ""
-		openSpeed: 200,                 // Integer: Set the speed of the open animation
-		closeSpeed: 200,                // Integer: Set the speed of the close animation
-		scroll: false,                  // Boolean: Scroll to accordion
-		scrollSpeed: 400,               // Integer: Set the speed of the scroll feature
-		scrollOffset: 0,                // Integer: Additional offset to accordion position
-		openSingle: false,              // Boolean: Open just one accordion at once
-		stayOpen: null,                 // Mixed: Leave one item open, accepts null, integer or string
-		selfClose: false,               // Boolean: Close on click outside
-		selfBlock: false,               // Boolean: Block close event on click
-		hash: true,                     // Boolean: Open accordion with id on hash change
-		breakpoints: null,              // Mixed: Null or array of objects
-		onInit: function() {},          // Callback: Fires after the accordions initially setup
-		onOpen: function() {},          // Callback: Fires after accordion opens content
-		onClose: function() {},         // Callback: Fires after accordion close content
-		onScroll: function() {}         // Callback: Fires after scroll animation
+		// String: Selector of the trigger element
+		trigger: '.beefup__head',
+
+		// String: Selector of the collapsible content
+		content: '.beefup__body',
+
+		// String: Name of the class which shows if a accordion is triggered or not
+		openClass: 'is-open',
+
+		// String: Set animation type to "slide", "fade" or leave empty "", default is "slide"
+		animation: 'slide',
+
+		// Integer: Set the speed of the open animation
+		openSpeed: 200,
+
+		// Integer: Set the speed of the close animation
+		closeSpeed: 200,
+
+		// Boolean: Scroll to accordion on open
+		scroll: false,
+
+		// Integer: Set the speed of the scroll animation
+		scrollSpeed: 400,
+
+		// Integer: Additional offset to accordion position
+		scrollOffset: 0,
+
+		// Boolean: Open just one accordion at once
+		openSingle: false,
+
+		// Mixed: Leave items open, accepts null, integer (index) or string (selector, 'first' or 'last')
+		stayOpen: null,
+
+		// Boolean: Block close event on click
+		selfBlock: false,
+
+		// Boolean: Close accordion on click outside
+		selfClose: false,
+
+		// Boolean: Open accordion with id on hash change
+		hash: true,
+
+		// Array: Array of objects, default is null
+		breakpoints: null,
+
+		// Callback: Fires after the accordions initially setup
+		onInit: null,
+
+		// Callback: Fires after accordion opens content
+		onOpen: null,
+
+		// Callback: Fires after accordion close content
+		onClose: null,
+
+		// Callback: Fires after scroll animation
+		onScroll: null
 	};
 
 	// Private methods
@@ -117,7 +154,17 @@
 			if (typeof value === 'number') {
 				$el = $obj.eq(value);
 			} else if (typeof value === 'string') {
-				$el = $obj.filter(value);
+				window.console.log(value);
+				switch(value) {
+					case 'first':
+						$el = $obj.first();
+						break;
+					case 'last':
+						$el = $obj.last();
+						break;
+					default:
+						$el = $obj.filter(value);
+				}
 			}
 
 			return $el;

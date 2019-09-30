@@ -62,33 +62,31 @@ npm install beefup --save
 
 ## Configuration
 
-```javascript
-trigger: '.beefup__head',   // String: Name of the trigger element
-content: '.beefup__body',   // String: Name of the collapsible content
-openClass: 'is-open',       // String: Name of the class which shows if a accordion is triggered or not
-animation: 'slide',         // String: Set animation type to "slide", "fade" or leave empty ""
-openSpeed: 200,             // Integer: Set the speed of the open animation
-closeSpeed: 200,            // Integer: Set the speed of the close animation
-scroll: false,              // Boolean: Scroll to accordion
-scrollSpeed: 400,           // Integer: Set the speed of the scroll feature
-scrollOffset: 0,            // Integer: Additional offset to accordion position
-openSingle: false,          // Boolean: Open just one accordion at once
-stayOpen: null,             // Mixed: Leave one item open, accepts null, integer or string
-selfBlock: false,           // Boolean: Block close event on click
-selfClose: false,           // Boolean: Close on click outside
-hash: true,                 // Boolean: Open accordion with id on hash change
-breakpoints: null,          // Mixed: Null or array of objects
-onInit: function() {},      // Callback: Fires after the accordions initially setup
-onOpen: function() {},      // Callback: Fires after accordion opens content
-onClose: function() {},     // Callback: Fires after accordion close content
-onScroll: function() {}     // Callback: Fires after scroll animation
-```
+Option			| Type		| Default			| Description
+---				| ---		| ---				| ---
+trigger			| string	| '.beefup__head'	| Selector of the trigger element
+content			| string	| '.beefup__body'	| Selector of the collapsible content
+openClass		| string	| 'is-open'			| Name of the class which shows if a accordion is triggered or not
+animation		| string	| 'slide'			| Set animation type to "slide", "fade" or leave empty ""
+openSpeed		| integer	| 200				| Set the speed of the open animation
+closeSpeed		| integer 	| 200				| Set the speed of the close animation
+scroll			| boolean	| false				| Scroll to accordion on open
+scrollSpeed		| integer	| 400				| Set the speed of the scroll animation
+scrollOffset	| integer	| 0					| Additional offset to accordion position
+openSingle		| boolean	| false				| Open just one accordion at once
+stayOpen		| mixed		| null				| Leave items open, accepts null, integer (index) or string (selector, "first" or "last")
+selfBlock		| boolean	| false				| Block close event on click
+selfClose		| boolean	| false				| Close accordion on click outside
+hash			| boolean	| true				| Open accordion with id on hash change
+breakpoints		| array		| null				| Array of objects, see [example](https://schascha.github.io/BeefUp/#breakpoints)
+onInit			| function	| null				| Callback: Fires after the accordions initially setup
+onOpen			| function	| null				| Callback: Fires after the accordions initially setup
+onClose			| function	| null				| Callback: Fires after the accordions initially setup
+onScroll		| function	| null				| Callback: Fires after the accordions initially setup
 
 ## Advanced
 
 ### API Methods
-
-
 
 ```javascript
 var $beefup = $('.beefup').beefup();
