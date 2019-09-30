@@ -154,7 +154,6 @@
 			if (typeof value === 'number') {
 				$el = $obj.eq(value);
 			} else if (typeof value === 'string') {
-				window.console.log(value);
 				switch(value) {
 					case 'first':
 						$el = $obj.first();
