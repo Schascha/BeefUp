@@ -11,9 +11,7 @@ module.exports = {
 		'scss'
 	],
 	'js': [
-		'eslint',
-		'uglify',
-		'qunit'
+		'uglify'
 	],
 	'scss': [
 		'sasslint',

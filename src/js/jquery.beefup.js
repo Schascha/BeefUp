@@ -80,11 +80,7 @@
 		getVars: function($el) {
 			var vars = $.extend(true, {}, $el.data('beefup'), $el.data('beefup-options'));
 
-			if (vars.breakpoints) {
-				vars = beefup.methods.getResponsiveVars(vars);
-			}
-
-			return vars;
+			return (vars.breakpoints) ? beefup.methods.getResponsiveVars(vars) : vars;
 		},
 
 		/**

@@ -8,7 +8,7 @@
     "css",
     "javascript"
   ],
-  "homepage": "https://github.com/Schascha/BeefUp",
+  "homepage": "https://schascha.github.io/BeefUp/",
   "authors": [
     "Sascha Künstler <contact.schascha@gmail.com> (http://www.schaschaweb.de)"
   ],
@@ -20,24 +20,27 @@
   "bugs": {
     "url": "https://github.com/Schascha/BeefUp/issues"
   },
+  "scripts": {
+    "test": "eslint src/js && jest src/js --coverage --verbose"
+  },
   "dependencies": {
     "jquery": ">=1.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
+    "eslint": "^6.5.0",
+    "eslint-plugin-jest": "^22.17.0",
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-qunit": "^1.2.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-eslint": "^21.0.0",
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^2.1.0",
     "grunt-sass-lint": "^0.2.0",
+    "jest": "^24.9.0",
     "jit-grunt": "^0.10.0",
     "load-grunt-config": "^0.19.2",
-    "load-grunt-tasks": "^3.3.0",
-    "qunitjs": "^2.0.1"
+    "load-grunt-tasks": "^3.3.0"
   },
   "engines": {
     "node": "*"
