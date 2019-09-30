@@ -171,24 +171,27 @@
 		 * @param {jQuery} $obj
 		 * @param {object} vars
 		 */
-		selfClose: function($obj, vars) {
+		addSelfCloseEvent: function($obj, vars) {
+			if (!vars.selfClose) {
+				return;
+			}
+
 			$(document).on('click', function(e) {
-				var $el;
+				if ($(e.target).closest($obj).length) {
+					return;
+				}
 
-				if (!$(e.target).closest($obj).length) {
+				// Find open items
+				var $el = $obj.filter('.' + vars.openClass);
 
-					// Find open items
-					$el = $obj.filter('.' + vars.openClass);
+				// Exclude stayOpen item
+				if (vars.stayOpen !== null) {
+					$el = $el.not(beefup.methods.getStayOpen($obj, vars.stayOpen));
+				}
 
-					// Exclude stayOpen item
-					if (vars.stayOpen !== null) {
-						$el = $el.not(beefup.methods.getStayOpen($obj, vars.stayOpen));
-					}
-
-					// Close remaining items
-					if ($el.length) {
-						$obj.close($el);
-					}
+				// Close remaining items
+				if ($el.length) {
+					$obj.close($el);
 				}
 			});
 		},
@@ -199,7 +202,11 @@
 		 * @param {jQuery} $obj
 		 * @param {object} vars
 		 */
-		hash: function($obj, vars) {
+		addHashchangeEvent: function($obj, vars) {
+			if (!vars.hash) {
+				return;
+			}
+
 			var hashChange = function() {
 				var $el = $obj.filter(window.location.hash);
 
@@ -388,16 +395,8 @@
 
 			// Trigger only once
 			if (index === 0) {
-
-				// Hash
-				if (vars.hash) {
-					beefup.methods.hash($obj, vars);
-				}
-
-				// Self close
-				if (vars.selfClose) {
-					beefup.methods.selfClose($obj, vars);
-				}
+				beefup.methods.addHashchangeEvent($obj, vars);
+				beefup.methods.addSelfCloseEvent($obj, vars);
 			}
 		});
 	};
