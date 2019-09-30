@@ -4,7 +4,10 @@ require('./jquery.beefup');
 
 
 function __fixture() {
-	return '<article class="beefup"><h3 class="beefup__head"></h3><div class="beefup__body"></div></article>';
+	return '<article class="beefup">' +
+		'<h3 class="beefup__head">Trigger</h3>' +
+		'<div class="beefup__body">Content</div>' +
+		'</article>';
 }
 
 
@@ -18,6 +21,7 @@ describe('BeefUp', function() {
 		document.body.innerHTML = __fixture();
 		$el = $('.beefup');
 		options = {
+			trigger: '.beefup__head',
 			openClass: 'is-open',
 			openSpeed: 0,
 			closeSpeed: 0,
@@ -27,6 +31,8 @@ describe('BeefUp', function() {
 
 	afterEach(function() {
 		document.body.innerHTML = '';
+		$el = null;
+		options = null;
 	});
 
 	it('should be chainable', function() {
@@ -36,6 +42,51 @@ describe('BeefUp', function() {
 
 	it('should initialize', function() {
 		expect($el.beefup().data('beefup')).toBeTruthy();
+	});
+
+	it('should have click events', function() {
+		$el.beefup($.extend({}, options, {
+			selfClose: true
+		}));
+
+		$el.find(options.trigger + ':first').trigger('click');
+
+		expect($el.hasClass(options.openClass)).toBeTruthy();
+
+		$(document).trigger('click');
+
+		expect($el.hasClass(options.openClass)).toBeFalsy();
+	});
+
+	it('should open only once', function() {
+		document.body.innerHTML += __fixture();
+		$el = $('.beefup').beefup($.extend({}, options, {
+			openSingle: true
+		}));
+
+		expect($el.length).toBe(2);
+
+		$el.first().find(options.trigger + ':first').trigger('click');
+
+		expect($el.first().hasClass(options.openClass)).toBeTruthy();
+
+		$el.last().find(options.trigger + ':first').trigger('click');
+
+		expect($el.first().hasClass(options.openClass)).toBeFalsy();
+		expect($el.last().hasClass(options.openClass)).toBeTruthy();
+	});
+
+	it('should stay open', function() {
+		document.body.innerHTML += __fixture();
+		$el = $('.beefup').beefup($.extend({}, options, {
+			stayOpen: 'first'
+		}));
+
+		expect($el.length).toBe(2);
+		expect($el.first().hasClass(options.openClass)).toBeTruthy();
+
+		$el.last().find(options.trigger + ':first').trigger('click');
+		expect($el.first().hasClass(options.openClass)).toBeTruthy();
 	});
 
 	it('should have api methods', function() {
