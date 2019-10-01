@@ -14,7 +14,6 @@ module.exports = {
 		'uglify'
 	],
 	'scss': [
-		'sasslint',
 		'sass',
 		'postcss'
 	]

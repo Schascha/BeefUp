@@ -6,7 +6,9 @@
     "accordion",
     "jquery",
     "css",
-    "javascript"
+    "javascript",
+    "plugin",
+    "collapsible"
   ],
   "homepage": "https://schascha.github.io/BeefUp/",
   "authors": [
@@ -21,7 +23,7 @@
     "url": "https://github.com/Schascha/BeefUp/issues"
   },
   "scripts": {
-    "test": "eslint src/js && jest src/js --coverage --verbose"
+    "test": "eslint src/js && sass-lint src/scss/**/*.scss -v -q && jest src/js --coverage --verbose"
   },
   "dependencies": {
     "jquery": ">=1.8.0"
@@ -36,11 +38,11 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^2.1.0",
-    "grunt-sass-lint": "^0.2.0",
     "jest": "^24.9.0",
     "jit-grunt": "^0.10.0",
     "load-grunt-config": "^0.19.2",
-    "load-grunt-tasks": "^3.3.0"
+    "load-grunt-tasks": "^3.3.0",
+    "sass-lint": "^1.13.1"
   },
   "engines": {
     "node": "*"
