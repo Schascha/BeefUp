@@ -11,6 +11,9 @@
 
 	// Defaults
 	beefup.defaults = {
+		// Boolean: Enable accessibility features
+		accessibility: true,
+
 		// String: Selector of the trigger element
 		trigger: '.beefup__head',
 
@@ -77,10 +80,10 @@
 		 *
 		 * @param {jQuery} $el
 		 */
-		getVars: function($el) {
+		_getVars: function($el) {
 			var vars = $.extend(true, {}, $el.data('beefup'), $el.data('beefup-options'));
 
-			return (vars.breakpoints) ? beefup.methods.getResponsiveVars(vars) : vars;
+			return (vars.breakpoints) ? beefup.methods._getResponsiveVars(vars) : vars;
 		},
 
 		/**
@@ -89,7 +92,7 @@
 		 * @param {object} vars
 		 * @returns {*}
 		 */
-		getResponsiveVars: function(vars) {
+		_getResponsiveVars: function(vars) {
 			var windowWidth = window.innerWidth || $(window).width();
 
 			// Sort
@@ -114,7 +117,7 @@
 		 * @param {number} speed
 		 * @param {function} callback
 		 */
-		animation: function(type, $el, speed, callback) {
+		_animation: function(type, $el, speed, callback) {
 			switch (type) {
 				case 'slideDown':
 					$el.slideDown(speed, callback);
@@ -138,13 +141,49 @@
 		},
 
 		/**
+		 * Close helper
+		 *
+		 * @param  {jQuery} $el
+		 * @param  {object} vars
+		 * @return {undefined}
+		 */
+		_close: function($el, vars) {
+			var $content = $el.find(vars.content + ':first');
+
+			$el.removeClass(vars.openClass);
+			$content.css('overflow', '');
+
+			if (vars.accessibility) {
+				$content.attr('hidden', true);
+			}
+		},
+
+		/**
+		 * open helper
+		 *
+		 * @param  {jQuery} $el
+		 * @param  {object} vars
+		 * @return {undefined}
+		 */
+		_open: function($el, vars) {
+			var $content = $el.find(vars.content + ':first');
+
+			$el.addClass(vars.openClass);
+			$content.css('overflow', 'hidden');
+
+			if (vars.accessibility) {
+				$content.attr('hidden', false);
+			}
+		},
+
+		/**
 		 * Get stayOpen element
 		 *
 		 * @param {jQuery} $obj
 		 * @param {number|string} value
 		 * @returns {*}
 		 */
-		getStayOpen: function($obj, value) {
+		_getStayOpen: function($obj, value) {
 			var $el;
 
 			if (typeof value === 'number') {
@@ -166,12 +205,36 @@
 		},
 
 		/**
+		 * Open just one accordion at once
+		 *
+		 * @param  {jQuery} $obj
+		 * @param  {jQuery} $el
+		 * @param  {object} vars
+		 * @return {undefined}
+		 */
+		_openSingle: function($obj, $el, vars) {
+			if (!vars.openSingle) {
+				return;
+			}
+
+			var $close = $obj.not($el);
+
+			if (vars.stayOpen !== null) {
+				$close = $close.not(beefup.methods._getStayOpen($obj, vars.stayOpen));
+			}
+
+			$obj.close($close.filter(function() {
+				return !$(this).find($el).length;
+			}));
+		},
+
+		/**
 		 * Add self close event
 		 *
 		 * @param {jQuery} $obj
 		 * @param {object} vars
 		 */
-		addSelfCloseEvent: function($obj, vars) {
+		_addSelfCloseEvent: function($obj, vars) {
 			if (!vars.selfClose) {
 				return;
 			}
@@ -186,7 +249,7 @@
 
 				// Exclude stayOpen item
 				if (vars.stayOpen !== null) {
-					$el = $el.not(beefup.methods.getStayOpen($obj, vars.stayOpen));
+					$el = $el.not(beefup.methods._getStayOpen($obj, vars.stayOpen));
 				}
 
 				// Close remaining items
@@ -202,7 +265,7 @@
 		 * @param {jQuery} $obj
 		 * @param {object} vars
 		 */
-		addHashchangeEvent: function($obj, vars) {
+		_addHashchangeEvent: function($obj, vars) {
 			if (!vars.hash) {
 				return;
 			}
@@ -238,28 +301,23 @@
 			$el.each(function() {
 				var
 					$this = $(this),
-					vars = beefup.methods.getVars($this),
+					vars = beefup.methods._getVars($this),
 					$content = $this.find(vars.content + ':first'),
-					$close = $obj.not($el),
 					animation = (vars.animation === 'slide') ? 'slideDown' :
 						(vars.animation === 'fade') ? 'fadeIn' : 'show'
 				;
 
 				// Open single
-				if (vars.openSingle) {
-					if (vars.stayOpen !== null) {
-						$close = $close.not(beefup.methods.getStayOpen($obj, vars.stayOpen));
-					}
-
-					$obj.close($close.filter(function() {
-						return !$(this).find($el).length;
-					}));
-				}
+				beefup.methods._openSingle($obj, $el, vars);
 
 				// Animation
-				beefup.methods.animation(animation, $content, vars.openSpeed, function() {
-					$this.addClass(vars.openClass);
-					$content.css('overflow', '');
+				beefup.methods._animation(animation, $content, vars.openSpeed, function() {
+					beefup.methods._open($this, vars);
+
+					// Scroll
+					if (vars.scroll) {
+						$obj.scroll($el);
+					}
 
 					// Callbacks
 					if (callback && typeof callback === 'function') {
@@ -290,16 +348,15 @@
 			$el.each(function() {
 				var
 					$this = $(this),
-					vars = beefup.methods.getVars($this),
+					vars = beefup.methods._getVars($this),
 					$content = $this.find(vars.content + ':first'),
 					animation = (vars.animation === 'slide') ? 'slideUp' :
 						(vars.animation === 'fade') ? 'fadeOut' : 'hide'
 				;
 
 				// Animation
-				beefup.methods.animation(animation, $content, vars.closeSpeed, function() {
-					$this.removeClass(vars.openClass);
-					$content.css('overflow', '');
+				beefup.methods._animation(animation, $content, vars.closeSpeed, function() {
+					beefup.methods._close($this, vars);
 
 					// Callbacks
 					if (callback && typeof callback === 'function') {
@@ -322,7 +379,7 @@
 		 * @returns {jQuery}
 		 */
 		this.scroll = function($el) {
-			var vars = beefup.methods.getVars($el);
+			var vars = beefup.methods._getVars($el);
 
 			$('html, body').animate(
 				{scrollTop: $el.offset().top + vars.scrollOffset},
@@ -343,14 +400,10 @@
 		 * @returns {jQuery}
 		 */
 		this.click = function($el) {
-			var vars = beefup.methods.getVars($el);
+			var vars = beefup.methods._getVars($el);
 
 			if (!$el.hasClass(vars.openClass)) {
-				$obj.open($el, function() {
-					if (vars.scroll) {
-						$obj.scroll($el);
-					}
-				});
+				$obj.open($el);
 			} else {
 				if (!vars.selfBlock) {
 					$obj.close($el);
@@ -372,15 +425,18 @@
 
 			$el.data('beefup', vars);
 
+			// Breakpoints
 			if (vars.breakpoints) {
-				vars = beefup.methods.getResponsiveVars(vars);
+				vars = beefup.methods._getResponsiveVars(vars);
 			}
 
-			if (vars.stayOpen !== null && $el.is(beefup.methods.getStayOpen($obj, vars.stayOpen))) {
-				$el.addClass(vars.openClass);
+			// Open stayOpen item
+			if (vars.stayOpen !== null && $el.is(beefup.methods._getStayOpen($obj, vars.stayOpen))) {
+				beefup.methods._open($el, vars);
 			}
 
-			$el.not('.' + vars.openClass).find(vars.content + ':first').hide();
+			// Close inactive items
+			beefup.methods._close($el.not('.' + vars.openClass), vars);
 
 			// Callback
 			if (vars.onInit && typeof vars.onInit === 'function') {
@@ -395,8 +451,8 @@
 
 			// Trigger only once
 			if (index === 0) {
-				beefup.methods.addHashchangeEvent($obj, vars);
-				beefup.methods.addSelfCloseEvent($obj, vars);
+				beefup.methods._addHashchangeEvent($obj, vars);
+				beefup.methods._addSelfCloseEvent($obj, vars);
 			}
 		});
 	};

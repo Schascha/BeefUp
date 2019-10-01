@@ -191,6 +191,32 @@ $('.example-scroll').beefup({
 
 	<hr>
 
+	<h3 id="self-block">
+		Self block
+	</h3>
+
+	<p>
+		Block accordion close event on click.
+	</p>
+
+	<article class="beefup example-selfblock is-open">
+		<h4 class="beefup__head">
+			Item
+		</h4>
+
+		<div class="beefup__body">
+			<div class="mockup mockup-sm"></div>
+		</div>
+	</article>
+
+<pre>
+$('.example-selfblock').beefup({
+	selfBlock: true
+});
+</pre>
+
+	<hr>
+
 	<h3 id="self-close">
 		Self close
 	</h3>
@@ -605,6 +631,11 @@ $('.dropdown').beefup({
 		$('.example-scroll').beefup({
 			scroll: true,
 			scrollOffset: -10
+		});
+
+		// Self block
+		$('.example-selfblock').beefup({
+			selfBlock: true
 		});
 
 		// Self close

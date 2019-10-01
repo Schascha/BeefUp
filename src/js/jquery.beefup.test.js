@@ -50,11 +50,9 @@ describe('BeefUp', function() {
 		}));
 
 		$el.find(options.trigger + ':first').trigger('click');
-
 		expect($el.hasClass(options.openClass)).toBeTruthy();
 
 		$(document).trigger('click');
-
 		expect($el.hasClass(options.openClass)).toBeFalsy();
 	});
 
@@ -65,13 +63,10 @@ describe('BeefUp', function() {
 		}));
 
 		expect($el.length).toBe(2);
-
 		$el.first().find(options.trigger + ':first').trigger('click');
-
 		expect($el.first().hasClass(options.openClass)).toBeTruthy();
 
 		$el.last().find(options.trigger + ':first').trigger('click');
-
 		expect($el.first().hasClass(options.openClass)).toBeFalsy();
 		expect($el.last().hasClass(options.openClass)).toBeTruthy();
 	});
@@ -96,6 +91,18 @@ describe('BeefUp', function() {
 		expect(!$el.close().hasClass(classname)).toBeTruthy();
 		expect($el.click($el).hasClass(classname)).toBeTruthy();
 		expect(!$el.click($el).hasClass(classname)).toBeTruthy();
+	});
+
+	it('should have fade animation', function() {
+		expect($el.beefup($.extend({}, options, {
+			animation: 'fade'
+		})).open().hasClass(options.openClass)).toBeTruthy();
+	});
+
+	it('should have empty animation', function() {
+		expect($el.beefup($.extend({}, options, {
+			animation: ''
+		})).open().hasClass(options.openClass)).toBeTruthy();
 	});
 
 	it('should have callbacks', function() {
