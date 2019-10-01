@@ -7,8 +7,6 @@ module.exports = {
 		}
 	},
 	js: {
-		files: {
-			'dist/js/jquery.beefup.min.js': 'src/js/jquery.beefup.js'
-		}
+		files: '<%= files.jsBuild %>'
 	}
 };

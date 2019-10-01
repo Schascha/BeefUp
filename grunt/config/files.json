@@ -1,18 +1,21 @@
 {
-	"js": [
-		"Gruntfile.js",
-		"grunt/**/*.js",
-		"src/js/**/*.js",
-		"test/**/*.js"
-	],
-	"css": [
-		"dist/css/**/*.css"
-	],
-	"scss": [
-		"src/scss/**/*.scss"
-	],
-	"sassBuild": {
-		"dist/css/jquery.beefup.css": "src/scss/jquery.beefup.scss",
-		"dist/css/styles.css": "src/scss/styles.scss"
-	}
+  "js": [
+    "Gruntfile.js",
+    "grunt/**/*.js",
+    "src/js/**/*.js",
+    "test/**/*.js"
+  ],
+  "css": [
+    "dist/css/**/*.css"
+  ],
+  "scss": [
+    "src/scss/**/*.scss"
+  ],
+  "jsBuild": {
+    "dist/js/jquery.beefup.min.js": "src/js/jquery.beefup.js"
+  },
+  "sassBuild": {
+    "dist/css/jquery.beefup.css": "src/scss/jquery.beefup.scss",
+    "dist/css/styles.css": "src/scss/styles.scss"
+  }
 }

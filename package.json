@@ -23,6 +23,8 @@
     "url": "https://github.com/Schascha/BeefUp/issues"
   },
   "scripts": {
+    "build": "grunt build",
+    "dev": "grunt",
     "test": "eslint src/js && sass-lint src/scss/**/*.scss -v -q && jest src/js --coverage --verbose"
   },
   "dependencies": {
