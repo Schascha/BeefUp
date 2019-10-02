@@ -11,7 +11,7 @@
 
 	// Defaults
 	beefup.defaults = {
-		// Boolean: Enable accessibility features
+		// Boolean: Enable accessibility features like tab control
 		accessibility: true,
 
 		// String: Selector of the trigger element
@@ -416,7 +416,9 @@
 		return this.each(function(index, el) {
 			var
 				$el = $(el),
-				vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options'))
+				vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options')),
+				trigger = vars.trigger + ':first',
+				$trigger = $el.find(trigger)
 			;
 
 			if ($el.data('beefup')) {
@@ -443,8 +445,16 @@
 				vars.onInit($el);
 			}
 
+			// Accessibility
+			if (vars.accessibility) {
+				if (!$trigger.is('button') && !$trigger.is('a') && !$trigger.children('button').length) {
+					$trigger.wrapInner('<button type="button"></button>');
+					trigger += ' > button';
+				}
+			}
+
 			// Click event
-			$el.on('click', vars.trigger + ':first', function(e) {
+			$el.on('click', trigger, function(e) {
 				e.preventDefault();
 				$obj.click($el);
 			});

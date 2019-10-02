@@ -1,8 +1,8 @@
 $beefup: 'beefup' !default;
 $beefup-border-color: #ddd !default;
 $beefup-border-color-hover: #ccc !default;
-$beefup-triangle-color: #ccc !default;
-$beefup-triangle-size: 6px !default;
+$beefup-icon-color: #ccc !default;
+$beefup-icon-size: 6px !default;
 
 .#{$beefup} {
 	margin: 1em 0;
@@ -23,15 +23,32 @@ $beefup-triangle-size: 6px !default;
 	}
 
 	&__head {
-		transition: border 0.2s ease-out;
 		cursor: pointer;
-		overflow: hidden;
 		position: relative;
 		margin: 0;
 		padding-right: 50px;
-		white-space: nowrap;
-		text-overflow: ellipsis;
 
+		// Button
+		@at-root button#{&},
+		& > button {
+			cursor: pointer;
+			display: block;
+			width: 100%;
+			background: inherit;
+			border: inherit;
+			font: inherit;
+			text-align: inherit;
+		}
+
+		> button {
+			position: relative;
+			z-index: 1;
+			margin: -10px -50px -10px -20px;
+			padding: inherit;
+			width: calc(100% + 70px);
+		}
+
+		// Icon
 		&::after {
 			transition: transform 0.2s ease-out;
 			content: '';
@@ -39,19 +56,21 @@ $beefup-triangle-size: 6px !default;
 			position: absolute;
 			top: 50%;
 			right: 20px;
-			margin-top: -$beefup-triangle-size / 3;
-			padding: $beefup-triangle-size / 2;
+			z-index: 0;
+			margin-top: -$beefup-icon-size / 3;
+			padding: $beefup-icon-size / 2;
 			border-width: 0 2px 2px 0;
 			border-style: solid;
-			color: $beefup-triangle-color;
+			color: $beefup-icon-color;
 		}
 	}
 
+	// Open
 	&.is-open {
 		> .#{$beefup}__head {
 			&::after {
 				transform: translate(0, -50%) rotate(225deg);
-				margin-top: $beefup-triangle-size / 3;
+				margin-top: $beefup-icon-size / 3;
 			}
 		}
 	}

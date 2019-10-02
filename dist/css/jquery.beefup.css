@@ -17,14 +17,29 @@
 }
 
 .beefup__head {
-  transition: border 0.2s ease-out;
   cursor: pointer;
-  overflow: hidden;
   position: relative;
   margin: 0;
   padding-right: 50px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+}
+
+button.beefup__head,
+.beefup__head > button {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  background: inherit;
+  border: inherit;
+  font: inherit;
+  text-align: inherit;
+}
+
+.beefup__head > button {
+  position: relative;
+  z-index: 1;
+  margin: -10px -50px -10px -20px;
+  padding: inherit;
+  width: calc(100% + 70px);
 }
 
 .beefup__head::after {
@@ -34,6 +49,7 @@
   position: absolute;
   top: 50%;
   right: 20px;
+  z-index: 0;
   margin-top: -2px;
   padding: 3px;
   border-width: 0 2px 2px 0;
