@@ -308,19 +308,26 @@
 			var
 				$trigger = $el.find(vars.trigger + ':first'),
 				id = 'acc' + beefup.id++,
-				label = id + 'id'
+				label = id + 'id',
+				$button = $trigger.children('button')
 			;
 
 			if (vars.accessibility) {
-				if ($trigger.is('button') && $trigger.is('a')) {
-					$trigger
-						.attr('aria-controls', id)
-						.attr('aria-expanded', false)
-						.attr('id', label);
+				if ($trigger.is('button') || $trigger.is('a')) {
+					$button = $trigger;
 				} else {
-					$trigger.wrapInner('<button type="button" aria-controls="' + id + '" aria-expanded="false" id="' + label + '"></button>');
+					if (!$trigger.children('button').length) {
+						$trigger.wrapInner('<button type="button" aria-controls="' + id + '" aria-expanded="false" id="' + label + '"></button>');
+						$button = $trigger.children('button');
+					}
+
 					vars.trigger += ' > button';
 				}
+
+				$button
+					.attr('aria-controls', id)
+					.attr('aria-expanded', false)
+					.attr('id', label);
 
 				$el.find(vars.content + ':first')
 					.attr('aria-labelledby', label)

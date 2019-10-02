@@ -28,8 +28,8 @@ button.beefup__head,
   cursor: pointer;
   display: block;
   width: 100%;
-  background: inherit;
-  border: inherit;
+  background: none;
+  border: 0;
   font: inherit;
   text-align: inherit;
 }
@@ -46,6 +46,8 @@ button.beefup__head[aria-disabled],
   margin: -10px -50px -10px -20px;
   padding: inherit;
   width: calc(100% + 70px);
+  background: inherit;
+  border: inherit;
 }
 
 .beefup__head::after {

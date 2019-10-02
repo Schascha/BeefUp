@@ -34,8 +34,8 @@ $beefup-icon-size: 6px !default;
 			cursor: pointer;
 			display: block;
 			width: 100%;
-			background: inherit;
-			border: inherit;
+			background: none;
+			border: 0;
 			font: inherit;
 			text-align: inherit;
 
@@ -51,6 +51,8 @@ $beefup-icon-size: 6px !default;
 			margin: -10px -50px -10px -20px;
 			padding: inherit;
 			width: calc(100% + 70px);
+			background: inherit;
+			border: inherit;
 		}
 
 		// Icon
