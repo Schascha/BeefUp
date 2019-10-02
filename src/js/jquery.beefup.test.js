@@ -21,6 +21,7 @@ describe('BeefUp', function() {
 		document.body.innerHTML = __fixture();
 		$el = $('.beefup');
 		options = {
+			accessibility: false,
 			trigger: '.beefup__head',
 			openClass: 'is-open',
 			openSpeed: 0,
@@ -127,6 +128,21 @@ describe('BeefUp', function() {
 		$el.beefup(options).attr('data-beefup-options', '{"openClass": "test"}');
 
 		expect($el.open($el).hasClass('test'));
+	});
+
+	it('should initialize accessibility features', function() {
+		$el.beefup($.extend({}, options, {
+			accessibility: true
+		}));
+
+		var $trigger = $el.find(options.trigger + ' > button');
+
+		expect($trigger.length).toBeTruthy();
+		expect($trigger.attr('id')).toBeTruthy();
+		expect($trigger.attr('aria-expanded')).toBe("false");
+
+		$trigger.trigger('click');
+		expect($trigger.attr('aria-expanded')).toBe("true");
 	});
 
 });
