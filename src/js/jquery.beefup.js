@@ -72,6 +72,9 @@
 		onScroll: null
 	};
 
+	// Counter
+	beefup.id = 0;
+
 	// Private methods
 	beefup.methods = {
 
@@ -148,13 +151,17 @@
 		 * @return {undefined}
 		 */
 		_close: function($el, vars) {
-			var $content = $el.find(vars.content + ':first');
+			var
+				$content = $el.find(vars.content + ':first'),
+				$trigger = $el.find(vars.trigger + ':first')
+			;
 
 			$el.removeClass(vars.openClass);
-			$content.css('overflow', '');
+			$content.hide().css('overflow', '');
 
 			if (vars.accessibility) {
 				$content.attr('hidden', true);
+				$trigger.attr('aria-expanded', false).removeAttr('aria-disabled');
 			}
 		},
 
@@ -166,13 +173,21 @@
 		 * @return {undefined}
 		 */
 		_open: function($el, vars) {
-			var $content = $el.find(vars.content + ':first');
+			var
+				$content = $el.find(vars.content + ':first'),
+				$trigger = $el.find(vars.trigger + ':first')
+			;
 
 			$el.addClass(vars.openClass);
-			$content.css('overflow', 'hidden');
+			$content.show().css('overflow', 'hidden');
 
 			if (vars.accessibility) {
 				$content.attr('hidden', false);
+				$trigger.attr('aria-expanded', true);
+
+				if (vars.selfBlock) {
+					$trigger.attr('aria-disabled', true);
+				}
 			}
 		},
 
@@ -280,6 +295,40 @@
 
 			hashChange();
 			$(window).on('hashchange', hashChange);
+		},
+
+		/**
+		 * Initialize accessibility features
+		 *
+		 * @param  {jQuery} $el
+		 * @param  {object} vars
+		 * @return {object}
+		 */
+		_initAccessibility: function($el, vars) {
+			var
+				$trigger = $el.find(vars.trigger + ':first'),
+				id = 'acc' + beefup.id++,
+				label = id + 'id'
+			;
+
+			if (vars.accessibility) {
+				if ($trigger.is('button') && $trigger.is('a')) {
+					$trigger
+						.attr('aria-controls', id)
+						.attr('aria-expanded', false)
+						.attr('id', label);
+				} else {
+					$trigger.wrapInner('<button type="button" aria-controls="' + id + '" aria-expanded="false" id="' + label + '"></button>');
+					vars.trigger += ' > button';
+				}
+
+				$el.find(vars.content + ':first')
+					.attr('aria-labelledby', label)
+					.attr('id', id)
+					.attr('role', 'region');
+			}
+
+			return vars;
 		}
 	};
 
@@ -416,9 +465,9 @@
 		return this.each(function(index, el) {
 			var
 				$el = $(el),
-				vars = $.extend({}, beefup.defaults, options, $el.data('beefup-options')),
-				trigger = vars.trigger + ':first',
-				$trigger = $el.find(trigger)
+				vars = beefup.methods._initAccessibility($el,
+					$.extend({}, beefup.defaults, options, $el.data('beefup-options')
+				))
 			;
 
 			if ($el.data('beefup')) {
@@ -433,7 +482,7 @@
 			}
 
 			// Open stayOpen item
-			if (vars.stayOpen !== null && $el.is(beefup.methods._getStayOpen($obj, vars.stayOpen))) {
+			if ($el.is('.' + vars.openClass) || vars.stayOpen !== null && $el.is(beefup.methods._getStayOpen($obj, vars.stayOpen))) {
 				beefup.methods._open($el, vars);
 			}
 
@@ -445,16 +494,8 @@
 				vars.onInit($el);
 			}
 
-			// Accessibility
-			if (vars.accessibility) {
-				if (!$trigger.is('button') && !$trigger.is('a') && !$trigger.children('button').length) {
-					$trigger.wrapInner('<button type="button"></button>');
-					trigger += ' > button';
-				}
-			}
-
 			// Click event
-			$el.on('click', trigger, function(e) {
+			$el.on('click', vars.trigger + ':first', function(e) {
 				e.preventDefault();
 				$obj.click($el);
 			});

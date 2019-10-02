@@ -38,6 +38,11 @@ $beefup-icon-size: 6px !default;
 			border: inherit;
 			font: inherit;
 			text-align: inherit;
+
+			&[aria-disabled] {
+				cursor: default;
+				outline: 0;
+			}
 		}
 
 		> button {

@@ -34,6 +34,12 @@ button.beefup__head,
   text-align: inherit;
 }
 
+button.beefup__head[aria-disabled],
+.beefup__head > button[aria-disabled] {
+  cursor: default;
+  outline: 0;
+}
+
 .beefup__head > button {
   position: relative;
   z-index: 1;
