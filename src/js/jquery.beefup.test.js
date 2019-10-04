@@ -3,9 +3,9 @@ global.$ = global.jQuery = $;
 require('./jquery.beefup');
 
 
-function __fixture() {
+function __fixture(trigger) {
 	return '<article class="beefup">' +
-		'<h3 class="beefup__head">Trigger</h3>' +
+		'<' + (trigger || 'h3') + ' class="beefup__head">Trigger</' + (trigger || 'h3') + '>' +
 		'<div class="beefup__body">Content</div>' +
 		'</article>';
 }
@@ -119,9 +119,25 @@ describe('BeefUp', function() {
 			}
 		}));
 
-		expect($el.hasClass('test-init'));
-		expect($el.open($el).hasClass('test-open'));
-		expect($el.close($el).hasClass('test-close'));
+		expect($el.hasClass('test-init')).toBeTruthy();
+
+		expect($el.open($el, function($el) {
+			$el.addClass('test-open-2');
+		}).is('.test-open, .test-open-2')).toBeTruthy();
+
+		expect($el.close($el, function($el) {
+			$el.addClass('test-close-2');
+		}).is('test-close, .test-close-2')).toBeTruthy();
+	});
+
+	it('should trigger scroll event', function() {
+		expect.assertions(1);
+		$el.beefup($.extend({}, options, {
+			scroll: true,
+			onScroll: function($item) {
+				expect($item).toBeTruthy();
+			}
+		})).open();
 	});
 
 	it('should use HTML5 data attributes', function() {
@@ -161,13 +177,14 @@ describe('BeefUp', function() {
 	});
 
 	it('should initialize accessibility features', function() {
-		$el.beefup($.extend({}, options, {
+		document.body.innerHTML += __fixture('button');
+		$el = $('.beefup').beefup($.extend({}, options, {
 			accessibility: true
 		}));
 
 		var $trigger = $el.find(options.trigger + ' > button');
 
-		expect($trigger.length).toBeTruthy();
+		expect($trigger.length).toBe(1);
 		expect($trigger.attr('id')).toBeTruthy();
 		expect($trigger.attr('aria-expanded')).toBe("false");
 

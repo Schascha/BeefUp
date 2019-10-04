@@ -377,7 +377,7 @@
 
 					// Callbacks
 					if (callback && typeof callback === 'function') {
-						callback();
+						callback($this);
 					}
 
 					if (vars.onOpen && typeof vars.onOpen === 'function') {
@@ -416,7 +416,7 @@
 
 					// Callbacks
 					if (callback && typeof callback === 'function') {
-						callback();
+						callback($this);
 					}
 
 					if (vars.onClose && typeof vars.onClose === 'function') {
