@@ -104,7 +104,7 @@
 			});
 
 			$.each(vars.breakpoints, function(index, value) {
-				if (windowWidth > value.breakpoint) {
+				if (windowWidth >= value.breakpoint) {
 					vars = $.extend({}, vars, value.settings);
 				}
 			});

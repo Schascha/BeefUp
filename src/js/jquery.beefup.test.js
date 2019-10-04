@@ -130,6 +130,36 @@ describe('BeefUp', function() {
 		expect($el.open($el).hasClass('test'));
 	});
 
+	it('should use breakpoints', function() {
+		document.body.innerHTML += __fixture();
+		$el = $('.beefup').beefup($.extend({}, options, {
+			openSingle: false,
+			breakpoints: [
+				{
+					breakpoint: 768,
+					settings: {
+						openSingle: true
+					}
+				}
+			]
+		}));
+
+		var width = window.innerWidth;
+
+		// Test if openSingle is enabled on large screens
+		window.innerWidth = 768;
+		$el.open($el.first());
+		$el.open($el.last());
+		expect($el.first().hasClass(options.openClass)).toBeFalsy();
+
+		// Test if openSingle is disabled on small screens
+		window.innerWidth = 380;
+		$el.open($el.first());
+		expect($el.last().hasClass(options.openClass)).toBeTruthy();
+
+		window.innerWidth = width;
+	});
+
 	it('should initialize accessibility features', function() {
 		$el.beefup($.extend({}, options, {
 			accessibility: true
