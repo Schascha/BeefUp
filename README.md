@@ -64,6 +64,7 @@ npm install beefup --save
 
 Option			| Type		| Default			| Description
 ---				| ---		| ---				| ---
+accessibility	| boolean	| true				| Enable accessibility features like tab control
 trigger			| string	| '.beefup__head'	| Selector of the trigger element
 content			| string	| '.beefup__body'	| Selector of the collapsible content
 openClass		| string	| 'is-open'			| Name of the class which shows if a accordion is triggered or not
