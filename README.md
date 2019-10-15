@@ -144,9 +144,13 @@ $('.beefup').beefup({
 </article>
 ```
 
-## Bugs?
+## Bugs ?
 
 Please let me know: https://github.com/Schascha/BeefUp/issues
+
+## Buy me a Coffee
+
+Support this project and [others](https://github.com/Schascha?tab=repositories) via [PayPal](https://www.paypal.me/LosZahlos). 
 
 ## Changelog
 
