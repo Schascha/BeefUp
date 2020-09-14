@@ -508,7 +508,7 @@
 			});
 
 			// Trigger only once
-			if (index === 0) {
+			if (index === $obj.length - 1) {
 				beefup.methods._addHashchangeEvent($obj, vars);
 				beefup.methods._addSelfCloseEvent($obj, vars);
 			}
