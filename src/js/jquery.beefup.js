@@ -366,6 +366,11 @@
 				// Open single
 				beefup.methods._openSingle($obj, $el, vars);
 
+				// Fix #11: Remove hidden attribute before animation
+				if (vars.accessibility) {
+					$content.attr('hidden', false);
+				}
+
 				// Animation
 				beefup.methods._animation(animation, $content, vars.openSpeed, function() {
 					beefup.methods._open($this, vars);
