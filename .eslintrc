@@ -10,7 +10,7 @@
   "parserOptions": {
     "ecmaVersion": 5
   },
-  "extends": "eslint:recommended",
+  "extends": "@schascha/eslint-config",
   "plugins": [
     "jest"
   ]

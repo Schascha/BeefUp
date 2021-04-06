@@ -32,6 +32,7 @@
     "jquery": ">=1.8.0"
   },
   "devDependencies": {
+    "@schascha/eslint-config": "0.0.2",
     "autoprefixer": "^6.7.7",
     "eslint": "^7.23.0",
     "eslint-plugin-jest": "^22.17.0",

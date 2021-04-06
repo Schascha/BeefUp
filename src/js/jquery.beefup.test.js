@@ -186,10 +186,10 @@ describe('BeefUp', function() {
 
 		expect($trigger.length).toBe(1);
 		expect($trigger.attr('id')).toBeTruthy();
-		expect($trigger.attr('aria-expanded')).toBe("false");
+		expect($trigger.attr('aria-expanded')).toBe('false');
 
 		$trigger.trigger('click');
-		expect($trigger.attr('aria-expanded')).toBe("true");
+		expect($trigger.attr('aria-expanded')).toBe('true');
 	});
 
 });
