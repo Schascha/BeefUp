@@ -267,21 +267,21 @@ article {
 
 .mockup {
   height: 90px;
-  background: linear-gradient(to right, #ddd 95%, transparent 0) 0 0px, linear-gradient(to right, #ddd 90%, transparent 0) 0 30px, linear-gradient(to right, #ddd 80%, transparent 0) 0 60px, linear-gradient(to right, #ddd 60%, transparent 0) 0 90px;
+  background: linear-gradient(to right, #ddd 80%, transparent 0) 0 0px, linear-gradient(to right, #ddd 85%, transparent 0) 0 30px, linear-gradient(to right, #ddd 65%, transparent 0) 0 60px, linear-gradient(to right, #ddd 80%, transparent 0) 0 90px;
   background-repeat: no-repeat;
   background-size: 100% 20px;
 }
 
 .mockup-sm {
   height: 60px;
-  background: linear-gradient(to right, #ddd 95%, transparent 0) 0 0px, linear-gradient(to right, #ddd 90%, transparent 0) 0 30px, linear-gradient(to right, #ddd 80%, transparent 0) 0 60px;
+  background: linear-gradient(to right, #ddd 90%, transparent 0) 0 0px, linear-gradient(to right, #ddd 75%, transparent 0) 0 30px, linear-gradient(to right, #ddd 90%, transparent 0) 0 60px;
   background-repeat: no-repeat;
   background-size: 100% 20px;
 }
 
 .mockup-lg {
-  height: 120px;
-  background: linear-gradient(to right, #ddd 95%, transparent 0) 0 0px, linear-gradient(to right, #ddd 90%, transparent 0) 0 30px, linear-gradient(to right, #ddd 80%, transparent 0) 0 60px, linear-gradient(to right, #ddd 60%, transparent 0) 0 90px, linear-gradient(to right, #ddd 75%, transparent 0) 0 120px;
+  height: 150px;
+  background: linear-gradient(to right, #ddd 95%, transparent 0) 0 0px, linear-gradient(to right, #ddd 90%, transparent 0) 0 30px, linear-gradient(to right, #ddd 80%, transparent 0) 0 60px, linear-gradient(to right, #ddd 60%, transparent 0) 0 90px, linear-gradient(to right, #ddd 75%, transparent 0) 0 120px, linear-gradient(to right, #ddd 95%, transparent 0) 0 150px;
   background-repeat: no-repeat;
   background-size: 100% 20px;
 }

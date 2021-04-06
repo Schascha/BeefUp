@@ -1,7 +1,7 @@
-@mixin mockup($color, $amount: 3, $size: 20px, $space: 10px) {
+@mixin mockup($color, $lenghts: (90%, 80%, 60%, 75%, 95%), $size: 20px, $space: 10px) {
 	$image: null;
 	$length: null;
-	$lenghts: 90%, 80%, 60%, 75%, 95%;
+	$amount: length($lenghts);
 
 	@for $i from 0 through $amount {
 		@each $j in $lenghts {
@@ -20,13 +20,13 @@
 }
 
 .mockup {
-	@include mockup($color-border);
+	@include mockup($color-border, (85%, 65%, 80%));
 
 	&-sm {
-		@include mockup($color-border, 2);
+		@include mockup($color-border, (75%, 90%));
 	}
 
 	&-lg {
-		@include mockup($color-border, 4);
+		@include mockup($color-border);
 	}
 }
