@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
-    "eslint": "^6.5.1",
+    "eslint": "^7.23.0",
     "eslint-plugin-jest": "^22.17.0",
     "grunt": "^1.0.4",
     "grunt-contrib-copy": "^1.0.0",
