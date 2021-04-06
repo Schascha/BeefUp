@@ -1,9 +1,9 @@
 # BeefUp
 
-[![Travis Status](https://travis-ci.org/Schascha/BeefUp.svg?branch=master)](https://travis-ci.org/Schascha/BeefUp)
+![Build](https://github.com/Schascha/BeefUp/workflows/Build/badge.svg)
 [![](https://data.jsdelivr.com/v1/package/npm/beefup/badge)](https://www.jsdelivr.com/package/npm/beefup)
 
-Just a jQuery accordion plugin
+> Just a jQuery accordion plugin
 
 https://schascha.github.io/BeefUp/
 
@@ -149,7 +149,7 @@ $('.beefup').beefup({
 
 Please let me know: https://github.com/Schascha/BeefUp/issues
 
-## :coffee: Buy me a Coffee
+## Buy me a Coffee :coffee:
 
 Support this project and [others](https://github.com/Schascha?tab=repositories) via [PayPal](https://www.paypal.me/LosZahlos). Thanks
 
