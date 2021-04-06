@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@schascha/eslint-config": "0.0.2",
-    "autoprefixer": "^6.7.7",
+    "autoprefixer": "^9.8.6",
     "eslint": "^7.23.0",
     "eslint-plugin-jest": "^22.17.0",
     "grunt": "^1.0.4",
