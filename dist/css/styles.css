@@ -157,6 +157,10 @@ header a {
   margin-left: 20px;
 }
 
+footer {
+  text-align: center;
+}
+
 footer p {
   margin: 0;
   font-size: 16px;
