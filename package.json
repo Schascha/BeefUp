@@ -35,7 +35,7 @@
     "@schascha/eslint-config": "0.0.2",
     "autoprefixer": "^9.8.6",
     "eslint": "^7.23.0",
-    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-jest": "^24.3.4",
     "grunt": "^1.0.4",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^5.0.1",
