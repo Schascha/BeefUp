@@ -34,6 +34,7 @@ describe('BeefUp', function() {
 		document.body.innerHTML = '';
 		$el = null;
 		options = null;
+		window.location.hash = '';
 	});
 
 	it('should be chainable', function() {
@@ -72,14 +73,49 @@ describe('BeefUp', function() {
 		expect($el.last().hasClass(options.openClass)).toBeTruthy();
 	});
 
-	it('should stay open', function() {
+	it('should stay open first item', function() {
 		document.body.innerHTML += __fixture();
 		$el = $('.beefup').beefup($.extend({}, options, {
-			stayOpen: 'first'
+			openSingle: true,
+			stayOpen: 'first',
+			selfClose: true
 		}));
 
 		expect($el.length).toBe(2);
 		expect($el.first().hasClass(options.openClass)).toBeTruthy();
+
+		$el.last().find(options.trigger + ':first').trigger('click');
+		expect($el.first().hasClass(options.openClass)).toBeTruthy();
+
+		$(document).trigger('click');
+		expect($el.first().hasClass(options.openClass)).toBeTruthy();
+	});
+
+	it('should stay open last item', function () {
+		document.body.innerHTML += __fixture();
+		$el = $('.beefup').beefup($.extend({}, options, {
+			stayOpen: 'last'
+		}));
+
+		$el.first().find(options.trigger + ':first').trigger('click');
+		expect($el.last().hasClass(options.openClass)).toBeTruthy();
+	});
+
+	it('should stay open by index', function () {
+		document.body.innerHTML += __fixture();
+		$el = $('.beefup').beefup($.extend({}, options, {
+			stayOpen: 0
+		}));
+
+		$el.last().find(options.trigger + ':first').trigger('click');
+		expect($el.first().hasClass(options.openClass)).toBeTruthy();
+	});
+
+	it('should stay open by selector', function () {
+		document.body.innerHTML += __fixture();
+		$el = $('.beefup').beefup($.extend({}, options, {
+			stayOpen: ':first'
+		}));
 
 		$el.last().find(options.trigger + ':first').trigger('click');
 		expect($el.first().hasClass(options.openClass)).toBeTruthy();
@@ -98,12 +134,14 @@ describe('BeefUp', function() {
 		expect($el.beefup($.extend({}, options, {
 			animation: 'fade'
 		})).open().hasClass(options.openClass)).toBeTruthy();
+		expect($el.close().hasClass(options.openClass)).toBeFalsy();
 	});
 
 	it('should have empty animation', function() {
 		expect($el.beefup($.extend({}, options, {
 			animation: ''
 		})).open().hasClass(options.openClass)).toBeTruthy();
+		expect($el.close().hasClass(options.openClass)).toBeFalsy();
 	});
 
 	it('should have callbacks', function() {
@@ -179,7 +217,8 @@ describe('BeefUp', function() {
 	it('should initialize accessibility features', function() {
 		document.body.innerHTML += __fixture('button');
 		$el = $('.beefup').beefup($.extend({}, options, {
-			accessibility: true
+			accessibility: true,
+			selfBlock: true
 		}));
 
 		var $trigger = $el.find(options.trigger + ' > button');
@@ -190,6 +229,24 @@ describe('BeefUp', function() {
 
 		$trigger.trigger('click');
 		expect($trigger.attr('aria-expanded')).toBe('true');
+		expect($trigger.attr('aria-disabled')).toBe('true');
+	});
+
+	it('should listen on hash change', function() {
+		$el = $('.beefup').attr('id', 'beefup').beefup(options);
+		window.location.hash = 'beefup';
+		$(window).trigger('hashchange');
+		expect($el.hasClass(options.openClass)).toBeTruthy();
+	});
+
+	it('should not listen on hash change', function () {
+		$el = $('.beefup').attr('id', 'beefup').beefup($.extend({}, options, {
+			hash: false
+		}));
+
+		window.location.hash = 'beefup';
+		$(window).trigger('hashchange');
+		expect($el.hasClass(options.openClass)).toBeFalsy();
 	});
 
 });

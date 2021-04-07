@@ -238,6 +238,10 @@
 				$close = $close.not(beefup.methods._getStayOpen($obj, vars.stayOpen));
 			}
 
+			if (!$close.length) {
+				return;
+			}
+
 			$obj.close($close.filter(function() {
 				return !$(this).find($el).length;
 			}));
