@@ -2,8 +2,7 @@
   "js": [
     "Gruntfile.js",
     "grunt/**/*.js",
-    "src/js/**/*.js",
-    "test/**/*.js"
+    "src/js/**/*.js"
   ],
   "css": [
     "dist/css/**/*.css"
@@ -16,6 +15,6 @@
   },
   "sassBuild": {
     "dist/css/jquery.beefup.css": "src/scss/jquery.beefup.scss",
-    "dist/css/styles.css": "src/scss/styles.scss"
+    "dist/css/styles.css": "src/scss/docs/styles.scss"
   }
 }
