@@ -1,6 +1,6 @@
 {
   "name": "beefup",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "BeefUp - Just a jQuery accordion plugin",
   "main": "dist/js/jquery.beefup.min.js",
   "keywords": [
@@ -13,7 +13,7 @@
   ],
   "homepage": "https://schascha.github.io/BeefUp/",
   "authors": [
-    "Sascha Künstler <contact.schascha@gmail.com> (http://www.schaschaweb.de)"
+    "Sascha Künstler <contact.schascha@gmail.com> (https://www.schaschaweb.de)"
   ],
   "repository": {
     "type": "git",
