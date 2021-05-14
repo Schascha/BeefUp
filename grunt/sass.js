@@ -1,6 +1,6 @@
 // https://github.com/sindresorhus/grunt-sass
 
-var sass = require('node-sass');
+var sass = require('sass');
 
 module.exports = {
 	options: {

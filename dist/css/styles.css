@@ -4,8 +4,8 @@ html {
 }
 
 *,
-*:after,
-*:before {
+*::after,
+*::before {
   box-sizing: inherit;
 }
 
@@ -130,24 +130,20 @@ header > div {
   align-items: center;
   justify-content: space-between;
 }
-
 header h1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
-
 header h1 > strong {
   margin-right: 20px;
 }
-
 header h1 > span {
   display: block;
   font-size: 0.5em;
   font-weight: normal;
   line-height: 1.2;
 }
-
 header a {
   margin-left: 20px;
 }
@@ -155,17 +151,14 @@ header a {
 footer {
   text-align: center;
 }
-
 footer p {
   margin: 0;
   font-size: 16px;
 }
-
 footer a {
   font-weight: bold;
   text-decoration: none;
 }
-
 footer a:hover {
   text-decoration: underline;
 }
@@ -186,13 +179,11 @@ article {
   text-decoration: none;
   white-space: nowrap;
 }
-
 .button:hover {
   background: #222;
   border-color: #222;
   color: #fff;
 }
-
 .button svg {
   margin-right: 0.25em;
   vertical-align: bottom;
@@ -202,7 +193,6 @@ article {
 .dropdown__menu li {
   font-size: 16px;
 }
-
 .dropdown__menu a {
   cursor: pointer;
   display: block;
@@ -212,11 +202,9 @@ article {
   text-decoration: none;
   white-space: nowrap;
 }
-
 .dropdown__menu a:hover {
   background-color: #f5f5f5;
 }
-
 .dropdown.beefup {
   display: inline-block;
   position: relative;
@@ -225,7 +213,6 @@ article {
   border: 0;
   border-radius: 0;
 }
-
 .dropdown .beefup__head {
   cursor: pointer;
   display: inline-block;
@@ -241,7 +228,6 @@ article {
   vertical-align: middle;
   white-space: nowrap;
 }
-
 .dropdown .beefup__body {
   float: left;
   position: absolute;
@@ -266,14 +252,12 @@ article {
   background-repeat: no-repeat;
   background-size: 100% 20px;
 }
-
 .mockup-sm {
   height: 60px;
   background: linear-gradient(to right, #ddd 90%, transparent 0) 0 0px, linear-gradient(to right, #ddd 75%, transparent 0) 0 30px, linear-gradient(to right, #ddd 90%, transparent 0) 0 60px;
   background-repeat: no-repeat;
   background-size: 100% 20px;
 }
-
 .mockup-lg {
   height: 150px;
   background: linear-gradient(to right, #ddd 95%, transparent 0) 0 0px, linear-gradient(to right, #ddd 90%, transparent 0) 0 30px, linear-gradient(to right, #ddd 80%, transparent 0) 0 60px, linear-gradient(to right, #ddd 60%, transparent 0) 0 90px, linear-gradient(to right, #ddd 75%, transparent 0) 0 120px, linear-gradient(to right, #ddd 95%, transparent 0) 0 150px;
@@ -286,7 +270,6 @@ article {
   padding: 0;
   list-style: none;
 }
-
 .tab__head li {
   display: inline-block;
   z-index: 100;
@@ -294,11 +277,9 @@ article {
   border: 1px solid #ddd;
   font-weight: bold;
 }
-
 .tab__head li.is-open {
   border-bottom-color: transparent;
 }
-
 .tab__head a {
   display: block;
   padding: 0 10px;
@@ -308,17 +289,14 @@ article {
   text-decoration: none;
   white-space: nowrap;
 }
-
 .tab__item.beefup {
   display: none;
   margin: 0;
   border-radius: 0;
 }
-
 .tab__item.beefup.is-open {
   display: block;
 }
-
 .tab__item .beefup__head {
   display: none;
 }
