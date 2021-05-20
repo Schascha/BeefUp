@@ -1,6 +1,6 @@
 {
   "name": "beefup",
-  "version": "1.2.5",
+  "version": "1.3.0",
   "description": "BeefUp - Just a jQuery accordion plugin",
   "main": "dist/js/jquery.beefup.min.js",
   "keywords": [
@@ -24,8 +24,8 @@
     "url": "https://github.com/Schascha/BeefUp/issues"
   },
   "scripts": {
-    "build": "run-s copy babel uglify scss postcss",
-    "start": "run-p \"scss -- -w\" \"babel -- -w\"",
+    "build": "NODE_ENV=production run-s copy babel uglify scss postcss",
+    "start": "NODE_ENV=production run-p \"scss -- -w\" \"babel -- -w\"",
     "test": "run-p eslint stylelint jest",
     "babel": "babel src/js/jquery.beefup.js -o dist/js/jquery.beefup.js",
     "copy": "cp node_modules/jquery/dist/jquery.min.js dist/js/",

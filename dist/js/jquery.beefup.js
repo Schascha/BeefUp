@@ -1,7 +1,7 @@
 "use strict";
 
 /*!
- * BeefUp 1.2.5 - A jQuery Accordion Plugin
+ * BeefUp 1.3.0 - A jQuery Accordion Plugin
  * Copyright Sascha Künstler https://www.schaschaweb.de/
  */
 (function ($) {
