@@ -1,5 +1,7 @@
+.idea
 .DS_Store
-bower_components/
+.vscode
 coverage
-node_modules/
-npm-debug.log
+node_modules
+npm-debug.log*
+Thumbs.db

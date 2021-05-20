@@ -1,0 +1,6 @@
+{
+  "extends": "@schascha/stylelint-config",
+	"rules": {
+    "selector-class-pattern": "^[a-z0-9-_]+$"
+  }
+}

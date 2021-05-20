@@ -2,11 +2,9 @@
 .git
 .github
 coverage
-grunt
 src/scss/docs
 .editorconfig
 .eslintrc
 .gitignore
 .sass-lint.yml
-Gruntfile.js
 sharing.png
