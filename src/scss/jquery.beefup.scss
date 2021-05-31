@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $beefup: 'beefup' !default;
 $beefup-border-color: #ddd !default;
 $beefup-border-color-hover: #ccc !default;
@@ -64,8 +66,8 @@ $beefup-icon-size: 6px !default;
 			top: 50%;
 			right: 20px;
 			z-index: 0;
-			margin-top: -$beefup-icon-size / 3;
-			padding: $beefup-icon-size / 2;
+			margin-top: math.div(-$beefup-icon-size, 3);
+			padding: math.div($beefup-icon-size, 2);
 			border-width: 0 2px 2px 0;
 			border-style: solid;
 			color: $beefup-icon-color;
@@ -77,7 +79,7 @@ $beefup-icon-size: 6px !default;
 		> .#{$beefup}__head {
 			&::after {
 				transform: translate(0, -50%) rotate(225deg);
-				margin-top: $beefup-icon-size / 3;
+				margin-top: math.div($beefup-icon-size, 3);
 			}
 		}
 	}
