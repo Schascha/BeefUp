@@ -7,6 +7,7 @@ src/scss/docs
 .editorconfig
 .eslintrc
 .gitignore
-.sass-lint.yml
+.stylelintrc
+jest.config.js
 Gruntfile.js
 sharing.png
