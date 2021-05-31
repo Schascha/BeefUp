@@ -204,7 +204,7 @@
 			if (typeof value === 'number') {
 				$el = $obj.eq(value);
 			} else if (typeof value === 'string') {
-				switch(value) {
+				switch (value) {
 					case 'first':
 						$el = $obj.first();
 						break;

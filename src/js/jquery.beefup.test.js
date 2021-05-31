@@ -91,7 +91,7 @@ describe('BeefUp', function() {
 		expect($el.first().hasClass(options.openClass)).toBeTruthy();
 	});
 
-	it('should stay open last item', function () {
+	it('should stay open last item', function() {
 		document.body.innerHTML += __fixture();
 		$el = $('.beefup').beefup($.extend({}, options, {
 			stayOpen: 'last'
@@ -101,7 +101,7 @@ describe('BeefUp', function() {
 		expect($el.last().hasClass(options.openClass)).toBeTruthy();
 	});
 
-	it('should stay open by index', function () {
+	it('should stay open by index', function() {
 		document.body.innerHTML += __fixture();
 		$el = $('.beefup').beefup($.extend({}, options, {
 			stayOpen: 0
@@ -111,7 +111,7 @@ describe('BeefUp', function() {
 		expect($el.first().hasClass(options.openClass)).toBeTruthy();
 	});
 
-	it('should stay open by selector', function () {
+	it('should stay open by selector', function() {
 		document.body.innerHTML += __fixture();
 		$el = $('.beefup').beefup($.extend({}, options, {
 			stayOpen: ':first'
@@ -239,7 +239,7 @@ describe('BeefUp', function() {
 		expect($el.hasClass(options.openClass)).toBeTruthy();
 	});
 
-	it('should not listen on hash change', function () {
+	it('should not listen on hash change', function() {
 		$el = $('.beefup').attr('id', 'beefup').beefup($.extend({}, options, {
 			hash: false
 		}));
