@@ -35,7 +35,7 @@
     "jquery": ">=1.8.0"
   },
   "devDependencies": {
-    "@schascha/eslint-config": "0.0.2",
+    "@schascha/eslint-config": "0.0.3",
     "@schascha/stylelint-config": "0.0.5",
     "eslint": "^7.23.0",
     "eslint-plugin-jest": "^24.3.4",
