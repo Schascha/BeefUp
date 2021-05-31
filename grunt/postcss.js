@@ -4,7 +4,7 @@ module.exports = {
 	options: {
 		map: false,
 		processors: [
-			require('autoprefixer')
+			require('postcss-preset-env')
 		]
 	},
 	all: {
