@@ -4,7 +4,6 @@
  */
 
 (function($) {
-	'use strict';
 
 	// BeefUp object
 	var beefup = {};
