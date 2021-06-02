@@ -1,13 +1,2 @@
-.browserlistrc
-.git
-.github
-coverage
-grunt
+src/js/*.test.js
 src/scss/docs
-.editorconfig
-.eslintrc
-.gitignore
-.stylelintrc
-jest.config.js
-Gruntfile.js
-sharing.png

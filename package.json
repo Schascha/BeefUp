@@ -56,5 +56,9 @@
   },
   "engines": {
     "node": "*"
-  }
+  },
+  "files": [
+    "src",
+    "dist"
+  ]
 }
