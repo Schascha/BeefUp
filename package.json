@@ -59,6 +59,8 @@
   },
   "files": [
     "src",
+    "!src/js/*.test.js",
+    "!src/**/docs",
     "dist"
   ]
 }
