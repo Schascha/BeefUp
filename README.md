@@ -1,7 +1,8 @@
 # BeefUp
 
-![Build](https://github.com/Schascha/BeefUp/workflows/Build/badge.svg)
-[![](https://data.jsdelivr.com/v1/package/npm/beefup/badge)](https://www.jsdelivr.com/package/npm/beefup)
+[![Build](https://github.com/Schascha/BeefUp/workflows/Build/badge.svg)](https://github.com/Schascha/BeefUp/actions)
+[![npm](https://img.shields.io/npm/v/beefup)](https://www.npmjs.com/package/beefup)
+[![jsDelivr](https://data.jsdelivr.com/v1/package/npm/beefup/badge)](https://www.jsdelivr.com/package/npm/beefup)
 
 > Just a jQuery accordion plugin
 
@@ -145,7 +146,7 @@ $('.beefup').beefup({
 </article>
 ```
 
-## Bugs?
+## Bugs? :bug:
 
 Please let me know: https://github.com/Schascha/BeefUp/issues
 
