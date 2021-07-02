@@ -24,12 +24,17 @@
     "url": "https://github.com/Schascha/BeefUp/issues"
   },
   "scripts": {
-    "build": "grunt build",
-    "start": "grunt",
+    "build": "run-s copy uglify scss postcss",
+    "start": "run-p watch \"scss -- -w\"",
     "test": "run-p eslint stylelint jest",
+    "copy": "cp node_modules/jquery/dist/jquery.min.js dist/js/",
     "eslint": "eslint src/js",
     "jest": "jest src/js --coverage --verbose",
-    "stylelint": "stylelint \"./src/scss/**/*.scss\""
+    "postcss": "postcss -r dist/css/*.css dist/css/**/*.css",
+    "scss": "sass --style expanded src/scss:dist/css",
+    "stylelint": "stylelint \"./src/scss/**/*.scss\"",
+    "uglify": "uglifyjs src/js/jquery.beefup.js -m -o dist/js/jquery.beefup.min.js --comments /^!/",
+    "watch": "watch 'npm run uglify' ./src/js"
   },
   "dependencies": {
     "jquery": ">=1.8.0"
@@ -39,20 +44,15 @@
     "@schascha/stylelint-config": "0.0.5",
     "eslint": "^7.23.0",
     "eslint-plugin-jest": "^24.3.4",
-    "grunt": "^1.0.4",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-uglify": "^5.0.1",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-postcss": "^0.9.0",
-    "grunt-sass": "^3.1.0",
     "jest": "^27.0.3",
-    "jit-grunt": "^0.10.0",
-    "load-grunt-config": "^3.0.1",
-    "load-grunt-tasks": "^5.1.0",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1",
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.26.5",
-    "stylelint": "^13.13.1"
+    "stylelint": "^13.13.1",
+    "uglify-js": "^3.13.10",
+    "watch": "^1.0.2"
   },
   "engines": {
     "node": "*"
