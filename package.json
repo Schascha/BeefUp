@@ -34,7 +34,7 @@
     "eslint": "eslint src/js",
     "jest": "jest src/js --coverage --verbose",
     "postcss": "postcss -r dist/css/*.css dist/css/**/*.css",
-    "scss": "sass --style expanded src/scss:dist/css",
+    "scss": "sass --style expanded --no-source-map src/scss:dist/css",
     "stylelint": "stylelint \"./src/scss/**/*.scss\"",
     "uglify": "uglifyjs src/js/jquery.beefup.js -m -o dist/js/jquery.beefup.min.js --comments /^!/",
     "watch": "npm-watch uglify"
@@ -64,6 +64,7 @@
     "src",
     "!src/js/*.test.js",
     "!src/**/docs",
-    "dist"
+    "dist",
+    "!dist/**/docs"
   ]
 }
