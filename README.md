@@ -3,6 +3,7 @@
 [![Build](https://github.com/Schascha/BeefUp/workflows/Build/badge.svg)](https://github.com/Schascha/BeefUp/actions)
 [![npm](https://img.shields.io/npm/v/beefup)](https://www.npmjs.com/package/beefup)
 [![jsDelivr](https://data.jsdelivr.com/v1/package/npm/beefup/badge)](https://www.jsdelivr.com/package/npm/beefup)
+[![install size](https://packagephobia.com/badge?p=beefup)](https://packagephobia.com/result?p=beefup)
 
 > Just a jQuery accordion plugin
 
