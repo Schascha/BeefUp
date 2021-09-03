@@ -12,7 +12,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup 🔌
-        uses: actions/setup-node@v2.2.0
+        uses: actions/setup-node@v2.4.0
         with:
           node-version: 14.x
           registry-url: https://registry.npmjs.org/
@@ -28,24 +28,3 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
-
-  release:
-    if: startsWith(github.ref, 'refs/tags/')
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Build Changelog 📦
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Release 🏷️
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          body: ${{steps.github_release.outputs.changelog}}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
