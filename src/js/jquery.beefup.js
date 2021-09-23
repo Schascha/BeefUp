@@ -1,5 +1,5 @@
 /*!
- * BeefUp 1.4.1 - A jQuery Accordion Plugin
+ * BeefUp 1.4.2 - A jQuery Accordion Plugin
  * Copyright Sascha Künstler https://www.schaschaweb.de/
  */
 
