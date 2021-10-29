@@ -1,6 +1,6 @@
 {
   "name": "beefup",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "BeefUp - Just a jQuery accordion plugin",
   "main": "dist/js/jquery.beefup.min.js",
   "keywords": [
