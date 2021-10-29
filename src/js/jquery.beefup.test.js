@@ -43,6 +43,8 @@ describe('BeefUp', function() {
 	});
 
 	it('should initialize', function() {
+		$el.beefup();
+		expect($el.data('beefup')).toBeTruthy();
 		expect($el.beefup().data('beefup')).toBeTruthy();
 	});
 
@@ -189,6 +191,12 @@ describe('BeefUp', function() {
 		$el = $('.beefup').beefup($.extend({}, options, {
 			openSingle: false,
 			breakpoints: [
+				{
+					breakpoint: 1024,
+					settings: {
+						openSingle: false
+					}
+				},
 				{
 					breakpoint: 768,
 					settings: {
