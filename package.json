@@ -52,7 +52,7 @@
     "npm-watch": "^0.11.0",
     "postcss": "^8.3.7",
     "postcss-cli": "^9.0.1",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-preset-env": "^7.0.1",
     "sass": "^1.42.1",
     "stylelint": "^13.13.1",
     "uglify-js": "^3.14.2"
