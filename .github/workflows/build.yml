@@ -11,17 +11,23 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Read .nvmrc 📖
+        id: nvm
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+
       - name: Setup 🔌
         uses: actions/setup-node@v3
         with:
-          node-version: 14.x
-          registry-url: https://registry.npmjs.org/
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+
+      - name: Install dependencies 👨🏻‍💻
+        run: npm ci
+
+      - name: Run tests 🧪
+        run: npm test
 
       - name: Build 🔧
-        run: |
-          npm ci
-          npm test
-          npm run build
+        run: npm run build
 
       - name: Publish 🚀
         if: startsWith(github.ref, 'refs/tags/')
