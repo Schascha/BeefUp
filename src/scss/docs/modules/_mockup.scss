@@ -12,7 +12,7 @@
 			}
 		}
 
-		$image: append($image, linear-gradient(to right, $color $length, transparent 0) 0 ($i * ($size + $space)), comma);
+		$image: list.append($image, linear-gradient(to right, $color $length, transparent 0) 0 ($i * ($size + $space)), comma);
 	}
 
 	height: ($size + $space) * $amount;
