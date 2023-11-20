@@ -1,7 +1,9 @@
+@use 'sass:list';
+
 @mixin mockup($color, $lenghts: (90%, 80%, 60%, 75%, 95%), $size: 20px, $space: 10px) {
 	$image: null;
 	$length: null;
-	$amount: length($lenghts);
+	$amount: list.length($lenghts);
 
 	@for $i from 0 through $amount {
 		@each $j in $lenghts {
