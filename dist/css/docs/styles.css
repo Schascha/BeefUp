@@ -157,9 +157,11 @@ footer p {
 }
 footer a {
   font-weight: bold;
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 footer a:hover {
+  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
@@ -176,6 +178,7 @@ article {
   border-radius: 4px;
   color: #fff;
   font-weight: bold;
+  -webkit-text-decoration: none;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -199,6 +202,7 @@ article {
   clear: both;
   padding: 3px 10px;
   color: inherit;
+  -webkit-text-decoration: none;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -286,6 +290,7 @@ article {
   color: inherit;
   font-size: 16px;
   line-height: 2.5;
+  -webkit-text-decoration: none;
   text-decoration: none;
   white-space: nowrap;
 }
