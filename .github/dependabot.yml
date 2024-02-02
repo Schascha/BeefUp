@@ -4,9 +4,10 @@ updates:
     directory: '/'
     schedule:
       interval: 'monthly'
+      time: '05:00'
     target-branch: 'develop'
     groups:
-      dev-dependencies:
+      dependencies:
         update-types:
           - 'minor'
           - 'patch'
@@ -15,3 +16,4 @@ updates:
     directory: '/'
     schedule:
       interval: 'monthly'
+      time: '05:00'
