@@ -183,7 +183,7 @@ describe('BeefUp', function() {
 	it('should use HTML5 data attributes', function() {
 		$el.beefup(options).attr('data-beefup-options', '{"openClass": "test"}');
 
-		expect($el.open($el).hasClass('test'));
+		expect($el.open($el).hasClass('test')).toBeTruthy();
 	});
 
 	it('should use breakpoints', function() {
